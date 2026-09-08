@@ -1,6 +1,12 @@
-# Uruchomienie w XAMPP — instrukcja ucznia
+# Uruchomienie kursu — instrukcja ucznia
 
-## 1. Skopiuj projekt
+Lekcje `01`, `02` oraz `07–12` są statyczne i nie wymagają PHP ani bazy. Możesz otworzyć ich `index.html` bezpośrednio w przeglądarce. XAMPP jest potrzebny dopiero do opcjonalnych lekcji `03–06`.
+
+## 1. Najprostszy start bez PHP
+
+Otwórz `01-html-podstawy/index.html`, a następnie wybierz frontendową kolejność opisaną w głównym README. Nie usuwaj katalogu `assets`, ponieważ lekcja 12 pobiera z niego lokalny Bootstrap.
+
+## 2. Skopiuj projekt do XAMPP, jeżeli uczysz się PHP
 
 Skopiuj cały folder `web-grounding` do:
 
@@ -10,7 +16,7 @@ C:\xampp\htdocs\web-grounding
 
 Nie otwieraj plików PHP dwuklikiem ani adresem zaczynającym się od `file://`. PHP musi zostać wykonane przez Apache.
 
-## 2. Uruchom serwery
+## 3. Uruchom serwery
 
 Otwórz **XAMPP Control Panel** i kliknij **Start** przy:
 
@@ -19,7 +25,7 @@ Otwórz **XAMPP Control Panel** i kliknij **Start** przy:
 
 Oba moduły powinny być oznaczone jako uruchomione.
 
-## 3. Zaimportuj bazę
+## 4. Zaimportuj bazę
 
 1. Otwórz [http://localhost/phpmyadmin](http://localhost/phpmyadmin).
 2. Wybierz zakładkę **Import**.
@@ -29,7 +35,20 @@ Oba moduły powinny być oznaczone jako uruchomione.
 
 Ponowny import usuwa i odtwarza tylko dwie szkoleniowe tabele w bazie `web_grounding`.
 
-## 4. Otwieraj ćwiczenia po kolei
+## 5. Otwieraj ćwiczenia
+
+### Ścieżka frontendowa
+
+- [http://localhost/web-grounding/01-html-podstawy/](http://localhost/web-grounding/01-html-podstawy/)
+- [http://localhost/web-grounding/02-html-formularz/](http://localhost/web-grounding/02-html-formularz/)
+- [http://localhost/web-grounding/07-flexbox-sandbox/](http://localhost/web-grounding/07-flexbox-sandbox/)
+- [http://localhost/web-grounding/08-flexbox-wlasny-layout/](http://localhost/web-grounding/08-flexbox-wlasny-layout/)
+- [http://localhost/web-grounding/09-flexbox-wiecej-mozliwosci/](http://localhost/web-grounding/09-flexbox-wiecej-mozliwosci/)
+- [http://localhost/web-grounding/10-javascript-podstawy/](http://localhost/web-grounding/10-javascript-podstawy/)
+- [http://localhost/web-grounding/11-javascript-dom-i-formularz/](http://localhost/web-grounding/11-javascript-dom-i-formularz/)
+- [http://localhost/web-grounding/12-bootstrap-lokalnie/](http://localhost/web-grounding/12-bootstrap-lokalnie/)
+
+### Opcjonalna ścieżka PHP
 
 - [http://localhost/web-grounding/01-html-podstawy/](http://localhost/web-grounding/01-html-podstawy/)
 - [http://localhost/web-grounding/02-html-formularz/](http://localhost/web-grounding/02-html-formularz/)
@@ -38,7 +57,7 @@ Ponowny import usuwa i odtwarza tylko dwie szkoleniowe tabele w bazie `web_groun
 - [http://localhost/web-grounding/05-php-formularz-i-select/](http://localhost/web-grounding/05-php-formularz-i-select/)
 - [http://localhost/web-grounding/06-php-json-do-javascriptu/](http://localhost/web-grounding/06-php-json-do-javascriptu/)
 
-## 5. Co uczeń powinien umieć wskazać
+## 6. Co uczeń powinien umieć wskazać
 
 W przykładach PHP znajdź:
 
@@ -62,4 +81,3 @@ W przykładach PHP znajdź:
 ## Reguła egzaminacyjna
 
 Najpierw realizuj dosłownie wymaganie arkusza. Jeśli skrypt PHP ma „wyświetlać” dane, generuj wskazane elementy HTML w PHP. Wariant JSON i JavaScript stosuj tylko wtedy, gdy nie omija on wymaganego kryterium.
-

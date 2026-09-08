@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox — sandbox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <p class="eyebrow">Ćwiczenie 07</p>
+        <h1>Sandbox Flexbox</h1>
+        <p>Wybieraj ustawienia i obserwuj, jak zmieniają się oś główna, oś poprzeczna, odstępy i rozmiary elementów.</p>
+    </header>
+
+    <main>
+        <form class="controls" aria-label="Ustawienia Flexbox">
+            <fieldset>
+                <legend>Kierunek osi głównej</legend>
+                <label><input id="direction-row" type="radio" name="direction" checked> poziomo — <code>row</code></label>
+                <label><input id="direction-column" type="radio" name="direction"> pionowo — <code>column</code></label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Pozycja na osi głównej</legend>
+                <label><input id="justify-start" type="radio" name="justify" checked> początek</label>
+                <label><input id="justify-center" type="radio" name="justify"> środek</label>
+                <label><input id="justify-between" type="radio" name="justify"> miejsce pomiędzy</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Pozycja na osi poprzecznej</legend>
+                <label><input id="align-stretch" type="radio" name="align" checked> rozciągnięcie</label>
+                <label><input id="align-center" type="radio" name="align"> środek</label>
+                <label><input id="align-end" type="radio" name="align"> koniec</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Odstęp i rośnięcie</legend>
+                <label><input id="gap-large" type="checkbox"> większy <code>gap</code></label>
+                <label><input id="grow-second" type="checkbox"> drugi element ma <code>flex-grow: 1</code></label>
+                <button type="reset">Przywróć ustawienia</button>
+            </fieldset>
+        </form>
+
+        <section aria-labelledby="preview-title">
+            <h2 id="preview-title">Podgląd</h2>
+            <p><strong>Oś główna</strong> biegnie zgodnie z <code>flex-direction</code>. <strong>Oś poprzeczna</strong> jest do niej prostopadła.</p>
+            <div class="sandbox" aria-label="Podgląd układu Flexbox">
+                <div class="item">1</div>
+                <div class="item item--grow">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

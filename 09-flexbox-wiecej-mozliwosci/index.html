@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox — więcej możliwości</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <p class="eyebrow">Ćwiczenie 09</p>
+        <h1>Elastyczne karty i indywidualne ustawienia</h1>
+        <p>Ten przykład łączy zawijanie, rozmiar bazowy, rośnięcie i wyrównanie pojedynczego elementu.</p>
+    </header>
+
+    <main>
+        <section aria-labelledby="cards-title">
+            <h2 id="cards-title">Karty kursów</h2>
+            <div class="cards">
+                <article class="card card--featured">
+                    <span class="card__tag">Polecany</span>
+                    <h3>HTML i CSS</h3>
+                    <p>Szersza karta może dostać większy udział w wolnej przestrzeni.</p>
+                    <a class="card__button" href="#">Zobacz kurs</a>
+                </article>
+                <article class="card">
+                    <span class="card__tag">Podstawy</span>
+                    <h3>JavaScript</h3>
+                    <p>Przycisk pozostaje na dole nawet przy krótszym opisie.</p>
+                    <a class="card__button" href="#">Zobacz kurs</a>
+                </article>
+                <article class="card">
+                    <span class="card__tag">Dodatek</span>
+                    <h3>Bootstrap</h3>
+                    <p>Karty zawijają się bez utraty czytelnego minimalnego rozmiaru.</p>
+                    <a class="card__button" href="#">Zobacz kurs</a>
+                </article>
+                <p class="summary">Zmień szerokość okna i obserwuj `flex-basis`, rośnięcie oraz zawijanie.</p>
+            </div>
+        </section>
+
+        <section class="order-section" aria-labelledby="order-title">
+            <h2 id="order-title">Wizualna kolejność</h2>
+            <ol class="visual-order-demo">
+                <li>Pierwszy w HTML</li>
+                <li>Drugi w HTML, pokazany wcześniej przez CSS</li>
+                <li>Trzeci w HTML</li>
+            </ol>
+            <p><strong>Uwaga:</strong> `order` zmienia tylko widok. Klawiatura i czytnik ekranu zachowują kolejność HTML, dlatego ważną treść układaj poprawnie przede wszystkim w dokumencie.</p>
+        </section>
+    </main>
+</body>
+</html>
