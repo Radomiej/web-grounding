@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Tekst, czas i zapis</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <p>Lekcja 19 · JavaScript 9/12</p>
+            <h1>Tekst, czas i zapis</h1>
+            <p>
+                JSON zapisuje obiekt jako tekst. Odczyt może się nie udać, więc
+                strona ma działać także bez zapisu.
+            </p>
+            <nav aria-label="Lekcje">
+                <a href="../18-javascript-lista/index.html">
+                    ← Obiekty i dynamiczna lista
+                </a>
+                <a href="../README.md">Mapa kursu</a>
+                <a href="../20-javascript-projekt-inf03/index.html">
+                    Projekt pod INF.03 →
+                </a>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h2>Ustawienia strony</h2>
+                <form id="settings">
+                    <label>
+                        Podpis
+                        <input id="nickname" maxlength="40" value="Uczeń" />
+                    </label>
+                    <label>
+                        Motyw
+                        <select id="theme">
+                            <option value="light">Jasny</option>
+                            <option value="dark">Ciemny</option>
+                        </select>
+                    </label>
+                    <button>Zapisz ustawienia</button>
+                    <button id="clear" type="button">Usuń zapis</button>
+                </form>
+                <p id="greeting"></p>
+                <p id="clock"></p>
+                <p id="result" role="status"></p>
+            </section>
+            <section>
+                <h2>Twoja kolej</h2>
+                <p>
+                    Dodaj ustawienie rozmiaru tekstu z dozwolonymi wartościami
+                    mały/duży.
+                </p>
+                <p>
+                    Pełne wyjaśnienia i kroki:
+                    <a href="README.md">README tej lekcji</a>
+                    .
+                </p>
+            </section>
+        </main>
+        <footer>
+            <nav aria-label="Lekcje">
+                <a href="../18-javascript-lista/index.html">
+                    ← Obiekty i dynamiczna lista
+                </a>
+                <a href="../README.md">Mapa kursu</a>
+                <a href="../20-javascript-projekt-inf03/index.html">
+                    Projekt pod INF.03 →
+                </a>
+            </nav>
+        </footer>
+    </body>
+</html>

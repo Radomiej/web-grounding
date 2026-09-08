@@ -41,7 +41,7 @@ nav ul {
     list-style: none;
 }
 
-nav a {
+.site-header nav a {
     color: #ffffff;
 }
 
@@ -100,4 +100,10 @@ a {
 :focus-visible {
     outline: 3px solid #f59e0b;
     outline-offset: 3px;
+}
+
+nav[aria-label='Kolejność kursu'] a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
 }

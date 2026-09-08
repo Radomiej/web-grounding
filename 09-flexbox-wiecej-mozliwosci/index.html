@@ -1,53 +1,274 @@
 <!doctype html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexbox — więcej możliwości</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <p class="eyebrow">Ćwiczenie 09</p>
-        <h1>Elastyczne karty i indywidualne ustawienia</h1>
-        <p>Ten przykład łączy zawijanie, rozmiar bazowy, rośnięcie i wyrównanie pojedynczego elementu.</p>
-    </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Flexbox — więcej możliwości</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <p class="eyebrow">Ćwiczenie 09</p>
+            <h1>Elastyczne karty i indywidualne ustawienia</h1>
+            <p>
+                Ten przykład łączy zawijanie, rozmiar bazowy, rośnięcie i
+                wyrównanie pojedynczego elementu.
+            </p>
+        </header>
 
-    <main>
-        <section aria-labelledby="cards-title">
-            <h2 id="cards-title">Karty kursów</h2>
-            <div class="cards">
-                <article class="card card--featured">
-                    <span class="card__tag">Polecany</span>
-                    <h3>HTML i CSS</h3>
-                    <p>Szersza karta może dostać większy udział w wolnej przestrzeni.</p>
-                    <a class="card__button" href="#">Zobacz kurs</a>
-                </article>
-                <article class="card">
-                    <span class="card__tag">Podstawy</span>
-                    <h3>JavaScript</h3>
-                    <p>Przycisk pozostaje na dole nawet przy krótszym opisie.</p>
-                    <a class="card__button" href="#">Zobacz kurs</a>
-                </article>
-                <article class="card">
-                    <span class="card__tag">Dodatek</span>
-                    <h3>Bootstrap</h3>
-                    <p>Karty zawijają się bez utraty czytelnego minimalnego rozmiaru.</p>
-                    <a class="card__button" href="#">Zobacz kurs</a>
-                </article>
-                <p class="summary">Zmień szerokość okna i obserwuj `flex-basis`, rośnięcie oraz zawijanie.</p>
-            </div>
-        </section>
+        <main>
+            <section aria-labelledby="cards-title">
+                <h2 id="cards-title">Karty kursów</h2>
+                <div class="cards">
+                    <article class="card card--featured">
+                        <span class="card__tag">Polecany</span>
+                        <h3>HTML i CSS</h3>
+                        <p>
+                            Szersza karta może dostać większy udział w wolnej
+                            przestrzeni.
+                        </p>
+                        <a class="card__button" href="#">Zobacz kurs</a>
+                    </article>
+                    <article class="card">
+                        <span class="card__tag">Podstawy</span>
+                        <h3>JavaScript</h3>
+                        <p>
+                            Przycisk pozostaje na dole nawet przy krótszym
+                            opisie.
+                        </p>
+                        <a class="card__button" href="#">Zobacz kurs</a>
+                    </article>
+                    <article class="card">
+                        <span class="card__tag">Dodatek</span>
+                        <h3>Bootstrap</h3>
+                        <p>
+                            Karty zawijają się bez utraty czytelnego minimalnego
+                            rozmiaru.
+                        </p>
+                        <a class="card__button" href="#">Zobacz kurs</a>
+                    </article>
+                    <p class="summary">
+                        Zmień szerokość okna i obserwuj `flex-basis`, rośnięcie
+                        oraz zawijanie.
+                    </p>
+                </div>
+            </section>
 
-        <section class="order-section" aria-labelledby="order-title">
-            <h2 id="order-title">Wizualna kolejność</h2>
-            <ol class="visual-order-demo">
-                <li>Pierwszy w HTML</li>
-                <li>Drugi w HTML, pokazany wcześniej przez CSS</li>
-                <li>Trzeci w HTML</li>
-            </ol>
-            <p><strong>Uwaga:</strong> `order` zmienia tylko widok. Klawiatura i czytnik ekranu zachowują kolejność HTML, dlatego ważną treść układaj poprawnie przede wszystkim w dokumencie.</p>
-        </section>
-    </main>
-</body>
+            <section class="order-section" aria-labelledby="order-title">
+                <h2 id="order-title">
+                    Osobne zagadnienie: order zmienia kolejność
+                </h2>
+                <p>
+                    To przykład kolejności, nie wyrównania. W HTML jest 1 → 2 →
+                    3. Drugi element ma
+                    <code>order: -1</code>
+                    , pozostałe domyślne
+                    <code>order: 0</code>
+                    , więc wizualnie otrzymujemy 2 → 1 → 3.
+                </p>
+                <ol class="visual-order-demo">
+                    <li>Pierwszy w HTML</li>
+                    <li>Drugi w HTML, pokazany wcześniej przez CSS</li>
+                    <li>Trzeci w HTML</li>
+                </ol>
+                <p>
+                    <strong>Uwaga:</strong>
+                    <code>order</code>
+                    zmienia tylko widok. Klawiatura i czytnik ekranu zachowują
+                    kolejność HTML, dlatego ważną treść układaj poprawnie przede
+                    wszystkim w dokumencie.
+                </p>
+            </section>
+            <section class="alignment-lesson" aria-labelledby="alignment-title">
+                <h2 id="alignment-title">
+                    align-items a align-content — co właściwie się przesuwa?
+                </h2>
+                <p>
+                    <strong>
+                        Linia Flexbox to grupa dzieci, które zmieściły się obok
+                        siebie.
+                    </strong>
+                    Tutaj
+                    <code>flex-direction: row</code>
+                    , więc A + B tworzą pierwszy wiersz, a C + D drugi.
+                    Wszystkie litery są bezpośrednimi dziećmi jednego kontenera:
+                    nie dodajemy osobnych elementów HTML na wiersze.
+                </p>
+                <p>
+                    <strong>Oś główna →, oś poprzeczna ↓.</strong>
+                    Obie porównywane właściwości działają tutaj w pionie.
+                    <code>align-items</code>
+                    wyrównuje dzieci w ich wierszu, a
+                    <code>align-content</code>
+                    ustawia całe wiersze wewnątrz kontenera.
+                </p>
+                <p>
+                    Każda ramka poniżej ma tę samą wysokość
+                    <strong>260px</strong>
+                    . A i C mają
+                    <strong>48px</strong>
+                    , B i D
+                    <strong>88px</strong>
+                    . Jasnoszare tło pokazuje wolną przestrzeń.
+                </p>
+                <div class="alignment-comparison">
+                    <article class="alignment-example">
+                        <h3>1. Punkt wyjścia</h3>
+                        <pre><code>align-items: flex-start;
+align-content: flex-start;</code></pre>
+                        <div
+                            class="alignment-demo demo-start"
+                            aria-label="1. Punkt wyjścia: pierwszy wiersz A i B, drugi C i D"
+                        >
+                            <div class="demo-child short first-line">
+                                A · 48px
+                            </div>
+                            <div class="demo-child tall first-line">
+                                B · 88px
+                            </div>
+                            <div class="demo-child short second-line">
+                                C · 48px
+                            </div>
+                            <div class="demo-child tall second-line">
+                                D · 88px
+                            </div>
+                        </div>
+                        <p>
+                            A i C zaczynają się przy górnej krawędzi swojej
+                            linii. B i D są wyższe (88px) i wyznaczają wysokość
+                            linii. Obie linie leżą u góry kontenera.
+                        </p>
+                    </article>
+                    <article class="alignment-example">
+                        <h3>2. Zmieniamy tylko align-items</h3>
+                        <pre><code>align-items: center;
+align-content: flex-start;</code></pre>
+                        <div
+                            class="alignment-demo demo-items"
+                            aria-label="2. Zmieniamy tylko align-items: pierwszy wiersz A i B, drugi C i D"
+                        >
+                            <div class="demo-child short first-line">
+                                A · 48px
+                            </div>
+                            <div class="demo-child tall first-line">
+                                B · 88px
+                            </div>
+                            <div class="demo-child short second-line">
+                                C · 48px
+                            </div>
+                            <div class="demo-child tall second-line">
+                                D · 88px
+                            </div>
+                        </div>
+                        <p>
+                            A i C przesunęły się o 20px w dół: (88 − 48) / 2. Są
+                            teraz wyśrodkowane względem B i D. Całe linie
+                            zostały w tych samych miejscach.
+                        </p>
+                    </article>
+                    <article class="alignment-example">
+                        <h3>3. Teraz zmieniamy tylko align-content</h3>
+                        <pre><code>align-items: center;
+align-content: space-between;</code></pre>
+                        <div
+                            class="alignment-demo demo-content"
+                            aria-label="3. Teraz zmieniamy tylko align-content: pierwszy wiersz A i B, drugi C i D"
+                        >
+                            <div class="demo-child short first-line">
+                                A · 48px
+                            </div>
+                            <div class="demo-child tall first-line">
+                                B · 88px
+                            </div>
+                            <div class="demo-child short second-line">
+                                C · 48px
+                            </div>
+                            <div class="demo-child tall second-line">
+                                D · 88px
+                            </div>
+                        </div>
+                        <p>
+                            Druga linia (C i D razem) przesunęła się na dół
+                            kontenera. A i C nadal są wyśrodkowane w swoich
+                            liniach. Dodatkowa wolna przestrzeń trafiła między
+                            linie.
+                        </p>
+                    </article>
+                </div>
+                <p>
+                    <strong>Porównaj 1 → 2:</strong>
+                    przesuwają się tylko krótsze dzieci.
+                    <strong>Porównaj 2 → 3:</strong>
+                    przesuwa się cały drugi wiersz.
+                </p>
+                <details>
+                    <summary>Wspólny HTML i CSS — odtwórz przykład</summary>
+                    <pre><code>&lt;div class="alignment-demo"&gt;
+  &lt;div class="demo-child short"&gt;A&lt;/div&gt;
+  &lt;div class="demo-child tall"&gt;B&lt;/div&gt;
+  &lt;div class="demo-child short"&gt;C&lt;/div&gt;
+  &lt;div class="demo-child tall"&gt;D&lt;/div&gt;
+&lt;/div&gt;
+
+* { box-sizing: border-box; }
+.alignment-demo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 260px;
+  padding: 12px;
+  border: 2px solid #64748b;
+  gap: 12px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.demo-child { flex: 0 0 calc(50% - 6px); }
+.short { height: 48px; }
+.tall { height: 88px; }
+/* Teraz podmień obie wartości align według panelu 2 lub 3. */</code></pre>
+                </details>
+                <h3>Kiedy różnicy nie widać?</h3>
+                <ul>
+                    <li>
+                        Gdy wszystkie dzieci są jednakowo wysokie i linia nie ma
+                        dodatkowej wysokości,
+                        <code>align-items: center</code>
+                        może wyglądać tak samo jak
+                        <code>flex-start</code>
+                        . Dlatego w tym przykładzie celowo mamy dwa rozmiary.
+                    </li>
+                    <li>
+                        Przy
+                        <code>flex-wrap: nowrap</code>
+                        właściwość
+                        <code>align-content</code>
+                        nie działa. Samo zawijanie tekstu wewnątrz dziecka nie
+                        tworzy nowej linii Flexbox.
+                    </li>
+                    <li>
+                        Jeśli linie zajmują już całą wysokość, nie zostaje
+                        miejsce do rozdzielenia przez
+                        <code>align-content</code>
+                        . Dla
+                        <code>column</code>
+                        rozumowanie obracamy: oś poprzeczna jest pozioma.
+                    </li>
+                </ul>
+                <p>
+                    <a href="../07-flexbox-sandbox/index.html">
+                        Wróć do 07 i sprawdź te ustawienia w sandboxie →
+                    </a>
+                </p>
+            </section>
+        </main>
+        <nav aria-label="Kolejność kursu">
+            <a href="../08-flexbox-wlasny-layout/index.html">
+                ← Poprzednia lekcja
+            </a>
+            ·
+            <a href="README.md">Instrukcja</a>
+            ·
+            <a href="../10-javascript-podstawy/index.html">Następna lekcja →</a>
+        </nav>
+    </body>
 </html>

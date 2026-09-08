@@ -1,10 +1,10 @@
 # Uruchomienie kursu — instrukcja ucznia
 
-Lekcje `01`, `02` oraz `07–12` są statyczne i nie wymagają PHP ani bazy. Możesz otworzyć ich `index.html` bezpośrednio w przeglądarce. XAMPP jest potrzebny dopiero do opcjonalnych lekcji `03–06`.
+Lekcje `01`, `02` oraz `07–22` są statyczne i nie wymagają PHP ani bazy. Możesz otworzyć ich `index.html` bezpośrednio w przeglądarce. XAMPP jest potrzebny dopiero do opcjonalnych lekcji `03–06`.
 
 ## 1. Najprostszy start bez PHP
 
-Otwórz `01-html-podstawy/index.html`, a następnie wybierz frontendową kolejność opisaną w głównym README. Nie usuwaj katalogu `assets`, ponieważ lekcja 12 pobiera z niego lokalny Bootstrap.
+Otwórz `01-html-podstawy/index.html`, a następnie wybierz frontendową kolejność opisaną w głównym README. Nie usuwaj katalogu `assets`, ponieważ zawiera lokalny Bootstrap oraz grafiki galerii i Canvas.
 
 ## 2. Skopiuj projekt do XAMPP, jeżeli uczysz się PHP
 
@@ -81,3 +81,11 @@ W przykładach PHP znajdź:
 ## Reguła egzaminacyjna
 
 Najpierw realizuj dosłownie wymaganie arkusza. Jeśli skrypt PHP ma „wyświetlać” dane, generuj wskazane elementy HTML w PHP. Wariant JSON i JavaScript stosuj tylko wtedy, gdy nie omija on wymaganego kryterium.
+
+## Nowa progresja JavaScript
+
+Po 10 i 11 przejdź kolejno przez 13–22 według [mapy kursu](README.md). Bootstrap 12 pozostaje dodatkiem. Otwieraj index.html wybranej lekcji; nie potrzebujesz npm ani XAMPP.
+
+W 07 generator pozwala pobrać layout.html. Gdy kopiowanie jest zablokowane, zaznaczony kod skopiuj Ctrl+C. W 19 zapis localStorage przy file:// zależy od przeglądarki; lekcja obsługuje brak dostępu. Aby mieć stabilne pochodzenie zapisu, możesz użyć lokalnego serwera, np. Live Server w edytorze albo Apache XAMPP.
+
+W 20 zacznij od start/index.html. W 22 steruj strzałkami lub WASD po skupieniu sceny; na telefonie użyj przycisków. HUD jest HTML-em nałożonym na Canvas przez position:absolute.
