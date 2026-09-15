@@ -95,8 +95,9 @@ flowchart TD
 - `README.md`, `tests/validate-course.mjs`, `tests/frontend-browser.cjs` —
   mapa kursu i obsługa nowych lekcji.
 
-Pobrane binaria pozostają lokalnie. Nie wykonano commit ani push; worktree jest
-celowo niezatwierdzony do czasu decyzji użytkownika.
+Pobrane binaria pozostają lokalnie. Delivery was completed afterward in commit
+`a1f7d5e` on branch `features/v2`, published to `origin/features/v2`. The
+implementation evidence above predates that delivery.
 
 ## Verification evidence
 
@@ -125,6 +126,6 @@ zewnętrznego renderera Mermaid.
 ## Remaining boundary and production closure
 
 Zakres lokalnych materiałów, dokumentacji i serii 9xx jest zamknięty i
-zweryfikowany. Nie ma dowodu commit/push ani wdrożenia produkcyjnego. Następny
-krok wymaga osobnej decyzji: commit/push wybranych lekkich plików albo dalsze
-lokalne pobieranie. Nie należy traktować generatora jako oficjalnego arkusza.
+zweryfikowany. Branch `features/v2` zawiera opublikowany zakres materiałów,
+generatorów i dokumentacji, bez wdrożenia produkcyjnego. Nie należy traktować
+generatora jako oficjalnego arkusza.

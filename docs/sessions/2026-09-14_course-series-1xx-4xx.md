@@ -99,7 +99,7 @@ flowchart LR
 - `node tests/frontend-browser.cjs` jest BLOCKED: moduł `playwright` nie jest zainstalowany (`MODULE_NOT_FOUND`).
 - `php -l` i żądania PHP są BLOCKED: brak `php.exe`, Apache i MySQL w środowisku wykonawczym.
 - Sprawdzenie Chrome było lokalne; nie jest dowodem wdrożenia, hostingu ani produkcji.
-- Nie wykonano commita ani pusha w tej turze.
+- Delivery was completed afterward in commit `a1f7d5e` on branch `features/v2`, published to `origin/features/v2`. The implementation evidence above predates that delivery.
 
 ## Remaining boundary and production closure
 
