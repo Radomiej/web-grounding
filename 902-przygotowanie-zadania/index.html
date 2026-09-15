@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>902 · Przygotowanie lokalnego zadania</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <p class="eyebrow">Lekcja 902 · seria 9xx</p>
+            <h1>Od pomysłu do zadania</h1>
+            <p>
+                Zbuduj własną, lokalną wersję mini-arkusza: określ cel, dane,
+                kryteria i kolejność pracy. Na końcu pobierzesz Markdown oraz
+                kod diagramu Mermaid.
+            </p>
+            <nav aria-label="Nawigacja lekcji">
+                <a href="../901-generator-zadan/index.html">← Generator zadań</a>
+                <a href="../README.md">Mapa kursu</a>
+                <a href="../docs/plan-nauki-inf03-inf04.md">Plan tematów</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="notice">
+                <strong>Ćwiczenie projektowe.</strong>
+                Lokalny mini-arkusz pomaga nauczyć się czytać wymagania i
+                przygotowywać kryteria. Nie jest oficjalnym arkuszem CKE ani
+                zamiennikiem prawdziwego PDF-u.
+            </section>
+
+            <form id="task-builder" class="panel">
+                <h2>1. Opisz zadanie</h2>
+                <div class="form-grid">
+                    <label>
+                        Kwalifikacja
+                        <select id="qualification">
+                            <option value="INF.03">INF.03 — strona/aplikacja webowa</option>
+                            <option value="INF.04">INF.04 — aplikacja i programowanie</option>
+                        </select>
+                    </label>
+                    <label>
+                        Tytuł zadania
+                        <input id="title" required value="Panel rezerwacji pracowni" />
+                    </label>
+                    <label>
+                        Czas (minuty)
+                        <select id="duration">
+                            <option>45</option>
+                            <option selected>60</option>
+                            <option>90</option>
+                            <option>150</option>
+                        </select>
+                    </label>
+                </div>
+                <label>
+                    Kontekst dla ucznia
+                    <textarea id="context" rows="3" required>Szkoła chce udostępnić uczniom prosty panel do rezerwowania stanowisk w pracowni.</textarea>
+                </label>
+                <label>
+                    Cel techniczny
+                    <textarea id="objective" rows="3" required>Przygotuj działający widok, który przyjmuje dane, pokazuje listę rezerwacji i informuje o błędach.</textarea>
+                </label>
+                <div class="two-columns">
+                    <label>
+                        Dane wejściowe
+                        <textarea id="input-data" rows="3" required>imię, data, numer stanowiska, typ aplikacji</textarea>
+                    </label>
+                    <label>
+                        Oczekiwany wynik
+                        <textarea id="expected-output" rows="3" required>lista rezerwacji, komunikat sukcesu i komunikaty błędów</textarea>
+                    </label>
+                </div>
+
+                <fieldset>
+                    <legend>2. Zaznacz kryteria</legend>
+                    <div id="criteria-fields" class="criteria-grid"></div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>3. Ułóż etapy pracy</legend>
+                    <p class="muted">
+                        Etapy opisują przygotowanie rozwiązania, a nie tylko
+                        końcową funkcję. Możesz je dopisać lub usunąć.
+                    </p>
+                    <ol id="stage-list" class="stage-list"></ol>
+                    <button id="add-stage" type="button" class="secondary">
+                        Dodaj etap
+                    </button>
+                </fieldset>
+
+                <div class="actions">
+                    <button type="submit">Utwórz lokalny mini-arkusz</button>
+                    <button id="reset-builder" type="button" class="secondary">
+                        Wyczyść formularz
+                    </button>
+                </div>
+            </form>
+
+            <section id="builder-output" class="panel" hidden aria-labelledby="preview-title">
+                <div class="output-heading">
+                    <div>
+                        <p id="output-meta" class="eyebrow"></p>
+                        <h2 id="preview-title"></h2>
+                    </div>
+                    <p id="builder-status" role="status" class="status"></p>
+                </div>
+                <article id="task-preview" class="task-preview"></article>
+
+                <div class="two-columns output-tools">
+                    <section>
+                        <div class="output-heading">
+                            <h3>Markdown zadania</h3>
+                            <button id="copy-markdown" type="button" class="secondary">
+                                Kopiuj Markdown
+                            </button>
+                        </div>
+                        <pre id="markdown-code" tabindex="0"><code></code></pre>
+                        <button id="download-markdown" type="button">
+                            Pobierz plik .md
+                        </button>
+                    </section>
+                    <section>
+                        <div class="output-heading">
+                            <h3>Diagram Mermaid</h3>
+                            <button id="copy-mermaid" type="button" class="secondary">
+                                Kopiuj Mermaid
+                            </button>
+                        </div>
+                        <pre id="mermaid-code" tabindex="0"><code></code></pre>
+                    </section>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                Po wygenerowaniu porównaj zakres z
+                <a href="../docs/egzaminy-inf03-inf04.md">pełnym indeksem egzaminów</a>
+                i dopiero potem sięgaj po materiały referencyjne.
+            </p>
+        </footer>
+    </body>
+</html>

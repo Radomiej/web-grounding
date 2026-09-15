@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML — struktura strony</title>
+</head>
+<body>
+    <header>
+        <p><a href="../102-html-tekst-i-listy/">← Tekst i listy</a></p>
+        <h1>Struktura strony informacyjnej</h1>
+        <nav aria-label="Główna nawigacja">
+            <a href="#news">Aktualności</a>
+            <a href="#guide">Poradnik</a>
+            <a href="#about">O stronie</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="news" aria-labelledby="news-heading">
+            <h2 id="news-heading">Aktualności</h2>
+            <article>
+                <h3>Nowa lekcja HTML</h3>
+                <p>Samodzielny artykuł ma własny nagłówek i może być udostępniony osobno.</p>
+            </article>
+            <article>
+                <h3>Ćwiczenie tygodnia</h3>
+                <p>Przenieś tę informację do własnego projektu, zachowując znaczenie elementów.</p>
+            </article>
+        </section>
+
+        <section id="guide" aria-labelledby="guide-heading">
+            <h2 id="guide-heading">Poradnik</h2>
+            <p>Wybierz artykuł z treści głównej, a wskazówkę dodatkową znajdziesz w elemencie <code>aside</code>.</p>
+            <aside aria-labelledby="tip-heading">
+                <h3 id="tip-heading">Wskazówka</h3>
+                <p>Sidebar nie powinien zawierać treści koniecznej do zrozumienia artykułu.</p>
+            </aside>
+        </section>
+    </main>
+
+    <footer id="about">
+        <address>Kontakt: <a href="mailto:kurs@example.test">kurs@example.test</a></address>
+        <p>Seria 1xx — semantyczny HTML.</p>
+    </footer>
+</body>
+</html>

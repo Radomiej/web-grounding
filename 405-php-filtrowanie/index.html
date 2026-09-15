@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP API — filtrowanie ofert</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <p><a href="../404-php-insert/">← 404: INSERT przez PHP</a></p>
+        <h1>PHP API — filtrowanie ofert</h1>
+        <p>Parametry adresu URL trafiają do przygotowanego zapytania <code>SELECT</code>.</p>
+    </header>
+
+    <main>
+        <section aria-labelledby="filter-heading">
+            <h2 id="filter-heading">Filtry</h2>
+            <form id="filter-form">
+                <div class="field">
+                    <label for="query">Szukaj w tytule</label>
+                    <input id="query" name="q" type="search" maxlength="100" autocomplete="off">
+                </div>
+                <div class="field">
+                    <label for="available">Dostępność</label>
+                    <select id="available" name="available">
+                        <option value="">Wszystkie</option>
+                        <option value="1">Tylko dostępne</option>
+                        <option value="0">Tylko niedostępne</option>
+                    </select>
+                </div>
+                <button type="submit">Zastosuj filtry</button>
+            </form>
+        </section>
+
+        <section aria-labelledby="result-heading">
+            <h2 id="result-heading">Wynik</h2>
+            <p id="status" role="status" aria-live="polite">Nie wykonano jeszcze zapytania.</p>
+            <ul id="offers" aria-label="Przefiltrowane oferty"></ul>
+        </section>
+
+        <section class="note" aria-labelledby="flow-heading">
+            <h2 id="flow-heading">Co obserwować?</h2>
+            <p>
+                Po wysłaniu formularza adres zawiera na przykład
+                <code>api.php?q=PHP&amp;available=1</code>. PHP nie skleja wartości
+                w SQL — przekazuje je jako parametry prepared statement.
+            </p>
+        </section>
+    </main>
+</body>
+</html>

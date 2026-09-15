@@ -1,0 +1,69 @@
+# 304 — Kalkulator kosztu
+
+Etap 3/12. Wartość pola jest tekstem. Zamieniamy ją na liczbę, sprawdzamy i przekazujemy do funkcji.
+
+## Wymagania wstępne
+
+Ukończ [Pierwszy DOM i formularz](../302-javascript-dom-i-formularz/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
+
+## Czego się nauczysz
+
+- Number(value): Zamienia tekst na liczbę; Number('') daje 0, dlatego osobno sprawdzamy puste pola.
+- Number.isFinite / isInteger: Sprawdzają skończoną liczbę / liczbę całkowitą.
+- function, parametry, return: Funkcja dostaje dane i oddaje wynik; return bez wartości kończy obsługę błędu.
+- if, ||, !, ===, <=, <: Warunek, logiczne LUB, negacja, ścisła równość i porównania.
+- toFixed(2): Zwraca tekst liczby z dwoma miejscami po przecinku; nie zmienia matematycznej wartości.
+
+## Krok po kroku
+
+1. Policz 120 / 3.
+2. Sprawdź 0 osób, puste pola i ujemny koszt.
+3. Odszukaj funkcję obliczeniową: nie odczytuje DOM, otrzymuje parametry.
+
+## Przepływ danych
+
+Kontrolka lub zdarzenie → odczyt wartości → sprawdzenie i obliczenie → aktualizacja DOM. Znajdź każdy etap w app.js.
+
+## HTML
+
+Dokument zaczyna się od `<!doctype html>` (tryb HTML5). `html lang="pl"` ustawia język, `meta charset="UTF-8"` kodowanie, a `meta name="viewport" content="width=device-width, initial-scale=1"` szerokość urządzenia. `title` to tytuł karty. `link rel="stylesheet" href="style.css"` dołącza CSS. `script src="app.js" defer` wykonuje lokalny skrypt po parsowaniu HTML.
+
+`header/main/footer` określają nagłówek, główną treść i stopkę; `nav aria-label` nazywa nawigację. `section` grupuje temat, `h1/h2` tworzą hierarchię nagłówków, `p` akapit, `ol/li` kroki, `ul/li` listę, `code` zapis kodu. `a href` prowadzi do pliku względną ścieżką, a `../` oznacza katalog wyżej.
+
+W formularzach `form` zbiera kontrolki; otaczający `label` nadaje polu nazwę. `id` umożliwia wybranie elementu w JS. `input` przyjmuje dane; `type="number/email/search/range/checkbox/radio"` określa rodzaj kontrolki. `value` to wartość początkowa, `required` wymaga danych, `min/max/step` ograniczają liczby, `maxlength` długość tekstu, `pattern` format, `placeholder` pokazuje przykład. `name` grupuje radio, `checked` zaznacza początkowy wybór. `select/option` tworzą listę wyboru, `fieldset/legend` grupę z nazwą. `button` w formularzu domyślnie wysyła; `type="button"` temu zapobiega. `novalidate` pozwala obsłużyć komunikat błędu skryptem. `role="status"` ogłasza zmianę tekstu, `aria-describedby` wiąże pole z objaśnieniem. Nie każda lekcja używa wszystkich tych kontrolek.
+
+## CSS
+
+Pełny słownik wspólnego arkusza, łącznie z jednostkami i wartościami: [CSS krok po kroku](../docs/css-lekcji.md). Arkusz jest lokalną kopią, którą można swobodnie edytować bez zmiany innych lekcji.
+
+## Biblioteki
+
+Brak bibliotek JavaScript i połączeń z CDN. DOM, Canvas i Storage to API przeglądarki, a nie biblioteki do instalacji. Node jest potrzebny tylko autorowi do testów, nie uczniowi.
+
+## JavaScript
+
+| Zapis                         | Wyjaśnienie                                                                             |
+| ----------------------------- | --------------------------------------------------------------------------------------- |
+| `Number(value)`               | Zamienia tekst na liczbę; Number('') daje 0, dlatego osobno sprawdzamy puste pola.      |
+| `Number.isFinite / isInteger` | Sprawdzają skończoną liczbę / liczbę całkowitą.                                         |
+| `function, parametry, return` | Funkcja dostaje dane i oddaje wynik; return bez wartości kończy obsługę błędu.          |
+| `if, \|\|, !, ===, <=, <`     | Warunek, logiczne LUB, negacja, ścisła równość i porównania.                            |
+| `toFixed(2)`                  | Zwraca tekst liczby z dwoma miejscami po przecinku; nie zmienia matematycznej wartości. |
+
+## Częste błędy
+
+Dzielenie przez zero daje Infinity. Sam type=number nie zastępuje sprawdzenia reguł zadania.
+
+## Zadanie do wykonania
+
+1. Dodaj pole opłaty rezerwacyjnej.
+2. Uwzględnij ją w obliczeniu dopiero po sprawdzeniu poprawności danych.
+3. Wyświetl cenę jednostkową, opłatę i sumę osobno.
+4. Sprawdź zero osób, pustą cenę i ponowne wysłanie formularza.
+
+## Sprawdź się
+
+- [ ] Potrafię wskazać dane wejściowe, przetwarzanie i wynik.
+- [ ] Wykonałem wszystkie kroki, w tym przypadek brzegowy.
+- [ ] Po ponownym wykonaniu akcji wynik jest poprawny, a konsola nie pokazuje błędów.
+- [ ] Umiałbym odtworzyć główną funkcję bez kopiowania.

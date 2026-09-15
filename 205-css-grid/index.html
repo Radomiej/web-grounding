@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid — siatka</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <p><a href="../204-css-flexbox-wiecej-mozliwosci/">← Flexbox</a></p>
+        <h1>CSS Grid — układ w dwóch wymiarach</h1>
+        <p>Grid opisuje wiersze i kolumny, gdy Flexbox lepiej opisuje jedną oś.</p>
+    </header>
+
+    <main>
+        <section class="intro" aria-labelledby="intro-heading">
+            <h2 id="intro-heading">Linie i komórki</h2>
+            <p><code>grid-template-columns</code> tworzy ścieżki kolumn, a <code>gap</code> rozdziela elementy.</p>
+            <p class="accent-text">Zmień wartości w <code>style.css</code> i przewiduj, która karta się przesunie.</p>
+        </section>
+
+        <section class="cards" aria-labelledby="cards-heading">
+            <h2 id="cards-heading">Karty w siatce</h2>
+            <article class="card card-featured">
+                <h3>Kolumny</h3>
+                <p><code>repeat(3, minmax(0, 1fr))</code> tworzy trzy elastyczne kolumny.</p>
+            </article>
+            <article class="card">
+                <h3>Wiersze</h3>
+                <p><code>grid-column: 1 / -1</code> pozwala nagłówkowi przejść przez całą szerokość.</p>
+            </article>
+            <article class="card">
+                <h3>Responsywność</h3>
+                <p><a href="../206-css-komponenty/">Przejdź do komponentów raw CSS</a>.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Seria 2xx — CSS i układ strony</p>
+    </footer>
+</body>
+</html>

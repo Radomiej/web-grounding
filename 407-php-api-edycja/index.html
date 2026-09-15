@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP API — edycja oferty</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <p><a href="../406-php-api-filtrowanie/">← 406: filtrowanie</a></p>
+        <h1>PHP API — edycja oferty</h1>
+        <p>Żądanie <code>PUT</code> zmienia istniejący rekord po jego ID.</p>
+    </header>
+
+    <main>
+        <section aria-labelledby="edit-heading">
+            <h2 id="edit-heading">Zmień ofertę</h2>
+            <form id="edit-form">
+                <div class="field">
+                    <label for="id">ID oferty</label>
+                    <input id="id" name="id" type="number" min="1" step="1" required>
+                </div>
+                <div class="field">
+                    <label for="title">Nowy tytuł</label>
+                    <input id="title" name="title" type="text" maxlength="100" required>
+                </div>
+                <div class="field">
+                    <label for="price">Nowa cena (zł)</label>
+                    <input id="price" name="price" type="number" min="0" step="0.01" required>
+                </div>
+                <label class="check-row" for="available">
+                    <input id="available" name="available" type="checkbox" checked>
+                    Oferta jest dostępna
+                </label>
+                <button type="submit">Zapisz zmianę</button>
+            </form>
+        </section>
+
+        <section aria-labelledby="result-heading">
+            <h2 id="result-heading">Odpowiedź API</h2>
+            <p id="status" role="status" aria-live="polite">Nie wysłano jeszcze żądania.</p>
+            <pre id="result" aria-label="Odpowiedź JSON"></pre>
+        </section>
+    </main>
+</body>
+</html>

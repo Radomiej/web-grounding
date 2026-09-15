@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czysty HTML — formularz</title>
+</head>
+<body>
+    <header>
+        <p><a href="../104-html-tabele/">← Tabele</a></p>
+        <h1>Formularz zgłoszeniowy</h1>
+    </header>
+
+    <main>
+        <section aria-labelledby="signup-heading">
+            <h2 id="signup-heading">Zapis na zajęcia</h2>
+            <form action="#" method="get">
+                <fieldset>
+                    <legend>Dane uczestnika</legend>
+                    <label for="student-name">Imię</label>
+                    <input id="student-name" name="name" required minlength="2">
+                    <label for="student-email">E-mail</label>
+                    <input id="student-email" name="email" type="email" required>
+                    <label for="lesson-date">Termin</label>
+                    <input id="lesson-date" name="date" type="date">
+                </fieldset>
+                <fieldset>
+                    <legend>Wybierz temat</legend>
+                    <label><input type="radio" name="topic" value="html" required> HTML</label>
+                    <label><input type="radio" name="topic" value="css"> CSS</label>
+                    <label><input type="radio" name="topic" value="js"> JavaScript</label>
+                    <label for="notes">Notatka</label>
+                    <textarea id="notes" name="notes" rows="4" maxlength="240"></textarea>
+                    <label><input type="checkbox" name="terms" required> Akceptuję zasady</label>
+                </fieldset>
+                <button type="submit">Wyślij zgłoszenie</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p><a href="../106-html-media-i-dostepnosc/">Następnie: media i dostępność →</a></p>
+    </footer>
+</body>
+</html>

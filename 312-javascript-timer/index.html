@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript — timer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <p>Lekcja 312 · czas i zdarzenia</p>
+        <h1>Timer ćwiczenia</h1>
+        <p>Jedno kliknięcie startuje jeden interwał. Pauza go zatrzymuje, a reset zeruje stan.</p>
+        <nav aria-label="Lekcje">
+            <a href="../311-javascript-projekt-inf03/">← Projekt INF.03</a>
+            <a href="../README.md">Mapa kursu</a>
+            <a href="../313-canvas-podstawy/">Canvas →</a>
+        </nav>
+    </header>
+    <main>
+        <section class="timer-card" aria-labelledby="timer-heading">
+            <h2 id="timer-heading">Pozostały czas</h2>
+            <p id="display" class="display" role="timer" aria-live="polite">01:00</p>
+            <div class="actions">
+                <button id="start" type="button">Start</button>
+                <button id="pause" type="button">Pauza</button>
+                <button id="reset" type="button">Reset</button>
+            </div>
+            <p id="status" role="status">Timer gotowy.</p>
+        </section>
+    </main>
+    <footer><a href="../313-canvas-podstawy/">Następnie: Canvas →</a></footer>
+</body>
+</html>

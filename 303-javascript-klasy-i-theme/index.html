@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript — klasy i motyw</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <p>Lekcja 303 · DOM i klasy</p>
+        <h1>Zmiana klas i motywu strony</h1>
+        <nav aria-label="Lekcje">
+            <a href="../302-javascript-dom-i-formularz/">← DOM i formularz</a>
+            <a href="../304-javascript-kalkulator/">Kalkulator →</a>
+        </nav>
+    </header>
+    <main>
+        <section class="panel" aria-labelledby="theme-heading">
+            <h2 id="theme-heading">Panel ustawień</h2>
+            <p id="description">Kliknięcie zmienia klasę na elemencie body, a nie inline style.</p>
+            <div class="actions">
+                <button id="theme-toggle" type="button" aria-pressed="false">Włącz ciemny motyw</button>
+                <button id="highlight-toggle" type="button" aria-pressed="false">Wyróżnij opis</button>
+            </div>
+            <p id="result" role="status">Motyw jasny.</p>
+        </section>
+        <section class="panel" aria-labelledby="code-heading">
+            <h2 id="code-heading">Co sprawdzić w DevTools?</h2>
+            <ul>
+                <li><code>classList.contains('dark')</code> odczytuje stan.</li>
+                <li><code>classList.toggle('highlight')</code> dodaje albo usuwa klasę.</li>
+                <li><code>setAttribute('aria-pressed', ...)</code> opisuje przycisk.</li>
+            </ul>
+        </section>
+    </main>
+    <footer><a href="../README.md">Mapa kursu</a></footer>
+</body>
+</html>

@@ -1,9 +1,66 @@
 import { readFileSync, existsSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
+import { join } from 'node:path';
 
 const root = new URL('../', import.meta.url).pathname.replace(/^\/(.:)/, '$1');
 const failures = [];
-const extendedLessons = [
+
+const htmlLessons = [
+    '101-html-podstawy',
+    '102-html-tekst-i-listy',
+    '103-html-struktura-strony',
+    '104-html-tabele',
+    '105-html-formularze',
+    '106-html-media-i-dostepnosc',
+];
+const cssLessons = [
+    '201-css-podstawy',
+    '202-css-flexbox-sandbox',
+    '203-css-flexbox-wlasny-layout',
+    '204-css-flexbox-wiecej-mozliwosci',
+    '205-css-grid',
+    '206-css-komponenty',
+    '207-css-bootstrap-lokalnie',
+];
+const jsLessons = [
+    '301-javascript-podstawy',
+    '302-javascript-dom-i-formularz',
+    '303-javascript-klasy-i-theme',
+    '304-javascript-kalkulator',
+    '305-javascript-warunki',
+    '306-javascript-walidacja',
+    '307-javascript-petle-tablice',
+    '308-javascript-galeria',
+    '309-javascript-lista',
+    '310-javascript-zapis',
+    '311-javascript-projekt-inf03',
+    '312-javascript-timer',
+    '313-canvas-podstawy',
+    '314-canvas-hud-gra',
+];
+const phpLessons = [
+    '401-php-podstawy',
+    '402-php-czytanie-bazy',
+    '403-php-formularz-i-select',
+    '404-php-insert',
+    '405-php-filtrowanie',
+    '406-php-update',
+    '407-php-delete',
+    '408-php-json-dodatek',
+];
+const legacyLessons = [
+    '01-html-podstawy',
+    '02-html-formularz',
+    '03-php-podstawy',
+    '04-php-lista-z-bazy',
+    '05-php-formularz-i-select',
+    '06-php-json-do-javascriptu',
+    '06a-php-api-dodawanie',
+    '07-flexbox-sandbox',
+    '08-flexbox-wlasny-layout',
+    '09-flexbox-wiecej-mozliwosci',
+    '10-javascript-podstawy',
+    '11-javascript-dom-i-formularz',
+    '12-bootstrap-lokalnie',
     '13-javascript-kalkulator',
     '14-javascript-warunki',
     '15-javascript-walidacja',
@@ -14,85 +71,60 @@ const extendedLessons = [
     '20-javascript-projekt-inf03',
     '21-canvas-podstawy',
     '22-canvas-hud',
+    '901-generator-zadan',
+    '902-przygotowanie-zadania',
 ];
 
-const requiredFiles = [
-    'README.md',
-    'STUDENT_SETUP.md',
-    'database/web_grounding.sql',
-    '01-html-podstawy/index.html',
-    '01-html-podstawy/style.css',
-    '02-html-formularz/index.html',
-    '02-html-formularz/style.css',
-    '03-php-podstawy/index.php',
-    '04-php-lista-z-bazy/index.php',
-    '05-php-formularz-i-select/index.php',
-    '06-php-json-do-javascriptu/index.html',
-    '06-php-json-do-javascriptu/api.php',
-    '06-php-json-do-javascriptu/app.js',
-    '07-flexbox-sandbox/index.html',
-    '07-flexbox-sandbox/style.css',
-    '07-flexbox-sandbox/README.md',
-    '08-flexbox-wlasny-layout/index.html',
-    '08-flexbox-wlasny-layout/style.css',
-    '08-flexbox-wlasny-layout/README.md',
-    '09-flexbox-wiecej-mozliwosci/index.html',
-    '09-flexbox-wiecej-mozliwosci/style.css',
-    '09-flexbox-wiecej-mozliwosci/README.md',
-    '10-javascript-podstawy/index.html',
-    '10-javascript-podstawy/style.css',
-    '10-javascript-podstawy/app.js',
-    '10-javascript-podstawy/README.md',
-    '11-javascript-dom-i-formularz/index.html',
-    '11-javascript-dom-i-formularz/style.css',
-    '11-javascript-dom-i-formularz/app.js',
-    '11-javascript-dom-i-formularz/README.md',
-    '12-bootstrap-lokalnie/index.html',
-    '12-bootstrap-lokalnie/README.md',
-    'assets/bootstrap/bootstrap.min.css',
-    'assets/bootstrap/LICENSE',
-];
-
-requiredFiles.push('07-flexbox-sandbox/app.js', 'docs/css-lekcji.md');
-for (const lesson of extendedLessons) {
-    for (const file of ['index.html', 'style.css', 'app.js', 'README.md'])
-        requiredFiles.push(lesson + '/' + file);
+function path(relative) { return join(root, relative); }
+function read(relative) {
+    const file = path(relative);
+    return existsSync(file) ? readFileSync(file, 'utf8') : '';
 }
-requiredFiles.push(
-    '20-javascript-projekt-inf03/start/index.html',
-    '20-javascript-projekt-inf03/start/style.css',
-    '20-javascript-projekt-inf03/start/app.js',
-);
-for (const file of ['hills.svg', 'sunset.svg', 'night.svg'])
-    requiredFiles.push('assets/lessons/' + file);
-for (const relativePath of requiredFiles) {
-    if (!existsSync(join(root, relativePath))) {
-        failures.push(`Brak pliku: ${relativePath}`);
-    }
+function requireFile(relative) {
+    if (!existsSync(path(relative))) failures.push(`Brak pliku: ${relative}`);
+}
+function requirePattern(relative, pattern, message) {
+    if (!pattern.test(read(relative))) failures.push(`${relative}: ${message}`);
 }
 
-function read(relativePath) {
-    const path = join(root, relativePath);
-    return existsSync(path) ? readFileSync(path, 'utf8') : '';
+requireFile('README.md');
+requireFile('STUDENT_SETUP.md');
+requireFile('database/web_grounding.sql');
+requireFile('assets/bootstrap/bootstrap.min.css');
+requireFile('assets/bootstrap/LICENSE');
+for (const lesson of htmlLessons) {
+    requireFile(`${lesson}/index.html`);
+    requireFile(`${lesson}/README.md`);
 }
-
-function requirePattern(relativePath, pattern, message) {
-    if (!pattern.test(read(relativePath))) {
-        failures.push(`${relativePath}: ${message}`);
-    }
+for (const lesson of cssLessons) {
+    requireFile(`${lesson}/index.html`);
+    requireFile(`${lesson}/README.md`);
+    if (lesson !== '207-css-bootstrap-lokalnie') requireFile(`${lesson}/style.css`);
 }
+for (const lesson of jsLessons) {
+    requireFile(`${lesson}/index.html`);
+    requireFile(`${lesson}/style.css`);
+    requireFile(`${lesson}/app.js`);
+    requireFile(`${lesson}/README.md`);
+}
+for (const file of [
+    '311-javascript-projekt-inf03/start/index.html',
+    '311-javascript-projekt-inf03/start/style.css',
+    '311-javascript-projekt-inf03/start/app.js',
+]) requireFile(file);
+for (const lesson of phpLessons) requireFile(`${lesson}/README.md`);
+for (const lesson of ['401-php-podstawy', '402-php-czytanie-bazy', '403-php-formularz-i-select', '404-php-insert', '405-php-filtrowanie', '406-php-update', '407-php-delete']) requireFile(`${lesson}/index.php`);
+for (const file of ['408-php-json-dodatek/index.html', '408-php-json-dodatek/api.php', '408-php-json-dodatek/app.js']) requireFile(file);
+for (const lesson of legacyLessons) requireFile(`${lesson}/README.md`);
+for (const file of ['901-generator-zadan/index.html', '901-generator-zadan/style.css', '901-generator-zadan/app.js', '902-przygotowanie-zadania/index.html', '902-przygotowanie-zadania/style.css', '902-przygotowanie-zadania/app.js']) requireFile(file);
 
 for (const page of [
-    '01-html-podstawy/index.html',
-    '02-html-formularz/index.html',
-    '06-php-json-do-javascriptu/index.html',
-    '07-flexbox-sandbox/index.html',
-    '08-flexbox-wlasny-layout/index.html',
-    '09-flexbox-wiecej-mozliwosci/index.html',
-    '10-javascript-podstawy/index.html',
-    '11-javascript-dom-i-formularz/index.html',
-    '12-bootstrap-lokalnie/index.html',
-    ...extendedLessons.map((lesson) => lesson + '/index.html'),
+    ...htmlLessons.map((lesson) => `${lesson}/index.html`),
+    ...cssLessons.map((lesson) => `${lesson}/index.html`),
+    ...jsLessons.map((lesson) => `${lesson}/index.html`),
+    '408-php-json-dodatek/index.html',
+    '901-generator-zadan/index.html',
+    '902-przygotowanie-zadania/index.html',
 ]) {
     requirePattern(page, /<!doctype html>/i, 'brak deklaracji HTML5');
     requirePattern(page, /<html\s+lang="pl"/i, 'brak języka polskiego');
@@ -100,217 +132,97 @@ for (const page of [
     requirePattern(page, /<main[\s>]/i, 'brak elementu main');
 }
 
-for (const lesson of [
-    '01-html-podstawy',
-    '02-html-formularz',
-    '03-php-podstawy',
-    '04-php-lista-z-bazy',
-    '05-php-formularz-i-select',
-    '06-php-json-do-javascriptu',
-    '07-flexbox-sandbox',
-    '08-flexbox-wlasny-layout',
-    '09-flexbox-wiecej-mozliwosci',
-    '10-javascript-podstawy',
-    '11-javascript-dom-i-formularz',
-    '12-bootstrap-lokalnie',
-    ...extendedLessons,
-]) {
-    const lessonReadme = read(`${lesson}/README.md`);
-    for (const heading of [
-        '## Czego się nauczysz',
-        '## HTML',
-        '## CSS',
-        '## JavaScript',
-        '## Biblioteki',
-    ]) {
-        if (!lessonReadme.includes(heading)) {
-            failures.push(`${lesson}/README.md: brak sekcji ${heading}`);
+for (const page of htmlLessons.map((lesson) => `${lesson}/index.html`)) {
+    if (/rel=["']stylesheet|<style\b|<script\b/i.test(read(page))) {
+        failures.push(`${page}: seria 1xx ma pozostać czystym HTML bez CSS i JavaScriptu`);
+    }
+}
+
+for (const lesson of [...htmlLessons, ...cssLessons, ...jsLessons, ...phpLessons, '901-generator-zadan', '902-przygotowanie-zadania']) {
+    const content = read(`${lesson}/README.md`);
+    for (const heading of ['## Czego się nauczysz', '## HTML', '## CSS', '## JavaScript', '## Biblioteki']) {
+        if (!content.includes(heading)) failures.push(`${lesson}/README.md: brak sekcji ${heading}`);
+    }
+    if (!/## Zadanie(?: do wykonania)?/.test(content)) failures.push(`${lesson}/README.md: brak zadania modyfikacyjnego`);
+    if (!/## Kryteria zaliczenia|## Sprawdź się/.test(content)) failures.push(`${lesson}/README.md: brak kryteriów zaliczenia`);
+}
+
+requirePattern('201-css-podstawy/style.css', /background-color|background:/, 'brak kolorów/tła');
+requirePattern('201-css-podstawy/style.css', /padding:/, 'brak paddingu');
+requirePattern('201-css-podstawy/style.css', /border-radius:/, 'brak zaokrąglenia');
+const flexSandbox = read('202-css-flexbox-sandbox/app.js');
+for (const term of ['align-items', 'align-content', 'flex-grow', 'flex-basis', 'parent-css', 'child-css']) {
+    if (!flexSandbox.includes(term)) failures.push(`202-css-flexbox-sandbox: brak ${term}`);
+}
+requirePattern('205-css-grid/style.css', /display:\s*grid/, 'brak display:grid');
+requirePattern('205-css-grid/style.css', /grid-template-columns/, 'brak kolumn Grid');
+requirePattern('207-css-bootstrap-lokalnie/index.html', /\.\.\/assets\/bootstrap\/bootstrap\.min\.css/, 'brak lokalnego Bootstrapa');
+if (/https?:\/\//i.test(read('207-css-bootstrap-lokalnie/index.html'))) failures.push('207-css-bootstrap-lokalnie: nie używaj CDN');
+
+requirePattern('303-javascript-klasy-i-theme/app.js', /classList\.toggle/, 'brak przełączania klas');
+requirePattern('312-javascript-timer/app.js', /setInterval|clearInterval/, 'brak timera');
+requirePattern('313-canvas-podstawy/app.js', /getContext\(['"]2d['"]\)/, 'brak Canvas 2D');
+requirePattern('314-canvas-hud-gra/app.js', /requestAnimationFrame/, 'brak pętli animacji');
+requirePattern('314-canvas-hud-gra/style.css', /position:\s*absolute/, 'brak absolutnego HUD');
+
+requirePattern('401-php-podstawy/index.php', /<\?php[\s\S]*\$[a-z_]+/i, 'brak podstawowej składni PHP');
+requirePattern('402-php-czytanie-bazy/index.php', /SELECT\s+id/i, 'brak SELECT');
+requirePattern('404-php-insert/index.php', /INSERT\s+INTO/i, 'brak INSERT');
+requirePattern('405-php-filtrowanie/index.php', /LIKE\s+\?/i, 'brak bezpiecznego LIKE');
+requirePattern('406-php-update/index.php', /UPDATE\s+offers/i, 'brak UPDATE');
+requirePattern('407-php-delete/index.php', /DELETE\s+FROM/i, 'brak DELETE');
+requirePattern('408-php-json-dodatek/api.php', /Content-Type:\s*application\/json/i, 'brak nagłówka JSON');
+requirePattern('408-php-json-dodatek/app.js', /fetch\s*\(/, 'brak fetch');
+
+requirePattern('README.md', /INF\.03/i, 'brak kontekstu INF.03');
+requirePattern('README.md', /JSON/i, 'brak opisu JSON');
+requirePattern('docs/plan-nauki-inf03-inf04.md', /101[–-]106/, 'plan nauki nie wskazuje rozszerzonego HTML');
+requirePattern('901-generator-zadan/app.js', /313-canvas-podstawy|314-canvas-hud-gra/, 'generator nie wskazuje nowych lekcji Canvas');
+
+function checkLocalLinks(relativeFiles) {
+    const linkPattern = /(?:href|src)=["']([^"']+)["']|\]\(([^)]+)\)/g;
+    for (const source of relativeFiles) {
+        const content = read(source);
+        for (const match of content.matchAll(linkPattern)) {
+            const target = (match[1] || match[2] || '').split('#')[0].split('?')[0].trim();
+            if (!target || target === '...' || target.startsWith('#') || /^(?:https?:|mailto:|javascript:|data:)/i.test(target)) continue;
+            const candidate = path(target.startsWith('/') ? target.slice(1) : join(source, '..', target));
+            const candidates = [
+                candidate,
+                join(candidate, 'index.html'),
+                join(candidate, 'index.php'),
+                join(candidate, 'README.md'),
+            ];
+            if (!candidates.some((item) => existsSync(item))) {
+                failures.push(`${source}: niedziałający lokalny odnośnik ${target}`);
+            }
         }
     }
 }
 
-requirePattern(
-    '02-html-formularz/index.html',
-    /<label\s+for="[^"]+"/i,
-    'formularz potrzebuje etykiety powiązanej z polem',
-);
-requirePattern(
-    '03-php-podstawy/index.php',
-    /<\?php[\s\S]*\$[a-z_]+/i,
-    'brak podstawowej składni PHP',
-);
-
-const flexboxSandboxCss = read('07-flexbox-sandbox/style.css');
-for (const declaration of [
-    'display: flex',
-    'flex-direction:',
-    'justify-content:',
-    'align-items:',
-    'gap:',
-    'flex-grow:',
-]) {
-    if (!flexboxSandboxCss.includes(declaration)) {
-        failures.push(
-            `07-flexbox-sandbox/style.css: brak przykładu ${declaration}`,
-        );
-    }
-}
-
-requirePattern(
-    '08-flexbox-wlasny-layout/style.css',
-    /display:\s*flex/i,
-    'własny layout powinien używać Flexboxa',
-);
-requirePattern(
-    '08-flexbox-wlasny-layout/index.html',
-    /<nav[\s>]/i,
-    'własny layout powinien zawierać nawigację',
-);
-
-const advancedFlexCss = read('09-flexbox-wiecej-mozliwosci/style.css');
-for (const declaration of [
-    'flex-wrap:',
-    'flex-basis:',
-    'align-self:',
-    'order:',
-]) {
-    if (!advancedFlexCss.includes(declaration)) {
-        failures.push(
-            `09-flexbox-wiecej-mozliwosci/style.css: brak przykładu ${declaration}`,
-        );
-    }
-}
-
-const basicsJs = read('10-javascript-podstawy/app.js');
-for (const syntax of ['const ', 'let ', 'console.log(']) {
-    if (!basicsJs.includes(syntax)) {
-        failures.push(
-            `10-javascript-podstawy/app.js: brak przykładu ${syntax.trim()}`,
-        );
-    }
-}
-
-const domJs = read('11-javascript-dom-i-formularz/app.js');
-for (const browserApi of [
-    'querySelector(',
-    'addEventListener(',
-    'preventDefault(',
-    '.textContent',
-]) {
-    if (!domJs.includes(browserApi)) {
-        failures.push(
-            `11-javascript-dom-i-formularz/app.js: brak przykładu ${browserApi}`,
-        );
-    }
-}
-
-requirePattern(
-    '12-bootstrap-lokalnie/index.html',
-    /href="\.\.\/assets\/bootstrap\/bootstrap\.min\.css"/i,
-    'Bootstrap powinien być dołączony z lokalnego pliku',
-);
-if (/https?:\/\//i.test(read('12-bootstrap-lokalnie/index.html'))) {
-    failures.push(
-        '12-bootstrap-lokalnie/index.html: przykład nie powinien zależeć od CDN',
-    );
-}
-
-for (const page of [
-    '04-php-lista-z-bazy/index.php',
-    '06-php-json-do-javascriptu/api.php',
-]) {
-    requirePattern(page, /mysqli_connect\s*\(/, 'brak połączenia mysqli');
-    requirePattern(page, /mysqli_query\s*\(/, 'brak zapytania mysqli');
-    requirePattern(page, /mysqli_fetch_assoc\s*\(/, 'brak pobierania rekordów');
-    requirePattern(page, /mysqli_close\s*\(/, 'brak zamknięcia połączenia');
-}
-
-const formPhp = read('05-php-formularz-i-select/index.php');
-for (const functionName of [
-    'mysqli_prepare',
-    'mysqli_stmt_bind_param',
-    'mysqli_stmt_execute',
-    'mysqli_stmt_get_result',
-]) {
-    if (!formPhp.includes(`${functionName}(`)) {
-        failures.push(
-            `05-php-formularz-i-select/index.php: brak ${functionName}`,
-        );
-    }
-}
-if (!formPhp.includes('htmlspecialchars(')) {
-    failures.push('05-php-formularz-i-select/index.php: brak kodowania HTML');
-}
-
-requirePattern(
-    '06-php-json-do-javascriptu/api.php',
-    /Content-Type:\s*application\/json;\s*charset=utf-8/i,
-    'brak nagłówka JSON UTF-8',
-);
-requirePattern(
-    '06-php-json-do-javascriptu/api.php',
-    /json_encode\s*\(/,
-    'brak json_encode',
-);
-requirePattern(
-    '06-php-json-do-javascriptu/app.js',
-    /fetch\s*\(\s*['"]api\.php['"]\s*\)/,
-    'brak pobierania api.php',
-);
-requirePattern(
-    '06-php-json-do-javascriptu/app.js',
-    /\.textContent\s*=/,
-    'dane powinny trafiać do textContent',
-);
-if (/\.innerHTML\s*=/.test(read('06-php-json-do-javascriptu/app.js'))) {
-    failures.push(
-        '06-php-json-do-javascriptu/app.js: nie używaj innerHTML dla danych z API',
-    );
-}
-
-requirePattern(
-    'database/web_grounding.sql',
-    /CREATE\s+DATABASE\s+IF\s+NOT\s+EXISTS\s+web_grounding/i,
-    'brak tworzenia bazy web_grounding',
-);
-requirePattern('README.md', /INF\.03/i, 'brak kontekstu INF.03');
-requirePattern(
+checkLocalLinks([
     'README.md',
-    /JSON[\s\S]*(arkusz|egzamin)/i,
-    'brak ostrzeżenia egzaminacyjnego dla JSON',
-);
-
-// Follow local lesson links and assets: a green file inventory alone does not
-// prove that the learner can move to the next lesson.
-const documents = [
-    ...new Set([
-        ...requiredFiles.filter((file) => /\.(html|md)$/.test(file)),
-        '08-flexbox-wlasny-layout/README.md',
-        '09-flexbox-wiecej-mozliwosci/README.md',
+    'STUDENT_SETUP.md',
+    'docs/plan-nauki-inf03-inf04.md',
+    'docs/egzaminy-inf03-inf04.md',
+    'docs/inf03/README.md',
+    'docs/inf03/arkusze.md',
+    'docs/inf04/README.md',
+    'docs/inf04/arkusze.md',
+    ...[...htmlLessons, ...cssLessons, ...jsLessons, ...phpLessons].flatMap((lesson) => [
+        `${lesson}/index.html`,
+        `${lesson}/index.php`,
+        `${lesson}/README.md`,
     ]),
-];
-for (const document of documents) {
-    const content = read(document);
-    const pattern = document.endsWith('.html')
-        ? /(?:href|src)="([^"]+)"/g
-        : /\[[^\]]*\]\(([^)]+)\)/g;
-    for (const match of content.matchAll(pattern)) {
-        const target = match[1].split('#')[0];
-        if (!target || /^[a-z]+:/i.test(target)) continue;
-        const absolute = resolve(
-            root,
-            dirname(document),
-            decodeURIComponent(target),
-        );
-        if (!existsSync(absolute))
-            failures.push(document + ': brak lokalnego odnośnika ' + target);
-    }
-}
+    '901-generator-zadan/index.html',
+    '901-generator-zadan/README.md',
+    '902-przygotowanie-zadania/index.html',
+    '902-przygotowanie-zadania/README.md',
+]);
 
 if (failures.length > 0) {
-    console.error('FAIL: kontrakt kursu nie jest spełniony');
-    for (const failure of failures) console.error(`- ${failure}`);
-    process.exit(1);
+    console.error(failures.map((failure) => `FAIL: ${failure}`).join('\n'));
+    process.exitCode = 1;
+} else {
+    console.log(`PASS: kontrakt kursu (${htmlLessons.length + cssLessons.length + jsLessons.length + phpLessons.length} canonical lessons + aliases)`);
 }
-
-console.log(`PASS: kontrakt kursu (${requiredFiles.length} wymaganych plików)`);

@@ -1,0 +1,300 @@
+:root {
+    color: #172b3a;
+    background: #eef3f7;
+    font-family: system-ui, sans-serif;
+    line-height: 1.55;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.site-header,
+main,
+footer {
+    margin-block: 1rem;
+}
+
+.site-header {
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    border-radius: 0.75rem;
+    color: #fff;
+    background: #123b5d;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+h1 {
+    max-width: 18ch;
+    margin-block: 0.25rem 0.75rem;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+h2,
+h3 {
+    color: #123b5d;
+}
+
+.site-header h1,
+.site-header a {
+    color: #fff;
+}
+
+.eyebrow {
+    margin: 0;
+    color: #9ed8f0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.site-header nav,
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.site-header nav a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid #9ed8f0;
+    border-radius: 0.35rem;
+}
+
+.panel,
+.notice {
+    margin-block: 1rem;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    border: 1px solid #a7b7c4;
+    border-radius: 0.65rem;
+    background: #fff;
+}
+
+.notice {
+    border-left: 0.35rem solid #b85c00;
+    background: #fff9e8;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 1rem;
+}
+
+label {
+    display: grid;
+    gap: 0.35rem;
+    font-weight: 650;
+}
+
+input,
+select,
+button {
+    min-height: 2.75rem;
+    font: inherit;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.45rem 0.6rem;
+    border: 1px solid #657c8c;
+    border-radius: 0.3rem;
+    color: #172b3a;
+    background: #fff;
+}
+
+button {
+    padding: 0.5rem 0.9rem;
+    border: 2px solid #125d88;
+    border-radius: 0.35rem;
+    color: #fff;
+    background: #125d88;
+    cursor: pointer;
+}
+
+button.secondary {
+    border-color: #657c8c;
+    color: #17364a;
+    background: #fff;
+}
+
+button:hover {
+    filter: brightness(1.08);
+}
+
+:focus-visible {
+    outline: 3px solid #b85c00;
+    outline-offset: 3px;
+}
+
+.output-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.output-heading h2,
+.output-heading h3 {
+    margin-block: 0.25rem 0.5rem;
+}
+
+.status {
+    min-height: 1.5rem;
+    margin: 0;
+    color: #17613a;
+    font-weight: 700;
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+article {
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid #d0dbe2;
+    border-radius: 0.5rem;
+    background: #f8fbfd;
+}
+
+article h3 {
+    margin-top: 0;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.4rem 0.75rem;
+}
+
+.details dt {
+    color: #4e6675;
+    font-weight: 700;
+}
+
+.details dd {
+    margin: 0;
+}
+
+.checklist,
+.link-list {
+    display: grid;
+    gap: 0.55rem;
+    padding-left: 1.25rem;
+}
+
+.checklist label {
+    display: flex;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 0.5rem;
+    font-weight: 400;
+}
+
+.checklist input {
+    width: 1.25rem;
+    min-height: 1.25rem;
+    margin-top: 0.2rem;
+}
+
+.link-list a {
+    overflow-wrap: anywhere;
+    color: #084d85;
+}
+
+.muted {
+    color: #4e6675;
+}
+
+.diagram-section {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid #d0dbe2;
+}
+
+.flow-preview {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-block: 1rem;
+}
+
+.flow-node {
+    min-width: 8rem;
+    padding: 0.65rem 0.75rem;
+    border: 2px solid #2d769d;
+    border-radius: 0.5rem;
+    color: #123b5d;
+    background: #e8f5fb;
+    text-align: center;
+    font-weight: 700;
+}
+
+.flow-arrow {
+    color: #b85c00;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+pre {
+    max-height: 22rem;
+    overflow: auto;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    color: #e8f5fb;
+    background: #172b3a;
+}
+
+code {
+    overflow-wrap: anywhere;
+}
+
+footer {
+    color: #4e6675;
+    font-size: 0.95rem;
+}
+
+footer a {
+    color: #084d85;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 40rem) {
+    body {
+        padding: 0.65rem;
+    }
+
+    .details {
+        grid-template-columns: 1fr;
+        gap: 0.15rem;
+    }
+
+    .details dd {
+        margin-bottom: 0.4rem;
+    }
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML — tekst i listy</title>
+</head>
+<body>
+    <header>
+        <p><a href="../101-html-podstawy/">← Dokument HTML</a></p>
+        <h1>Tekst ma znaczenie</h1>
+        <p>Semantyczne elementy pomagają czytelnikowi i technologii asystującej.</p>
+    </header>
+
+    <main>
+        <article aria-labelledby="article-heading">
+            <h2 id="article-heading">Plan nauki</h2>
+            <p>Najpierw poznaj <strong>znaczenie</strong> treści, a potem jej wygląd.</p>
+            <p>Ważne słowo można zaznaczyć przez <em>nacisk</em>, a przykład kodu przez <code>querySelector()</code>.</p>
+            <div>
+                <p>Ten <span>span</span> grupuje krótki fragment tekstu, a <code>div</code> grupuje większy blok.</p>
+            </div>
+
+            <h3>Lista kroków</h3>
+            <ol>
+                <li>Przeczytaj polecenie.</li>
+                <li>Zbuduj strukturę HTML.</li>
+                <li>Sprawdź nagłówki i linki.</li>
+            </ol>
+
+            <h3>Co przećwiczyć?</h3>
+            <ul>
+                <li>akapity i wyróżnienia;</li>
+                <li>listy uporządkowane i nieuporządkowane;</li>
+                <li>grupowanie przez <code>div</code>.</li>
+            </ul>
+
+            <h3>Słownik</h3>
+            <dl>
+                <dt>HTML</dt>
+                <dd>Język opisujący strukturę dokumentu.</dd>
+                <dt>Element</dt>
+                <dd>Znacznik wraz z jego treścią i atrybutami.</dd>
+            </dl>
+
+            <blockquote>
+                Dobra struktura strony jest czytelna także bez arkusza stylów.
+            </blockquote>
+            <p><small>Ostatnia aktualizacja: <time datetime="2026-09-14">14 września 2026</time>.</small></p>
+        </article>
+    </main>
+
+    <footer>
+        <p><a href="../103-html-struktura-strony/">Następnie: struktura strony →</a></p>
+    </footer>
+</body>
+</html>

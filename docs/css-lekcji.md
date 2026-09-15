@@ -47,6 +47,20 @@ Arkusze są kopiami lokalnymi, aby każdą lekcję można było edytować osobno
 | text-align:left                               | Wyrównuje tekst komórek do lewej.                                                                                |
 | .grid > * {flex:1 1 16rem}                    | Bezpośrednie dzieci: grow=1, shrink=1, basis=16rem.                                                              |
 | [hidden] {display:none !important}            | Ukrywa elementy z atrybutem hidden nawet przy innych regułach display. !important zwiększa priorytet deklaracji. |
+| --ink: #172033; var(--ink)                    | Zmienna custom property i jej odczyt przez `var()`.                                                  |
+| background-color                               | Ustawia kolor tła; `color` dotyczy tekstu.                                                           |
+| box-shadow: 0 .25rem .75rem rgb(... / .2)     | Rysuje cień poza pudełkiem bez zmiany jego rozmiaru.                                                  |
+| display:grid                                  | Włącza układ w dwóch wymiarach dla bezpośrednich dzieci.                                               |
+| grid-template-columns: repeat(3, minmax(0,1fr)) | Trzy elastyczne kolumny; `fr` dzieli wolne miejsce, a `minmax` ustala minimum i maksimum.          |
+| grid-column: 1 / -1                          | Rozciąga element od pierwszej do ostatniej linii siatki.                                               |
+| flex-direction: row / column                 | Ustawia kierunek osi głównej Flexboxa.                                                               |
+| justify-content                               | Rozdziela wolne miejsce na osi głównej.                                                              |
+| align-items                                   | Wyrównuje dzieci wewnątrz każdej linii na osi poprzecznej.                                            |
+| align-content                                 | Rozmieszcza całe linie, gdy istnieje `flex-wrap` i wolne miejsce.                                     |
+| flex: 1 1 16rem                              | Skrót kolejno dla grow, shrink i basis.                                                              |
+| position: absolute; inset: 8px                | Nakłada element względem najbliższego rodzica z `position: relative`.                                |
+| z-index: 1; isolation:isolate                 | Warstwa HUD i lokalny kontekst stosu.                                                                |
+| aspect-ratio: 16 / 9                         | Zachowuje proporcje elementu przy zmianie szerokości.                                                 |
 
 ## Jak czytać skróty
 

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP API — dodawanie do bazy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="page-header">
+        <p><a href="../403-php-formularz-i-select/">← Lekcja 403: formularz i SELECT</a></p>
+        <h1>PHP API — dodawanie oferty do bazy</h1>
+        <p>
+            Formularz wysyła JSON metodą <code>POST</code>. PHP sprawdza dane,
+            wykonuje bezpieczny <code>INSERT</code> i odsyła nowy numer rekordu.
+        </p>
+    </header>
+
+    <main>
+        <section aria-labelledby="create-heading">
+            <h2 id="create-heading">1. Dodaj ofertę</h2>
+            <form id="offer-form">
+                <div class="field">
+                    <label for="title">Tytuł oferty</label>
+                    <input
+                        id="title"
+                        name="title"
+                        type="text"
+                        maxlength="100"
+                        autocomplete="off"
+                        required
+                    >
+                    <small>Maksymalnie 100 znaków — tak samo jak w tabeli SQL.</small>
+                </div>
+
+                <div class="field">
+                    <label for="price">Cena (zł)</label>
+                    <input
+                        id="price"
+                        name="price"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+                <label class="check-row" for="available">
+                    <input id="available" name="available" type="checkbox" checked>
+                    Oferta jest dostępna
+                </label>
+
+                <button type="submit">Dodaj do bazy</button>
+            </form>
+        </section>
+
+        <section aria-labelledby="list-heading">
+            <h2 id="list-heading">2. Sprawdź wynik</h2>
+            <button id="load-offers" type="button">Pobierz oferty</button>
+            <p id="status" role="status" aria-live="polite">
+                Dane nie zostały jeszcze pobrane.
+            </p>
+            <ul id="offers" aria-label="Oferty"></ul>
+        </section>
+
+        <section class="note" aria-labelledby="flow-heading">
+            <h2 id="flow-heading">Co dzieje się po kliknięciu?</h2>
+            <ol>
+                <li>JavaScript odczytuje pola formularza przez <code>FormData</code>.</li>
+                <li><code>fetch()</code> wysyła JSON do <code>api.php</code>.</li>
+                <li>PHP waliduje wartości i używa przygotowanego zapytania.</li>
+                <li>MySQL zapisuje rekord, a PHP zwraca status <code>201</code> i ID.</li>
+            </ol>
+        </section>
+    </main>
+</body>
+</html>

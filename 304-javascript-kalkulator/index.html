@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Kalkulator kosztu</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <p>Lekcja 304 · JavaScript 4/14</p>
+            <h1>Kalkulator kosztu</h1>
+            <p>
+                Wartość pola jest tekstem. Zamieniamy ją na liczbę, sprawdzamy i
+                przekazujemy do funkcji.
+            </p>
+            <nav aria-label="Lekcje">
+                <a href="../303-javascript-klasy-i-theme/index.html">
+                    ← Klasy i theme
+                </a>
+                <a href="../README.md">Mapa kursu</a>
+                <a href="../305-javascript-warunki/index.html">
+                    Warunki i kontrolki →
+                </a>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h2>Koszt biletów</h2>
+                <form id="calculator" novalidate>
+                    <label>
+                        Liczba osób
+                        <input
+                            id="people"
+                            type="number"
+                            min="1"
+                            step="1"
+                            required
+                        />
+                    </label>
+                    <label>
+                        Łączny koszt (zł)
+                        <input
+                            id="cost"
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            required
+                        />
+                    </label>
+                    <button>Oblicz koszt na osobę</button>
+                </form>
+                <p id="result" role="status">Wpisz dane.</p>
+            </section>
+            <section>
+                <h2>Twoja kolej</h2>
+                <p>Dodaj opłatę rezerwacyjną do całkowitego kosztu.</p>
+                <p>
+                    Pełne wyjaśnienia i kroki:
+                    <a href="README.md">README tej lekcji</a>
+                    .
+                </p>
+            </section>
+        </main>
+        <footer>
+            <nav aria-label="Lekcje">
+                <a href="../303-javascript-klasy-i-theme/index.html">
+                    ← Klasy i theme
+                </a>
+                <a href="../README.md">Mapa kursu</a>
+                <a href="../305-javascript-warunki/index.html">
+                    Warunki i kontrolki →
+                </a>
+            </nav>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Projekt pod INF.03</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <p>Etap JavaScript 11/14</p>
+            <h1>Projekt pod INF.03</h1>
+            <nav aria-label="Lekcje">
+                <a href="../310-javascript-zapis/index.html">
+                    ← Tekst, czas i zapis
+                </a>
+                <a href="../README.md">Mapa kursu</a>
+                <a href="../312-javascript-timer/index.html">Timer →</a>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h2>Studio Foto — cennik</h2>
+                <div class="grid">
+                    <article>
+                        <h3>Odbitka standard</h3>
+                        <p>2 zł / sztuka</p>
+                    </article>
+                    <article>
+                        <h3>Odbitka premium</h3>
+                        <p>4 zł / sztuka</p>
+                    </article>
+                </div>
+                <form id="order">
+                    <label>
+                        Liczba odbitek
+                        <input
+                            id="quantity"
+                            type="number"
+                            min="1"
+                            max="1000"
+                            step="1"
+                            value="10"
+                            required
+                        />
+                    </label>
+                    <label>
+                        Rodzaj
+                        <select id="kind">
+                            <option value="2">Standard</option>
+                            <option value="4">Premium</option>
+                        </select>
+                    </label>
+                    <label>
+                        <input id="delivery" type="checkbox" />
+                        Dostawa +12 zł
+                    </label>
+                    <button>Dodaj wycenę do zestawienia</button>
+                </form>
+                <p id="result" role="status"></p>
+            </section>
+            <section>
+                <h2>Galeria prac</h2>
+                <img
+                    id="photo"
+                    src="../assets/lessons/hills.svg"
+                    alt="Zielone wzgórza"
+                    width="640"
+                    height="360"
+                />
+                <button id="next">Następne zdjęcie</button>
+            </section>
+            <section>
+                <h2>Zestawienie wycen</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Liczba</th>
+                            <th>Cena jednostkowa</th>
+                            <th>Razem zł</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rows"></tbody>
+                </table>
+                <p id="total">Suma: 0.00 zł</p>
+                <button id="clear">Wyczyść zestawienie</button>
+            </section>
+            <section>
+                <h2>Ćwiczenia i objaśnienia</h2>
+                <p>
+                    <a href="README.md">Przejdź do instrukcji krok po kroku</a>
+                    .
+                </p>
+            </section>
+        </main>
+        <footer>
+            <nav aria-label="Lekcje">
+                <a href="../310-javascript-zapis/index.html">
+                    ← Tekst, czas i zapis
+                </a>
+                <a href="../README.md">Mapa kursu</a>
+                <a href="../312-javascript-timer/index.html">Timer →</a>
+            </nav>
+        </footer>
+    </body>
+</html>

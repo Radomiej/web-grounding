@@ -2,3 +2,23 @@
 .DS_Store
 Thumbs.db
 .test-results/
+
+# Duże archiwa egzaminacyjne (>5 MiB) zostają lokalnie, ale nie trafiają do Git.
+# Lżejsze pliki .zip/.7z pozostają możliwe do śledzenia. Przy nowych pobraniach
+# dodaj tutaj tylko archiwum przekraczające 5 MiB.
+docs/inf03/arkusze/inf03-2023-styczen-02/pliki.zip
+docs/inf03/arkusze/inf03-2024-czerwiec-06/pliki.zip
+docs/inf03/arkusze/inf03-2025-styczen-08/pliki.zip
+docs/inf03/arkusze/inf03-2025-styczen-08/pliki7.7z
+docs/inf03/rozwiazania/inf03-2024-czerwiec-06/rozwiazanie.zip
+docs/inf04/materialy/teb-2026-01-zad2.7z
+docs/inf04/rozwiazania-teb/INF.04-21.06/INF.04-01-21.06-SG/mobilna/mobilna.zip
+docs/inf04/rozwiazania-teb/INF.04-22.06/INF.04-01-22.06-SG/mobilna/mobilna.zip
+docs/inf04/rozwiazania-teb/INF.04-22.06/INF.04-02-22.06-SG/web/angular/web.7z
+docs/inf04/rozwiazania-teb/INF.04-22.06/INF.04-02-22.06-SG/web/react/web.7z
+docs/inf04/rozwiazania-teb/INF.04-23.01/INF.04-02-23.01-SG/mobilna/mobilna.zip
+docs/inf04/rozwiazania-teb/INF.04-23.06/INF.04-02-23.06-SG/mobilna/mobilna.zip
+docs/inf04/rozwiazania-teb/INF.04-23.06/INF.04-03-23.06-SG/web/angular/web.7z
+docs/inf04/rozwiazania-teb/INF.04-23.06/INF.04-03-23.06-SG/web/react/web.7z
+docs/inf04/rozwiazania-teb/INF.04-informator/konsola/wersja w C++20/konsola.7z
+docs/inf04/rozwiazania-teb/INF.04-informator/mobilna/mobilna.7z

@@ -1,0 +1,11 @@
+:root { font-family: system-ui, sans-serif; line-height: 1.5; color: #172033; background: #eef2f8; }
+* { box-sizing: border-box; }
+body { max-width: 48rem; margin: 0 auto; padding: 1rem; }
+header, main, footer { margin-block: 1rem; }
+.timer-card { padding: 1.25rem; border: 1px solid #9eabc2; border-radius: .75rem; background: #fff; }
+.display { font: 700 clamp(3rem, 12vw, 7rem)/1 system-ui, sans-serif; letter-spacing: .05em; }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+button { min-width: 6rem; min-height: 2.75rem; padding: .55rem .8rem; border: 2px solid #125d88; border-radius: .4rem; background: #125d88; color: #fff; font: inherit; cursor: pointer; }
+button:focus-visible { outline: 3px solid #c2410c; outline-offset: 3px; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+a { color: #0645ad; }

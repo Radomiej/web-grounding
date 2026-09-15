@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Warunki i kontrolki</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <p>Lekcja 305 · JavaScript 5/14</p>
+            <h1>Warunki i kontrolki</h1>
+            <p>
+                Wybór użytkownika zmienia cenę. Naucz się odróżniać value od
+                checked.
+            </p>
+            <nav aria-label="Lekcje">
+                <a href="../304-javascript-kalkulator/index.html">
+                    ← Kalkulator kosztu
+                </a>
+                <a href="../README.md">Mapa kursu</a>
+                <a href="../306-javascript-walidacja/index.html">
+                    Walidacja formularza →
+                </a>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h2>Wycena wydruku</h2>
+                <form id="quote">
+                    <label>
+                        Liczba stron
+                        <input
+                            id="pages"
+                            type="number"
+                            min="1"
+                            step="1"
+                            value="10"
+                            required
+                        />
+                    </label>
+                    <label>
+                        Papier
+                        <select id="paper">
+                            <option value="1">Zwykły — 1 zł</option>
+                            <option value="2">Premium — 2 zł</option>
+                        </select>
+                    </label>
+                    <fieldset>
+                        <legend>Tryb</legend>
+                        <label>
+                            <input type="radio" name="mode" value="1" checked />
+                            Czarno-biały
+                        </label>
+                        <label>
+                            <input type="radio" name="mode" value="2" />
+                            Kolor (×2)
+                        </label>
+                    </fieldset>
+                    <label>
+                        <input id="discount" type="checkbox" />
+                        Rabat uczniowski 10%
+                    </label>
+                    <button>Wyceń</button>
+                </form>
+                <p id="result" role="status"></p>
+            </section>
+            <section>
+                <h2>Twoja kolej</h2>
+                <p>Dodaj trzeci rodzaj papieru i próg darmowej dostawy.</p>
+                <p>
+                    Pełne wyjaśnienia i kroki:
+                    <a href="README.md">README tej lekcji</a>
+                    .
+                </p>
+            </section>
+        </main>
+        <footer>
+            <nav aria-label="Lekcje">
+                <a href="../304-javascript-kalkulator/index.html">
+                    ← Kalkulator kosztu
+                </a>
+                <a href="../README.md">Mapa kursu</a>
+                <a href="../306-javascript-walidacja/index.html">
+                    Walidacja formularza →
+                </a>
+            </nav>
+        </footer>
+    </body>
+</html>

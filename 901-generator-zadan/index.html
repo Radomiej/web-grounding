@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>901 · Generator lokalnych zadań INF.03/INF.04</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <p class="eyebrow">Lekcja 901 · seria 9xx</p>
+            <h1>Generator lokalnych zadań</h1>
+            <p>
+                Wybierz kwalifikację, obszar i poziom. Otrzymasz krótkie,
+                autorskie zadanie do wykonania offline, checklistę kryteriów
+                oraz diagram Mermaid opisujący przepływ pracy.
+            </p>
+            <nav aria-label="Nawigacja lekcji">
+                <a href="../README.md">Mapa kursu</a>
+                <a href="../902-przygotowanie-zadania/index.html">
+                    Jak przygotować własne zadanie →
+                </a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="notice" aria-label="Ważna informacja">
+                <strong>To jest wersja lokalna.</strong>
+                Generator nie kopiuje poufnych arkuszy ani nie zastępuje PDF-u
+                CKE. Traktuj wynik jako ćwiczenie; dokładne kryteria prawdziwego
+                arkusza sprawdzaj w
+                <a href="../docs/egzaminy-inf03-inf04.md">lokalnym indeksie</a>.
+            </section>
+
+            <form id="generator-form" class="panel">
+                <h2>1. Ustaw parametry</h2>
+                <div class="form-grid">
+                    <label>
+                        Kwalifikacja
+                        <select id="qualification" name="qualification">
+                            <option value="INF.03">INF.03 — strony i aplikacje</option>
+                            <option value="INF.04">INF.04 — aplikacje i OOP</option>
+                        </select>
+                    </label>
+                    <label>
+                        Obszar
+                        <select id="topic" name="topic"></select>
+                    </label>
+                    <label>
+                        Poziom
+                        <select id="level" name="level">
+                            <option value="start">Start — jedna umiejętność</option>
+                            <option value="standard" selected>Standard — kilka kryteriów</option>
+                            <option value="exam">Egzamin — pełny mini-arkusz</option>
+                        </select>
+                    </label>
+                    <label>
+                        Ziarno losowania (opcjonalnie)
+                        <input id="seed" name="seed" type="number" inputmode="numeric" placeholder="np. 2026" />
+                    </label>
+                </div>
+                <div class="actions">
+                    <button type="submit">Generuj zadanie</button>
+                    <button id="random-task" type="button" class="secondary">
+                        Losuj inne
+                    </button>
+                </div>
+            </form>
+
+            <section id="task-output" class="panel" hidden aria-labelledby="task-title">
+                <div class="output-heading">
+                    <div>
+                        <p id="task-meta" class="eyebrow"></p>
+                        <h2 id="task-title"></h2>
+                    </div>
+                    <p id="task-status" role="status" class="status"></p>
+                </div>
+
+                <div class="two-columns">
+                    <article>
+                        <h3>Jak przygotować</h3>
+                        <ol id="preparation"></ol>
+                    </article>
+                    <article>
+                        <h3>Zadanie</h3>
+                        <p id="brief"></p>
+                        <dl id="details" class="details"></dl>
+                    </article>
+                </div>
+
+                <div class="two-columns">
+                    <article>
+                        <h3>Kryteria zaliczenia</h3>
+                        <p class="muted">Zaznaczaj punkty podczas pracy.</p>
+                        <ul id="criteria" class="checklist"></ul>
+                    </article>
+                    <article>
+                        <h3>Materiały lokalne</h3>
+                        <ul id="materials" class="link-list"></ul>
+                        <p class="muted">
+                            Paczki z rozwiązaniami otwieraj dopiero po własnej
+                            próbie.
+                        </p>
+                    </article>
+                </div>
+
+                <section class="diagram-section" aria-labelledby="diagram-title">
+                    <div class="output-heading">
+                        <div>
+                            <h3 id="diagram-title">Diagram przebiegu</h3>
+                            <p class="muted">
+                                Najpierw prosty podgląd, niżej kod Mermaid do
+                                skopiowania do dokumentacji.
+                            </p>
+                        </div>
+                        <button id="copy-mermaid" type="button" class="secondary">
+                            Kopiuj Mermaid
+                        </button>
+                    </div>
+                    <div id="flow-preview" class="flow-preview" aria-label="Podgląd przepływu zadania"></div>
+                    <pre id="mermaid-code" tabindex="0"><code></code></pre>
+                </section>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                Seria 9xx tworzy lokalne zadania treningowe. Źródła prawdziwych
+                arkuszy: <a href="../docs/egzaminy-inf03-inf04.md">indeks INF.03/INF.04</a>.
+            </p>
+        </footer>
+    </body>
+</html>

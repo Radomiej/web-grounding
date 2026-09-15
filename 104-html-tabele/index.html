@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czysty HTML — tabele</title>
+</head>
+<body>
+    <header>
+        <p><a href="../103-html-struktura-strony/">← Struktura strony</a></p>
+        <h1>Tabele danych bez CSS</h1>
+    </header>
+
+    <main>
+        <section aria-labelledby="schedule-heading">
+            <h2 id="schedule-heading">Plan zajęć</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Temat</th>
+                        <th scope="col">Czas</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>HTML</td><td>45 minut</td><td>gotowe</td></tr>
+                    <tr><td>CSS</td><td>60 minut</td><td>w toku</td></tr>
+                    <tr><td>JavaScript</td><td>90 minut</td><td>planowane</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr><th scope="row">Razem</th><td>195 minut</td><td>—</td></tr>
+                </tfoot>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p><a href="../105-html-formularze/">Następnie: formularze →</a></p>
+    </footer>
+</body>
+</html>

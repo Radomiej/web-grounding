@@ -1,10 +1,14 @@
 # Uruchomienie kursu — instrukcja ucznia
 
-Lekcje `01`, `02` oraz `07–22` są statyczne i nie wymagają PHP ani bazy. Możesz otworzyć ich `index.html` bezpośrednio w przeglądarce. XAMPP jest potrzebny dopiero do opcjonalnych lekcji `03–06`.
+Lekcje `101–312` są statyczne i nie wymagają PHP ani bazy. Możesz otworzyć ich
+`index.html` bezpośrednio w przeglądarce. XAMPP jest potrzebny dopiero do
+lekcji PHP `401–408`.
 
 ## 1. Najprostszy start bez PHP
 
-Otwórz `01-html-podstawy/index.html`, a następnie wybierz frontendową kolejność opisaną w głównym README. Nie usuwaj katalogu `assets`, ponieważ zawiera lokalny Bootstrap oraz grafiki galerii i Canvas.
+Otwórz `101-html-podstawy/index.html`, a następnie wybierz kolejność opisaną w
+głównym README. Nie usuwaj katalogu `assets`, ponieważ zawiera lokalny
+Bootstrap oraz grafiki galerii i Canvas.
 
 ## 2. Skopiuj projekt do XAMPP, jeżeli uczysz się PHP
 
@@ -37,25 +41,40 @@ Ponowny import usuwa i odtwarza tylko dwie szkoleniowe tabele w bazie `web_groun
 
 ## 5. Otwieraj ćwiczenia
 
-### Ścieżka frontendowa
+### Seria 1xx–3xx: HTML, CSS i JavaScript
 
-- [http://localhost/web-grounding/01-html-podstawy/](http://localhost/web-grounding/01-html-podstawy/)
-- [http://localhost/web-grounding/02-html-formularz/](http://localhost/web-grounding/02-html-formularz/)
-- [http://localhost/web-grounding/07-flexbox-sandbox/](http://localhost/web-grounding/07-flexbox-sandbox/)
-- [http://localhost/web-grounding/08-flexbox-wlasny-layout/](http://localhost/web-grounding/08-flexbox-wlasny-layout/)
-- [http://localhost/web-grounding/09-flexbox-wiecej-mozliwosci/](http://localhost/web-grounding/09-flexbox-wiecej-mozliwosci/)
-- [http://localhost/web-grounding/10-javascript-podstawy/](http://localhost/web-grounding/10-javascript-podstawy/)
-- [http://localhost/web-grounding/11-javascript-dom-i-formularz/](http://localhost/web-grounding/11-javascript-dom-i-formularz/)
-- [http://localhost/web-grounding/12-bootstrap-lokalnie/](http://localhost/web-grounding/12-bootstrap-lokalnie/)
+- [http://localhost/web-grounding/101-html-podstawy/](http://localhost/web-grounding/101-html-podstawy/)
+- [http://localhost/web-grounding/102-html-tekst-i-listy/](http://localhost/web-grounding/102-html-tekst-i-listy/)
+- [http://localhost/web-grounding/103-html-struktura-strony/](http://localhost/web-grounding/103-html-struktura-strony/)
+- [http://localhost/web-grounding/104-html-tabele/](http://localhost/web-grounding/104-html-tabele/)
+- [http://localhost/web-grounding/105-html-formularze/](http://localhost/web-grounding/105-html-formularze/)
+- [http://localhost/web-grounding/106-html-media-i-dostepnosc/](http://localhost/web-grounding/106-html-media-i-dostepnosc/)
+- [http://localhost/web-grounding/201-css-podstawy/](http://localhost/web-grounding/201-css-podstawy/)
+- [http://localhost/web-grounding/202-css-flexbox-sandbox/](http://localhost/web-grounding/202-css-flexbox-sandbox/)
+- [http://localhost/web-grounding/203-css-flexbox-wlasny-layout/](http://localhost/web-grounding/203-css-flexbox-wlasny-layout/)
+- [http://localhost/web-grounding/204-css-flexbox-wiecej-mozliwosci/](http://localhost/web-grounding/204-css-flexbox-wiecej-mozliwosci/)
+- [http://localhost/web-grounding/205-css-grid/](http://localhost/web-grounding/205-css-grid/)
+- [http://localhost/web-grounding/206-css-komponenty/](http://localhost/web-grounding/206-css-komponenty/)
+- [http://localhost/web-grounding/207-css-bootstrap-lokalnie/](http://localhost/web-grounding/207-css-bootstrap-lokalnie/)
+- [http://localhost/web-grounding/301-javascript-podstawy/](http://localhost/web-grounding/301-javascript-podstawy/)
+- [http://localhost/web-grounding/302-javascript-dom-i-formularz/](http://localhost/web-grounding/302-javascript-dom-i-formularz/)
+- [http://localhost/web-grounding/303-javascript-klasy-i-theme/](http://localhost/web-grounding/303-javascript-klasy-i-theme/)
+- [http://localhost/web-grounding/311-javascript-projekt-inf03/](http://localhost/web-grounding/311-javascript-projekt-inf03/)
+- [http://localhost/web-grounding/312-javascript-timer/](http://localhost/web-grounding/312-javascript-timer/)
+- [http://localhost/web-grounding/313-canvas-podstawy/](http://localhost/web-grounding/313-canvas-podstawy/)
+- [http://localhost/web-grounding/314-canvas-hud-gra/](http://localhost/web-grounding/314-canvas-hud-gra/)
+- Pozostałe lekcje serii `3xx` są wymienione w [README](README.md).
 
-### Opcjonalna ścieżka PHP
+### Seria 4xx: PHP, MySQL i API
 
-- [http://localhost/web-grounding/01-html-podstawy/](http://localhost/web-grounding/01-html-podstawy/)
-- [http://localhost/web-grounding/02-html-formularz/](http://localhost/web-grounding/02-html-formularz/)
-- [http://localhost/web-grounding/03-php-podstawy/](http://localhost/web-grounding/03-php-podstawy/)
-- [http://localhost/web-grounding/04-php-lista-z-bazy/](http://localhost/web-grounding/04-php-lista-z-bazy/)
-- [http://localhost/web-grounding/05-php-formularz-i-select/](http://localhost/web-grounding/05-php-formularz-i-select/)
-- [http://localhost/web-grounding/06-php-json-do-javascriptu/](http://localhost/web-grounding/06-php-json-do-javascriptu/)
+- [http://localhost/web-grounding/401-php-podstawy/](http://localhost/web-grounding/401-php-podstawy/)
+- [http://localhost/web-grounding/402-php-czytanie-bazy/](http://localhost/web-grounding/402-php-czytanie-bazy/)
+- [http://localhost/web-grounding/403-php-formularz-i-select/](http://localhost/web-grounding/403-php-formularz-i-select/)
+- [http://localhost/web-grounding/404-php-insert/](http://localhost/web-grounding/404-php-insert/)
+- [http://localhost/web-grounding/405-php-filtrowanie/](http://localhost/web-grounding/405-php-filtrowanie/)
+- [http://localhost/web-grounding/406-php-update/](http://localhost/web-grounding/406-php-update/)
+- [http://localhost/web-grounding/407-php-delete/](http://localhost/web-grounding/407-php-delete/)
+- [http://localhost/web-grounding/408-php-json-dodatek/](http://localhost/web-grounding/408-php-json-dodatek/)
 
 ## 6. Co uczeń powinien umieć wskazać
 
@@ -66,7 +85,10 @@ W przykładach PHP znajdź:
 3. wynik zwrócony przez `mysqli_query`,
 4. pętlę pobierającą kolejne rekordy,
 5. miejsce, w którym dane trafiają do HTML albo JSON,
-6. zamknięcie połączenia.
+6. zamknięcie połączenia i obsługę błędu HTTP,
+7. różnicę między `GET`, `POST`, `PUT` i `DELETE` w API,
+8. `mysqli_prepare`, `mysqli_stmt_bind_param` i `mysqli_stmt_execute` w lekcjach `403` oraz `405–408`,
+9. walidację danych przed `INSERT`, `UPDATE` albo `DELETE` i kod `404` dla nieistniejącego rekordu.
 
 ## Typowe błędy
 
@@ -76,7 +98,7 @@ W przykładach PHP znajdź:
 - **Unknown database `web_grounding`** — dump SQL nie został zaimportowany.
 - **Access denied for user `root`** — lokalny MySQL ma inne hasło; zmień piąty argument `mysqli_connect` w przykładzie.
 - **Apache nie startuje** — port 80 jest zajęty. Sprawdź komunikat XAMPP i użyj skonfigurowanego portu, np. `http://localhost:8080/...`.
-- **Projekt 06 pokazuje błąd** — otwórz najpierw `api.php` w przeglądarce i sprawdź zwrócony JSON.
+- **Projekt 404–408 pokazuje błąd** — otwórz najpierw `api.php` w przeglądarce i sprawdź zwrócony JSON.
 
 ## Reguła egzaminacyjna
 
@@ -84,8 +106,8 @@ Najpierw realizuj dosłownie wymaganie arkusza. Jeśli skrypt PHP ma „wyświet
 
 ## Nowa progresja JavaScript
 
-Po 10 i 11 przejdź kolejno przez 13–22 według [mapy kursu](README.md). Bootstrap 12 pozostaje dodatkiem. Otwieraj index.html wybranej lekcji; nie potrzebujesz npm ani XAMPP.
+Po 301 i 302 przejdź kolejno przez 303–312 według [mapy kursu](README.md). Bootstrap 205 pozostaje dodatkiem. Otwieraj index.html wybranej lekcji; nie potrzebujesz npm ani XAMPP.
 
-W 07 generator pozwala pobrać layout.html. Gdy kopiowanie jest zablokowane, zaznaczony kod skopiuj Ctrl+C. W 19 zapis localStorage przy file:// zależy od przeglądarki; lekcja obsługuje brak dostępu. Aby mieć stabilne pochodzenie zapisu, możesz użyć lokalnego serwera, np. Live Server w edytorze albo Apache XAMPP.
+W 202 generator pozwala pobrać layout.html. Gdy kopiowanie jest zablokowane, zaznaczony kod skopiuj Ctrl+C. W 309 zapis localStorage przy file:// zależy od przeglądarki; lekcja obsługuje brak dostępu. Aby mieć stabilne pochodzenie zapisu, możesz użyć lokalnego serwera, np. Live Server w edytorze albo Apache XAMPP.
 
-W 20 zacznij od start/index.html. W 22 steruj strzałkami lub WASD po skupieniu sceny; na telefonie użyj przycisków. HUD jest HTML-em nałożonym na Canvas przez position:absolute.
+W 310 zacznij od start/index.html. W 312 steruj strzałkami lub WASD po skupieniu sceny; na telefonie użyj przycisków. HUD jest HTML-em nałożonym na Canvas przez position:absolute.

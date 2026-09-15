@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czysty HTML — tabela i formularz</title>
+</head>
+<body>
+    <header>
+        <p><a href="../101-html-podstawy/">← HTML od podstaw</a></p>
+        <h1>Tabela i formularz bez CSS</h1>
+    </header>
+
+    <main>
+        <section aria-labelledby="schedule-heading">
+            <h2 id="schedule-heading">Plan zajęć</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Temat</th>
+                        <th scope="col">Czas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>HTML</td><td>45 minut</td></tr>
+                    <tr><td>CSS</td><td>60 minut</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section aria-labelledby="signup-heading">
+            <h2 id="signup-heading">Zapis na zajęcia</h2>
+            <form action="#" method="get">
+                <label for="student-name">Imię</label>
+                <input id="student-name" name="name" required>
+
+                <label for="topic">Wybierz temat</label>
+                <select id="topic" name="topic">
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                </select>
+
+                <button type="submit">Zapisz</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Seria 1xx — HTML; wygląd zmienimy w serii 2xx.</p>
+    </footer>
+</body>
+</html>

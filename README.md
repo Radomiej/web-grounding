@@ -1,133 +1,133 @@
 # web-grounding
 
-Prosty kurs HTML, CSS, Flexbox, JavaScript, lokalnego Bootstrapa oraz opcjonalnego PHP przed egzaminem INF.03. Każdy przykład jest osobnym, małym folderem. Statyczne lekcje można otwierać bez PHP, a całość można skopiować do `C:\xampp\htdocs\web-grounding`.
+Lokalny kurs HTML, CSS, Flexbox, JavaScript/Canvas oraz PHP/MySQL przed
+egzaminem INF.03. Każda lekcja jest małym folderem z działającym przykładem,
+pełnym słownikiem składni i zadaniem wymagającym modyfikacji.
 
-Nie używamy Composera, npm, frameworka JavaScript ani ORM. Jedyną dołączoną biblioteką jest lokalny arkusz Bootstrap 5.3.8. Ścieżka PHP pokazuje przepływ:
-
-```text
-przeglądarka → PHP → MySQL/MariaDB → PHP → HTML lub JSON → przeglądarka
-```
-
-## Dwie ścieżki
-
-Każdy zaczyna od `01` i `02`. Potem można wybrać ścieżkę bez PHP albo ścieżkę bazodanową:
+Nie używamy Composera, npm, frameworka JavaScript ani ORM. Jedyną biblioteką
+jest lokalny Bootstrap 5.3.8. Statyczne lekcje działają bez PHP i internetu.
 
 ```text
-01 HTML → 02 formularz ─┬→ 07 Flexbox → 08 layout → 09 więcej Flexbox
-                        │                → 10–11 JS → 13–20 JS i projekt → 21 Canvas → 22 HUD
-                        │                (12 Bootstrap: osobny dodatek)
-                        └→ 03 PHP → 04 SELECT → 05 formularz/SELECT → 06 JSON/JS
+HTML → CSS raw → Flexbox/Grid → komponenty → Bootstrap lokalnie
+  └→ JavaScript DOM → klasy/theme → zapis → timer → Canvas → HUD/gra
+  └→ PHP składnia → SELECT → INSERT → filtry → UPDATE → DELETE → JSON
 ```
 
-### Ścieżka frontendowa — bez PHP
+## Mapa kursu
 
-| Folder                          | Temat                                         | Co powstaje                                    |
-| ------------------------------- | --------------------------------------------- | ---------------------------------------------- |
-| `01-html-podstawy`              | dokument HTML, sekcje, lista i odnośnik       | pierwsza strona                                |
-| `02-html-formularz`             | tabela, formularz, etykiety i podstawowy CSS  | formularz i tabela                             |
-| `07-flexbox-sandbox`            | main axis, cross axis, `gap`, `flex-grow`     | generator HTML/CSS, osie, wrap i edycja dzieci |
-| `08-flexbox-wlasny-layout`      | nagłówek, nawigacja, kolumny i karty          | własny prosty layout                           |
-| `09-flexbox-wiecej-mozliwosci`  | wrap, basis, grow, shrink, align-self i order | elastyczne karty                               |
-| `10-javascript-podstawy`        | zmienne, typy proste i operatory              | wyniki w konsoli                               |
-| `11-javascript-dom-i-formularz` | DOM, funkcja, zdarzenie submit i tekst        | formularz powitania                            |
-| `12-bootstrap-lokalnie`         | siatka, utilities, karty, alert i formularz   | strona z lokalnego CSS Bootstrap               |
+### Seria 1xx — czysty HTML
 
-### JavaScript z progresją — 12 etapów
+| Folder | Temat |
+| --- | --- |
+| `101-html-podstawy` | dokument, `lang`, `title`, metadane i landmarki |
+| `102-html-tekst-i-listy` | akapity, wyróżnienia, `div`, `span`, listy i definicje |
+| `103-html-struktura-strony` | `nav`, `section`, `article`, `aside`, `footer`, `address` |
+| `104-html-tabele` | `caption`, `thead`, `tbody`, `tfoot`, `scope` |
+| `105-html-formularze` | pola, etykiety, `fieldset`, `legend`, walidacja natywna |
+| `106-html-media-i-dostepnosc` | obrazy, podpisy, linki i `details/summary` |
 
-Kolejność: **10 → 11 → 13 → 14 → 15 → 16 → 17 → 18 → 19 → 20 → 21 → 22**. Lekcja 12 (Bootstrap) jest niezależnym dodatkiem.
+`102-html-formularz` pozostaje starą ścieżką zgodności.
 
-| Etap  | Lekcja                                                                   | Efekt                      |
-| ----- | ------------------------------------------------------------------------ | -------------------------- |
-| 1/12  | [10-javascript-podstawy](10-javascript-podstawy/README.md)               | Podstawy JavaScript        |
-| 2/12  | [11-javascript-dom-i-formularz](11-javascript-dom-i-formularz/README.md) | Pierwszy DOM i formularz   |
-| 3/12  | [13-javascript-kalkulator](13-javascript-kalkulator/README.md)           | Kalkulator kosztu          |
-| 4/12  | [14-javascript-warunki](14-javascript-warunki/README.md)                 | Warunki i kontrolki        |
-| 5/12  | [15-javascript-walidacja](15-javascript-walidacja/README.md)             | Walidacja formularza       |
-| 6/12  | [16-javascript-petle-tablice](16-javascript-petle-tablice/README.md)     | Pętle i tablice            |
-| 7/12  | [17-javascript-galeria](17-javascript-galeria/README.md)                 | Wygląd i galeria           |
-| 8/12  | [18-javascript-lista](18-javascript-lista/README.md)                     | Obiekty i dynamiczna lista |
-| 9/12  | [19-javascript-zapis](19-javascript-zapis/README.md)                     | Tekst, czas i zapis        |
-| 10/12 | [20-javascript-projekt-inf03](20-javascript-projekt-inf03/README.md)     | Projekt pod INF.03         |
-| 11/12 | [21-canvas-podstawy](21-canvas-podstawy/README.md)                       | Canvas 2D                  |
-| 12/12 | [22-canvas-hud](22-canvas-hud/README.md)                                 | Animacja i HUD HTML        |
+### Seria 2xx — CSS, Flexbox, Grid i komponenty
 
-Każda lekcja zawiera gotowy przykład, wymagania wstępne, instrukcję, słownik składni, częste błędy i ćwiczenie. W projekcie 20 zacznij od folderu start i dopiero po własnej próbie porównaj rozwiązanie. Canvas/HUD są rozszerzeniem po części egzaminacyjnej.
+| Folder | Temat |
+| --- | --- |
+| `201-css-podstawy` | kolory, typografia, jednostki, margin, padding, border, rounded |
+| `202-css-flexbox-sandbox` | main/cross axis, wrap, justify, align, gap, grow i eksport CSS |
+| `203-css-flexbox-wlasny-layout` | nawigacja, sidebar, karty, zagnieżdżanie |
+| `204-css-flexbox-wiecej-mozliwosci` | basis, grow, shrink, align-self, order |
+| `205-css-grid` | kolumny, wiersze, `minmax`, `fr`, `grid-column` |
+| `206-css-komponenty` | navbar, card, alert, formularz i footer w raw CSS |
+| `207-css-bootstrap-lokalnie` | lokalny Bootstrap bez CDN |
 
-Zakres podstaw JS, DOM, formularzy i zdarzeń odnosi się do [informatora CKE](https://bip.cke.gov.pl/attachments/download/8534). Ćwiczenie 20 jest autorskim zadaniem treningowym, nie oficjalnym arkuszem. PHP i baza pozostają potrzebne, gdy wymaga ich konkretne polecenie egzaminacyjne.
+`205-css-bootstrap-lokalnie` pozostaje starą ścieżką zgodności.
 
-Słownik powtarzających się deklaracji znajduje się w [docs/css-lekcji.md](docs/css-lekcji.md). README każdej lekcji objaśnia dodatkowy CSS i JavaScript.
+### Seria 3xx — JavaScript z progresją
 
-### Opcjonalna ścieżka PHP/MySQL
+| Folder | Temat |
+| --- | --- |
+| `301-javascript-podstawy` | składnia, typy, operatory i konsola |
+| `302-javascript-dom-i-formularz` | edycja tekstu, wartości i formularz |
+| `303-javascript-klasy-i-theme` | `classList`, motyw, klasy i ARIA |
+| `304-javascript-kalkulator` | dane wejściowe i obliczenia |
+| `305-javascript-warunki` | `if`, `switch`, checkbox i komunikaty |
+| `306-javascript-walidacja` | walidacja i komunikaty błędów |
+| `307-javascript-petle-tablice` | pętle, tablice, min/max i średnia |
+| `308-javascript-galeria` | tablica obiektów i lokalne obrazy |
+| `309-javascript-lista` | dynamiczne elementy, filtrowanie i usuwanie |
+| `310-javascript-zapis` | `localStorage` i JSON |
+| `311-javascript-projekt-inf03` | pełne zadanie integracyjne |
+| `312-javascript-timer` | start, pauza, reset, `setInterval` |
+| `313-canvas-podstawy` | rysowanie 2D, obrazy i skalowanie DPR |
+| `314-canvas-hud-gra` | `position:absolute`, HUD, animacja i gra |
 
-| Folder                       | Temat                                              | Baza danych |
-| ---------------------------- | -------------------------------------------------- | ----------- |
-| `03-php-podstawy`            | PHP w HTML, zmienne, warunek i pętla               | nie         |
-| `04-php-lista-z-bazy`        | połączenie, `SELECT` i tabela generowana przez PHP | `offers`    |
-| `05-php-formularz-i-select`  | `POST` i filtrowanie przygotowanym zapytaniem      | `places`    |
-| `06-php-json-do-javascriptu` | PHP zwracający JSON i JavaScript z `fetch()`       | `offers`    |
+Dawne foldery o numerach `303–312` (np. `303-javascript-kalkulator` i
+`311-canvas-podstawy`) pozostają ścieżkami zgodności; nowa progresja używa
+`303-javascript-klasy-i-theme` oraz kolejnych nazw opisanych w tabeli.
 
-Zacznij od [STUDENT_SETUP.md](STUDENT_SETUP.md). Dump bazy dla ścieżki PHP znajduje się w [database/web_grounding.sql](database/web_grounding.sql).
+### Seria 4xx — PHP/MySQL
 
-## Jak korzystać z README lekcji
+| Folder | Temat |
+| --- | --- |
+| `401-php-podstawy` | zmienne, warunki, pętle i bezpieczny output |
+| `402-php-czytanie-bazy` | `mysqli`, `SELECT`, tabela i obsługa pustej bazy |
+| `403-php-formularz-i-select` | `POST`, filtry i prepared `SELECT` |
+| `404-php-insert` | walidacja i prepared `INSERT` |
+| `405-php-filtrowanie` | `GET`, `LIKE`, sortowanie i pusty wynik |
+| `406-php-update` | prepared `UPDATE` i `affected_rows` |
+| `407-php-delete` | prepared `DELETE`, ID i potwierdzenie |
+| `408-php-json-dodatek` | JSON, `fetch` i błędy HTTP jako dodatek |
 
-Każdy folder ma własny `README.md` zawierający:
+Stare foldery `402-php-lista-z-bazy` i `404–408` pozostają ścieżkami zgodności.
+Schemat znajduje się w [database/web_grounding.sql](database/web_grounding.sql).
 
-- cele lekcji;
-- opis użytych elementów i atrybutów HTML;
-- opis właściwości oraz wartości CSS;
-- opis konstrukcji JavaScript i PHP, jeżeli występują;
-- listę bibliotek albo jawną informację, że biblioteki nie są używane;
-- zadanie do samodzielnego wykonania.
+Ścieżka PHP działa lokalnie przez XAMPP:
 
-Wartości takie jak `1rem`, `#ffffff`, `flex-start` czy `space-between` są opisane przy lekcji, w której występują. Powtarzające się podstawy mogą odsyłać do wcześniejszego wyjaśnienia, ale nowe zapisy nie powinny pozostać bez opisu.
+```text
+przeglądarka → PHP → MySQL/MariaDB → PHP → HTML albo JSON
+```
+
+## Zadania i dokumentacja
+
+Każdy README opisuje dokładnie elementy HTML, właściwości i wartości CSS,
+API JavaScript, składnię PHP/SQL oraz biblioteki. Zadania zawierają starter,
+minimum trzy konkretne modyfikacje, kryteria zaliczenia i przypadki błędne.
+
+Seria `9xx` generuje lokalne zadania INF.03/INF.04:
+
+- [901-generator-zadan](901-generator-zadan/README.md) — wybór obszaru i poziomu;
+- [902-przygotowanie-zadania](902-przygotowanie-zadania/README.md) — mini-arkusz z kryteriami i Mermaid.
+
+Materiały egzaminacyjne i lista zagadnień:
+
+- [indeks arkuszy INF.03/INF.04](docs/egzaminy-inf03-inf04.md);
+- [plan nauki](docs/plan-nauki-inf03-inf04.md).
+
+Duże archiwa pozostają lokalne zgodnie z [.gitignore](.gitignore); do repozytorium
+trafiają tylko lekkie paczki.
 
 ## Lokalny Bootstrap
 
-Lekcja `12` korzysta z pliku `assets/bootstrap/bootstrap.min.css`. To oficjalny Bootstrap 5.3.8, a jego licencja MIT znajduje się w `assets/bootstrap/LICENSE`. Strona nie pobiera CSS z CDN i po skopiowaniu projektu działa bez internetu.
+`207-css-bootstrap-lokalnie` dołącza `assets/bootstrap/bootstrap.min.css`.
+Nie ma CDN, więc ćwiczenie działa po odłączeniu internetu. Licencja MIT znajduje
+się w `assets/bootstrap/LICENSE`.
 
-## Najważniejsze symbole PHP
+## Uruchomienie
 
-| Zapis               | Znaczenie                                                |
-| ------------------- | -------------------------------------------------------- |
-| `<?php ... ?>`      | fragment wykonywany przez PHP                            |
-| `$name`             | zmienna; każda zmienna PHP zaczyna się od `$`            |
-| `.`                 | łączenie tekstów, np. `'Cześć ' . $name`                 |
-| `$row['title']`     | wartość `title` w tablicy `$row`                         |
-| `$object->method()` | wywołanie metody obiektu; `->` czytamy „na tym obiekcie” |
-| `'key' => 'value'`  | przypisanie wartości do klucza tablicy                   |
-| `===`               | porównanie wartości i typu                               |
+Statyczne strony można otworzyć przez `index.html` albo lokalny serwer HTTP.
+Lekcje PHP skopiuj do `C:\xampp\htdocs\web-grounding`, uruchom Apache i MySQL,
+a następnie zaimportuj `database/web_grounding.sql`.
 
-W ćwiczeniach bazodanowych używamy proceduralnego `mysqli`, dlatego zamiast:
-
-```php
-$connection->query($sql);
-```
-
-zapisujemy:
-
-```php
-mysqli_query($connection, $sql);
-```
-
-## PHP, JSON i egzamin INF.03
-
-Projekt `06` jest poprawnym technicznie mostem: PHP pobiera dane z bazy i zwraca JSON, a JavaScript buduje widok. Na egzaminie należy jednak dokładnie czytać arkusz. Jeżeli polecenie mówi, że **skrypt PHP wyświetla rekordy** w tabeli, liście albo panelu, bezpieczniej zastosować wariant z `04` lub `05`, gdzie HTML powstaje po stronie PHP. Działający JSON nie gwarantuje punktów za kryterium przypisane bezpośrednio skryptowi PHP.
-
-## Granica bezpieczeństwa
-
-Połączenie `root` bez hasła jest typowym uproszczeniem lokalnego XAMPP i stanowiska egzaminacyjnego. Nie jest wzorcem do publikowania aplikacji w internecie.
-
-## Sprawdzenie materiałów
-
-Instrukcja instalacji zależności **wyłącznie dla autora testów**: [tests/README.md](tests/README.md). Uczeń nie potrzebuje npm.
-
-Uruchom z katalogu projektu:
+Testy autora:
 
 ```powershell
 node tests/validate-course.mjs
-node --check 06-php-json-do-javascriptu/app.js
-node --check 10-javascript-podstawy/app.js
-node --check 11-javascript-dom-i-formularz/app.js
-# Testy przeglądarkowe autora (wymagają Playwright w środowisku):
+node --check 303-javascript-klasy-i-theme/app.js
+node --check 312-javascript-timer/app.js
+node --check 313-canvas-podstawy/app.js
+node --check 314-canvas-hud-gra/app.js
 node tests/frontend-browser.cjs
 ```
+
+`node` i Playwright są potrzebne tylko autorowi testów. Uczeń potrzebuje
+przeglądarki, a dla serii 4xx lokalnego XAMPP.

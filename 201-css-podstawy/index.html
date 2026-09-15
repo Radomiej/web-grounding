@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS od podstaw</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <p><a href="../106-html-media-i-dostepnosc/">← Czysty HTML</a></p>
+        <h1>CSS nadaje strukturze wygląd</h1>
+        <p>Najpierw kolory i typografia, potem box model. Układy Grid i Flexbox są w kolejnych lekcjach.</p>
+    </header>
+
+    <main>
+        <section class="intro" aria-labelledby="intro-heading">
+            <h2 id="intro-heading">Reguła CSS</h2>
+            <p><code>selektor { właściwość: wartość; }</code></p>
+            <p class="accent-text">Zmień wartości w <code>style.css</code> i odśwież stronę.</p>
+        </section>
+
+        <section class="cards" aria-labelledby="cards-heading">
+            <h2 id="cards-heading">Trzy karty</h2>
+            <article class="card card-featured">
+                <h3>Kolor</h3>
+                <p>Własność <code>color</code> zmienia tekst, a <code>background</code> tło.</p>
+            </article>
+            <article class="card">
+                <h3>Odstęp</h3>
+                <p><code>padding</code> jest wewnątrz obramowania, a <code>margin</code> na zewnątrz.</p>
+            </article>
+            <article class="card">
+                <h3>Stan fokusu</h3>
+                <p><a href="../202-css-flexbox-sandbox/">Przejdź do sandboxa Flexbox</a>.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Seria 2xx — CSS i układ strony</p>
+    </footer>
+</body>
+</html>

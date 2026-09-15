@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Raw CSS — komponenty</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="site-header">
+            <a class="logo" href="#">Studio komponentów</a>
+            <nav aria-label="Główna nawigacja">
+                <ul>
+                    <li><a href="#aktualnosci">Karty</a></li>
+                    <li><a href="#formularz">Formularz</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="content">
+            <section
+                class="articles"
+                id="aktualnosci"
+                aria-labelledby="articles-title"
+            >
+                <h1 id="articles-title">Prosty układ strony</h1>
+                <p>
+                    Najpierw przeanalizuj gotowy wynik, a później odtwórz go
+                    według instrukcji w README.
+                </p>
+
+                <div class="cards">
+                    <article class="card">
+                        <h2>Pierwsza karta</h2>
+                        <p>
+                            Karty stoją obok siebie, dopóki mają wystarczająco
+                            dużo miejsca.
+                        </p>
+                        <a href="#">Czytaj więcej</a>
+                    </article>
+                    <article class="card">
+                        <h2>Druga karta</h2>
+                        <p>
+                            Na węższym ekranie elementy mogą przejść do
+                            kolejnego wiersza.
+                        </p>
+                        <a href="#">Czytaj więcej</a>
+                    </article>
+                </div>
+                <p class="alert" role="status"><strong>Info:</strong> To jest komponent alertu z raw CSS.</p>
+            </section>
+
+            <aside id="o-stronie" aria-labelledby="aside-title">
+                <h2 id="aside-title">Panel boczny</h2>
+                <p>
+                    Panel ma mniejszy udział w wolnej przestrzeni niż sekcja
+                    artykułów.
+                </p>
+            </aside>
+        </main>
+        <section class="form-panel" id="formularz" aria-labelledby="form-title">
+            <h2 id="form-title">Kontakt</h2>
+            <form>
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" required />
+                <label for="message">Wiadomość</label>
+                <textarea id="message" name="message" rows="3"></textarea>
+                <button type="submit">Wyślij</button>
+                <button type="button" disabled>Przycisk disabled</button>
+            </form>
+        </section>
+
+        <footer id="kontakt">
+            <p>Kontakt: uczen@example.test</p>
+        </footer>
+        <nav aria-label="Kolejność kursu">
+            <a href="../205-css-grid/index.html">← Poprzednia lekcja</a>
+            ·
+            <a href="README.md">Instrukcja</a>
+            ·
+            <a href="../207-css-bootstrap-lokalnie/index.html">
+                Następna lekcja →
+            </a>
+        </nav>
+    </body>
+</html>
