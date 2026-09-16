@@ -106,9 +106,12 @@ flowchart LR
 - Walidator wymusza także kolejność PHP osadzanego `401–407` przed API `408–412`
   w README, instrukcji ucznia i planie nauki oraz odrzuca pliki API w folderach
   osadzanych.
-- `node --check` — PASS: 18 plików JavaScript, w tym test autora.
+- `node --check` — PASS: 56 plików JavaScript, w tym test autora.
 - Chrome/local HTTP — PASS: sandbox Flexbox, porównanie 204, theme, timer, Canvas,
   HUD/gra, Bootstrap oraz statyczne strony 408/409 z nową nawigacją API.
+- Git delivery — PASS: `git push origin features/v2`, a następnie
+  `git ls-remote --heads origin features/v2` zwrócił
+  `e195398347b42d013db5830774c3732b5eed8483`.
 - `git diff --check` — brak błędów treści; Git zgłosił tylko ostrzeżenia LF/CRLF i brak dostępu do globalnego ignore.
 
 ## Caveats and inconclusive checks
@@ -116,9 +119,10 @@ flowchart LR
 - `node tests/frontend-browser.cjs` jest BLOCKED: moduł `playwright` nie jest zainstalowany (`MODULE_NOT_FOUND`).
 - `php -l` i żądania PHP są BLOCKED: brak `php.exe`, Apache i MySQL w środowisku wykonawczym.
 - Sprawdzenie Chrome było lokalne; nie jest dowodem wdrożenia, hostingu ani produkcji.
-- Wcześniejsza dostawa jest zapisana lokalnie w commitach `a1f7d5e` i `b0eb6d8`
-  na `features/v2`; rewizja numeracji PHP opisana tutaj pozostaje niezatwierdzona
-  w bieżącym drzewie roboczym.
+- Wcześniejsza dostawa jest zapisana w commitach `a1f7d5e` i `b0eb6d8`.
+  Rewizję numeracji PHP zapisano w `68cab8e`, a porządkowanie końców plików
+  w `e195398`; oba commity są na `features/v2`, a zdalny ref został sprawdzony
+  bezpośrednio.
 
 ## Remaining boundary and production closure
 
@@ -129,4 +133,5 @@ ID. W `401–407` trzeba sprawdzić wyrenderowany HTML, a w `408–412` odpowied
 JSON i kody HTTP. Opcjonalnie należy doinstalować zależności autora i uruchomić
 `node tests/frontend-browser.cjs`. Brak działań produkcyjnych pozostaje zamierzony.
 Synchronizacja do Linear/Notion pozostaje `sync-pending`, ponieważ nie ma
-zweryfikowanego mapowania repozytorium na projekt.
+zweryfikowanego mapowania repozytorium na projekt. Sam kod i dokumentacja są
+zatwierdzone i wypchnięte na `origin/features/v2`.
