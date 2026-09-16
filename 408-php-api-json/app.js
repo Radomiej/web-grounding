@@ -44,4 +44,3 @@ async function loadOffers() {
 }
 
 loadButton.addEventListener('click', loadOffers);
-

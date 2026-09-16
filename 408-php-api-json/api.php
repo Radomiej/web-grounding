@@ -37,4 +37,3 @@ mysqli_free_result($result);
 mysqli_close($connection);
 
 echo json_encode(['data' => $offers], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-
