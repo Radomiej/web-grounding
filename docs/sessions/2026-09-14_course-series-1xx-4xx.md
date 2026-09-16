@@ -137,7 +137,8 @@ flowchart LR
   sekretów (jedynie nieblokujące ostrzeżenia środowiska Docker/MariaDB).
 - Git delivery — PASS: `git push origin features/v2`, a następnie
   `git ls-remote --heads origin features/v2` zwrócił
-  `e36d4027ea4676758fb0cc21b4b10080530534db` przed bieżącą rewizją.
+  `e36d4027ea4676758fb0cc21b4b10080530534db` przed bieżącym commitem;
+  bieżący commit lokalny to `30e2aa77b62ddf5c85671d4e508a631281852581`.
 - `git diff --check` — brak błędów treści; Git zgłosił tylko ostrzeżenia LF/CRLF i brak dostępu do globalnego ignore.
 
 ## Caveats and inconclusive checks
@@ -160,5 +161,6 @@ należy doinstalować zależności autora i uruchomić `node tests/frontend-brow
 Brak działań produkcyjnych pozostaje zamierzony. Synchronizacja do Linear/Notion
 pozostaje `sync-pending`, ponieważ nie ma zweryfikowanego mapowania repozytorium
 na projekt.
-Sam kod, dokumentacja i kontrakt testowy są zatwierdzane osobno; po bieżącym
-commicie zdalny ref zostanie ponownie sprawdzony bezpośrednio.
+Sam kod, dokumentacja i kontrakt testowy są zatwierdzane osobno; bieżący commit
+zostanie wypchnięty po tej aktualizacji notatki i zdalny ref będzie sprawdzony
+bezpośrednio.
