@@ -161,6 +161,7 @@ należy doinstalować zależności autora i uruchomić `node tests/frontend-brow
 Brak działań produkcyjnych pozostaje zamierzony. Synchronizacja do Linear/Notion
 pozostaje `sync-pending`, ponieważ nie ma zweryfikowanego mapowania repozytorium
 na projekt.
-Sam kod, dokumentacja i kontrakt testowy są zatwierdzane osobno; bieżący commit
-zostanie wypchnięty po tej aktualizacji notatki i zdalny ref będzie sprawdzony
-bezpośrednio.
+Sam kod, dokumentacja i kontrakt testowy są zatwierdzone osobno. Push
+`origin/features/v2` wykonano po commicie `39b4784dbb2348e298cf2f495749b85abe5c53df`
+i zdalny ref sprawdzono bezpośrednio; każda kolejna zmiana wymaga ponownej
+weryfikacji.
