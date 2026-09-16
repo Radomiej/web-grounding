@@ -10,7 +10,8 @@ jest lokalny Bootstrap 5.3.8. Statyczne lekcje działają bez PHP i internetu.
 ```text
 HTML → CSS raw → Flexbox/Grid → komponenty → Bootstrap lokalnie
   └→ JavaScript DOM → klasy/theme → zapis → timer → Canvas → HUD/gra
-  └→ PHP składnia → SELECT → INSERT → filtry → UPDATE → DELETE → JSON
+  └→ PHP osadzane w HTML → SELECT → INSERT → filtry → UPDATE → DELETE
+      └→ API/JSON i fetch jako końcowe rozszerzenie
 ```
 
 ## Mapa kursu
@@ -67,6 +68,13 @@ Dawne foldery o numerach `303–312` (np. `303-javascript-kalkulator` i
 
 ### Seria 4xx — PHP/MySQL
 
+Najpierw uczymy się **PHP osadzanego w dokumencie HTML**. Uczeń widzi pełny
+przepływ: formularz → walidacja → zapytanie `mysqli` → pętla `foreach`/`while`
+→ wynik wyrenderowany jako HTML. Dopiero po opanowaniu tej ścieżki przechodzimy
+do osobnej końcówki API, w której PHP zwraca JSON dla JavaScriptu.
+
+#### PHP osadzane — ścieżka egzaminacyjna (`401–407`)
+
 | Folder | Temat |
 | --- | --- |
 | `401-php-podstawy` | zmienne, warunki, pętle i bezpieczny output |
@@ -76,9 +84,22 @@ Dawne foldery o numerach `303–312` (np. `303-javascript-kalkulator` i
 | `405-php-filtrowanie` | `GET`, `LIKE`, sortowanie i pusty wynik |
 | `406-php-update` | prepared `UPDATE` i `affected_rows` |
 | `407-php-delete` | prepared `DELETE`, ID i potwierdzenie |
-| `408-php-json-dodatek` | JSON, `fetch` i błędy HTTP jako dodatek |
 
-Stare foldery `402-php-lista-z-bazy` i `404–408` pozostają ścieżkami zgodności.
+#### API/JSON — końcowe rozszerzenie (`408–412`)
+
+| Folder | Temat |
+| --- | --- |
+| `408-php-api-json` | pierwsze API: nagłówek JSON, status HTTP i `fetch` |
+| `409-php-api-insert` | API `POST` i bezpieczny `INSERT` |
+| `410-php-api-filtrowanie` | API `GET`, parametry i `LIKE` |
+| `411-php-api-update` | API `PUT`, JSON wejściowy i `UPDATE` |
+| `412-php-api-delete` | API `DELETE` i odpowiedź JSON |
+
+`408-php-json-dodatek` oraz stare foldery `402-php-lista-z-bazy`,
+`404-php-json-do-javascriptu`, `405-php-api-dodawanie`,
+`406-php-api-filtrowanie`, `407-php-api-edycja` i `408-php-api-usuwanie`
+pozostają ścieżkami zgodności. Nowa numeracja API to `408–412`, aby nie mieszać
+jej z podstawowym PHP osadzanym `401–407`.
 Schemat znajduje się w [database/web_grounding.sql](database/web_grounding.sql).
 
 Ścieżka PHP działa lokalnie przez XAMPP:

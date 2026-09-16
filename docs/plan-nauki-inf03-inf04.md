@@ -17,7 +17,8 @@ publicznych indeksów; tam, gdzie źródło nie podaje tytułu, nie zgaduję tre
 | Flexbox | main/cross axis, `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, `align-content`, `gap`, `flex-basis`, `flex-grow`, `flex-shrink`, `align-self`, `order`; rozróżnienie rodzica i dziecka | `202–204` |
 | JavaScript | zmienne, DOM, edycja tekstu, klasy/theme, warunki, pętle, tablice, formularze, walidacja, dynamiczny DOM, `localStorage`, timer i JSON | `301–312` |
 | Grafika w przeglądarce | `canvas`, układ współrzędnych, prostokąty/tekst/obrazy, DPR, pętla animacji i HUD absolutny | `313-canvas-podstawy`, `314-canvas-hud-gra` |
-| PHP/MySQL (jeżeli wymaga arkusz) | zmienne, `mysqli`, `SELECT`, `POST`, generowanie HTML, `INSERT`, `LIKE`, `UPDATE`, `DELETE`, prepared statements i JSON jako dodatek | `401–408` |
+| PHP/MySQL (jeżeli wymaga arkusz) | zmienne, `mysqli`, `SELECT`, `POST`, generowanie HTML, iteracja rekordów, `INSERT`, `LIKE`, `UPDATE`, `DELETE` i prepared statements | `401–407` |
+| API/JSON (rozszerzenie) | nagłówek `application/json`, statusy HTTP, `fetch`, `GET`/`POST`/`PUT`/`DELETE` i walidacja odpowiedzi | `408–412` |
 | Organizacja pracy | odczyt wymagań, nazwy plików, ścieżki względne, przygotowanie assetów, zrzuty ekranu i sprawdzenie każdego kryterium z kluczem | każdy arkusz |
 
 ### Spis zadań i rodzin tematów
@@ -30,7 +31,7 @@ w [tabeli 71 arkuszy](./inf03/arkusze.md). Poniższe grupy pomagają wybrać
 | --- | --- | --- |
 | Witryny firmowe i informacyjne | 2025.01-01 „Witryna firmy szkoleniowej”, 02 „Firma montażu paneli”, 05 „Firma szkoleniowa”, 12 „Witryna piekarni”; 2024.01-01 „Witryna firmy IT”, 02 „Pogotowie komputerowe”, 08 „Salon fryzjerski w XAMPP” | semantyczny HTML, layout, typografia, formularz kontaktowy, obrazy, wersja mobilna; w wariancie XAMPP także PHP/SQL |
 | Listy, katalogi i portale | 2025.06-03 „Portal biblioteki szkolnej”, 04 „Portal firmy przewozowej”, 06 „Portal biblioteki internetowej”, 07 „Portal wycieczek”, 08 „Portal o smokach”, 11 „Portal sprzedaży opon”, 12 „Przychodnia Medica” | karty/listy, filtry, tabele, obrazy, nawigacja, Flexbox, walidacja i interakcje JS |
-| Dane i baza | 2025.06-09 „Portal remontowy z bazą”, 10 „Portal szkoleniowy z bazą”; 2025.01-03 „Kalendarz imienin w PHP”, 04 „Hurtownia obuwia”; 2024.01-04 „Kalendarz z bazą”, 05 „Salon kosmetyczny z bazą” | model prostych tabel, `SELECT`, warunki, sortowanie, formularz `POST`, generowanie wyników, API JSON oraz testy `INSERT`/`UPDATE`/`DELETE` |
+| Dane i baza | 2025.06-09 „Portal remontowy z bazą”, 10 „Portal szkoleniowy z bazą”; 2025.01-03 „Kalendarz imienin w PHP”, 04 „Hurtownia obuwia”; 2024.01-04 „Kalendarz z bazą”, 05 „Salon kosmetyczny z bazą” | model prostych tabel, `SELECT`, warunki, sortowanie, formularz `POST`, generowanie HTML po stronie PHP, testy `INSERT`/`UPDATE`/`DELETE`, a dopiero potem API JSON |
 | Interaktywne formularze i logika | 2025.06-01 „Ranking gier”, 02 „Planer zadań z notatkami”, 05 „Salon fotograficzny online”; 2025.01-07 „Wyszukiwarka miast”, 08 „Mieszalnia farb”, 10 „Koło szachowe”, 11 „Losowanie nagród” | tablice/obiekty, zdarzenia, filtrowanie, losowanie, obliczenia, komunikaty i walidacja |
 | Algorytmy i liczby | 2025.01-06 „Serwis o systemach liczbowych” | konwersje, operatory, pętle, funkcje pomocnicze, dane wejściowe i czytelny wynik |
 | Nowe i nieopisane skrótowo warianty | 12 wariantów 2026.01, 12 wariantów 2024.06, 2023.01-01..05, 2022.06-01..03, 2022.01-01, 2021.06-01 oraz 2026 LATO | otworzyć PDF, wypisać czasowniki „utwórz/wyświetl/sprawdź/zapisz”, a następnie przypisać je do checklisty HTML/CSS/JS/PHP/SQL |
@@ -41,10 +42,13 @@ w [tabeli 71 arkuszy](./inf03/arkusze.md). Poniższe grupy pomagają wybrać
 2. Odtwórz layout w raw CSS, Flexboxie i Gridzie; sprawdź 390 px.
 3. Dodaj JS: edycję DOM, klasy/theme, walidację, dynamiczną listę i timer.
 4. Wybierz jeden arkusz bez PHP i wykonaj go na czas, dokumentując kryteria.
-5. Dopiero potem wybierz arkusz z PHP/MySQL i przećwicz przepływ
-   `SELECT → POST → INSERT → UPDATE → DELETE`.
-6. Na końcu dodaj JSON/fetch, a następnie `canvas`/HUD jako rozszerzenie, nie zamiast
-   podstaw egzaminacyjnych.
+5. Dopiero potem wybierz arkusz z PHP/MySQL i przećwicz ścieżkę osadzaną:
+   `SELECT → POST → INSERT → LIKE → UPDATE → DELETE` oraz generowanie HTML
+   w pętli `while`/`foreach`.
+6. Na końcu przejdź do `408–412`: najpierw prosty JSON i `fetch`, potem API
+   `INSERT`/filtrowanie/`UPDATE`/`DELETE`. To rozszerzenie nie zastępuje wymagań
+   arkusza, który oczekuje HTML wyrenderowanego przez PHP.
+7. `canvas`/HUD traktuj jako osobne rozszerzenie graficzne, po opanowaniu podstaw.
 
 ## INF.04 — projektowanie, programowanie i testowanie aplikacji
 

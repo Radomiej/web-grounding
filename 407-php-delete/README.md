@@ -2,6 +2,8 @@
 
 Ostatnia operacja CRUD w wersji server-rendered. Usuwanie jest celowo proste,
 żeby można było prześledzić ID, prepared statement i komunikat wyniku.
+Po tej lekcji ścieżka osadzana jest zamknięta; `408–412` pokazuje dopiero
+opcjonalne API/JSON dla JavaScriptu.
 
 ## Czego się nauczysz
 

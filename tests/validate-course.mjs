@@ -37,7 +37,7 @@ const jsLessons = [
     '313-canvas-podstawy',
     '314-canvas-hud-gra',
 ];
-const phpLessons = [
+const phpEmbeddedLessons = [
     '401-php-podstawy',
     '402-php-czytanie-bazy',
     '403-php-formularz-i-select',
@@ -45,6 +45,21 @@ const phpLessons = [
     '405-php-filtrowanie',
     '406-php-update',
     '407-php-delete',
+];
+const phpApiLessons = [
+    '408-php-api-json',
+    '409-php-api-insert',
+    '410-php-api-filtrowanie',
+    '411-php-api-update',
+    '412-php-api-delete',
+];
+const phpLessons = [...phpEmbeddedLessons, ...phpApiLessons];
+const phpCompatibilityLessons = [
+    '404-php-json-do-javascriptu',
+    '405-php-api-dodawanie',
+    '406-php-api-filtrowanie',
+    '407-php-api-edycja',
+    '408-php-api-usuwanie',
     '408-php-json-dodatek',
 ];
 const legacyLessons = [
@@ -113,16 +128,24 @@ for (const file of [
     '311-javascript-projekt-inf03/start/app.js',
 ]) requireFile(file);
 for (const lesson of phpLessons) requireFile(`${lesson}/README.md`);
-for (const lesson of ['401-php-podstawy', '402-php-czytanie-bazy', '403-php-formularz-i-select', '404-php-insert', '405-php-filtrowanie', '406-php-update', '407-php-delete']) requireFile(`${lesson}/index.php`);
-for (const file of ['408-php-json-dodatek/index.html', '408-php-json-dodatek/api.php', '408-php-json-dodatek/app.js']) requireFile(file);
-for (const lesson of legacyLessons) requireFile(`${lesson}/README.md`);
+for (const lesson of phpEmbeddedLessons) requireFile(`${lesson}/index.php`);
+for (const lesson of phpEmbeddedLessons) {
+    for (const file of ['api.php', 'app.js']) {
+        if (existsSync(path(`${lesson}/${file}`))) failures.push(`${lesson}: ścieżka osadzana nie powinna zawierać ${file}`);
+    }
+}
+for (const lesson of phpApiLessons) {
+    for (const file of ['index.html', 'app.js', 'api.php']) requireFile(`${lesson}/${file}`);
+    if (lesson !== '408-php-api-json') requireFile(`${lesson}/style.css`);
+}
+for (const lesson of [...legacyLessons, ...phpCompatibilityLessons]) requireFile(`${lesson}/README.md`);
 for (const file of ['901-generator-zadan/index.html', '901-generator-zadan/style.css', '901-generator-zadan/app.js', '902-przygotowanie-zadania/index.html', '902-przygotowanie-zadania/style.css', '902-przygotowanie-zadania/app.js']) requireFile(file);
 
 for (const page of [
     ...htmlLessons.map((lesson) => `${lesson}/index.html`),
     ...cssLessons.map((lesson) => `${lesson}/index.html`),
     ...jsLessons.map((lesson) => `${lesson}/index.html`),
-    '408-php-json-dodatek/index.html',
+    ...phpApiLessons.map((lesson) => `${lesson}/index.html`),
     '901-generator-zadan/index.html',
     '902-przygotowanie-zadania/index.html',
 ]) {
@@ -171,12 +194,19 @@ requirePattern('404-php-insert/index.php', /INSERT\s+INTO/i, 'brak INSERT');
 requirePattern('405-php-filtrowanie/index.php', /LIKE\s+\?/i, 'brak bezpiecznego LIKE');
 requirePattern('406-php-update/index.php', /UPDATE\s+offers/i, 'brak UPDATE');
 requirePattern('407-php-delete/index.php', /DELETE\s+FROM/i, 'brak DELETE');
-requirePattern('408-php-json-dodatek/api.php', /Content-Type:\s*application\/json/i, 'brak nagłówka JSON');
-requirePattern('408-php-json-dodatek/app.js', /fetch\s*\(/, 'brak fetch');
+requirePattern('408-php-api-json/api.php', /Content-Type:\s*application\/json/i, 'brak nagłówka JSON');
+requirePattern('408-php-api-json/app.js', /fetch\s*\(/, 'brak fetch JSON');
+requirePattern('409-php-api-insert/api.php', /INSERT\s+INTO/i, 'brak API INSERT');
+requirePattern('410-php-api-filtrowanie/api.php', /LIKE\s+\?/i, 'brak API LIKE');
+requirePattern('411-php-api-update/api.php', /UPDATE\s+offers/i, 'brak API UPDATE');
+requirePattern('412-php-api-delete/api.php', /DELETE\s+FROM/i, 'brak API DELETE');
 
 requirePattern('README.md', /INF\.03/i, 'brak kontekstu INF.03');
 requirePattern('README.md', /JSON/i, 'brak opisu JSON');
 requirePattern('docs/plan-nauki-inf03-inf04.md', /101[–-]106/, 'plan nauki nie wskazuje rozszerzonego HTML');
+requirePattern('README.md', /401[\s\S]*407[\s\S]*408[\s\S]*412/i, 'README nie rozdziela PHP osadzanego od API');
+requirePattern('STUDENT_SETUP.md', /401[\s\S]*407[\s\S]*408[\s\S]*412/i, 'instrukcja ucznia nie rozdziela PHP osadzanego od API');
+requirePattern('docs/plan-nauki-inf03-inf04.md', /401[\s\S]*407[\s\S]*408[\s\S]*412/i, 'plan nauki nie rozdziela PHP osadzanego od API');
 requirePattern('901-generator-zadan/app.js', /313-canvas-podstawy|314-canvas-hud-gra/, 'generator nie wskazuje nowych lekcji Canvas');
 
 function checkLocalLinks(relativeFiles) {

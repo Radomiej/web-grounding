@@ -1,6 +1,6 @@
 # Ćwiczenie 402 — czytanie bazy i `SELECT`
 
-Uruchom MySQL, zaimportuj `database/web_grounding.sql` i otwórz `index.php` przez XAMPP. Prześledź przepływ od połączenia do tabeli HTML.
+Uruchom MySQL, zaimportuj `database/web_grounding.sql` i otwórz `index.php` przez XAMPP. To lekcja PHP osadzanego: skrypt wykonuje `SELECT`, a następnie ten sam plik renderuje tabelę HTML. Prześledź przepływ od połączenia do wyniku.
 
 ## Czego się nauczysz
 

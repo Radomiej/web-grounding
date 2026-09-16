@@ -1,6 +1,6 @@
 # Ćwiczenie 403 — formularz i SELECT
 
-Formularz wysyła `country` metodą POST do tego samego `index.php`. PHP sprawdza wartość, przekazuje ją jako parametr zapytania i generuje wynik.
+Formularz wysyła `country` metodą POST do tego samego `index.php`. PHP sprawdza wartość, przekazuje ją jako parametr zapytania i generuje wynik HTML w tym samym żądaniu — bez API i bez `fetch()`.
 
 ## Czego się nauczysz
 

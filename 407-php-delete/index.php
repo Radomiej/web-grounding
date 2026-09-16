@@ -26,7 +26,7 @@ function e(string $value): string { return htmlspecialchars($value, ENT_QUOTES |
 <html lang="pl">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PHP DELETE</title></head>
 <body>
-<header><h1>Usuwanie oferty</h1><p><a href="../406-php-update/">← 406: edycja oferty</a></p></header>
+<header><h1>Usuwanie oferty</h1><p><a href="../406-php-update/">← 406: edycja oferty</a> · <a href="../408-php-api-json/">API/JSON jako dodatek →</a></p></header>
 <main>
 <?php if ($message !== null): ?><p role="status"><?= e($message) ?></p><?php endif; ?>
 <form method="post">

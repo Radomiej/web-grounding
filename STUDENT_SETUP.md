@@ -1,8 +1,8 @@
 # Uruchomienie kursu — instrukcja ucznia
 
-Lekcje `101–312` są statyczne i nie wymagają PHP ani bazy. Możesz otworzyć ich
+Lekcje `101–314` są statyczne i nie wymagają PHP ani bazy. Możesz otworzyć ich
 `index.html` bezpośrednio w przeglądarce. XAMPP jest potrzebny dopiero do
-lekcji PHP `401–408`.
+lekcji PHP osadzanego `401–407` oraz końcowego dodatku API `408–412`.
 
 ## 1. Najprostszy start bez PHP
 
@@ -65,7 +65,7 @@ Ponowny import usuwa i odtwarza tylko dwie szkoleniowe tabele w bazie `web_groun
 - [http://localhost/web-grounding/314-canvas-hud-gra/](http://localhost/web-grounding/314-canvas-hud-gra/)
 - Pozostałe lekcje serii `3xx` są wymienione w [README](README.md).
 
-### Seria 4xx: PHP, MySQL i API
+### Seria 4xx: PHP osadzane w HTML
 
 - [http://localhost/web-grounding/401-php-podstawy/](http://localhost/web-grounding/401-php-podstawy/)
 - [http://localhost/web-grounding/402-php-czytanie-bazy/](http://localhost/web-grounding/402-php-czytanie-bazy/)
@@ -74,7 +74,21 @@ Ponowny import usuwa i odtwarza tylko dwie szkoleniowe tabele w bazie `web_groun
 - [http://localhost/web-grounding/405-php-filtrowanie/](http://localhost/web-grounding/405-php-filtrowanie/)
 - [http://localhost/web-grounding/406-php-update/](http://localhost/web-grounding/406-php-update/)
 - [http://localhost/web-grounding/407-php-delete/](http://localhost/web-grounding/407-php-delete/)
-- [http://localhost/web-grounding/408-php-json-dodatek/](http://localhost/web-grounding/408-php-json-dodatek/)
+
+Najpierw przejdź całą ścieżkę osadzaną: PHP przygotowuje dane i od razu
+wyrenderowuje znaczniki HTML. To jest podstawowy sposób pracy na arkuszach,
+które wymagają tabeli, listy albo formularza po stronie serwera.
+
+### API/JSON jako dodatek po PHP osadzanym
+
+- [http://localhost/web-grounding/408-php-api-json/](http://localhost/web-grounding/408-php-api-json/)
+- [http://localhost/web-grounding/409-php-api-insert/](http://localhost/web-grounding/409-php-api-insert/)
+- [http://localhost/web-grounding/410-php-api-filtrowanie/](http://localhost/web-grounding/410-php-api-filtrowanie/)
+- [http://localhost/web-grounding/411-php-api-update/](http://localhost/web-grounding/411-php-api-update/)
+- [http://localhost/web-grounding/412-php-api-delete/](http://localhost/web-grounding/412-php-api-delete/)
+
+`408-php-json-dodatek` pozostaje starą ścieżką zgodności. Nowe foldery `408–412`
+mają spójną numerację i pokazują osobno komunikację PHP ↔ JavaScript.
 
 ## 6. Co uczeń powinien umieć wskazać
 
@@ -84,11 +98,13 @@ W przykładach PHP znajdź:
 2. tekst zapytania `SELECT`,
 3. wynik zwrócony przez `mysqli_query`,
 4. pętlę pobierającą kolejne rekordy,
-5. miejsce, w którym dane trafiają do HTML albo JSON,
-6. zamknięcie połączenia i obsługę błędu HTTP,
-7. różnicę między `GET`, `POST`, `PUT` i `DELETE` w API,
-8. `mysqli_prepare`, `mysqli_stmt_bind_param` i `mysqli_stmt_execute` w lekcjach `403` oraz `405–408`,
-9. walidację danych przed `INSERT`, `UPDATE` albo `DELETE` i kod `404` dla nieistniejącego rekordu.
+5. miejsce, w którym dane z PHP trafiają do HTML (najpierw `401–407`),
+6. pętlę `foreach`/`while`, która tworzy wiele wierszy, kart albo opcji,
+7. zamknięcie połączenia i obsługę błędu po stronie serwera,
+8. `mysqli_prepare`, `mysqli_stmt_bind_param` i `mysqli_stmt_execute` w lekcjach `403–407`,
+9. walidację danych przed `INSERT`, `UPDATE` albo `DELETE` i kod `404` dla nieistniejącego rekordu,
+10. dopiero w `408–412`: różnicę między `GET`, `POST`, `PUT` i `DELETE`, nagłówek JSON,
+    `fetch()` oraz odpowiedź z kodem HTTP.
 
 ## Typowe błędy
 
@@ -98,7 +114,8 @@ W przykładach PHP znajdź:
 - **Unknown database `web_grounding`** — dump SQL nie został zaimportowany.
 - **Access denied for user `root`** — lokalny MySQL ma inne hasło; zmień piąty argument `mysqli_connect` w przykładzie.
 - **Apache nie startuje** — port 80 jest zajęty. Sprawdź komunikat XAMPP i użyj skonfigurowanego portu, np. `http://localhost:8080/...`.
-- **Projekt 404–408 pokazuje błąd** — otwórz najpierw `api.php` w przeglądarce i sprawdź zwrócony JSON.
+- **Projekt 408–412 pokazuje błąd** — otwórz `api.php` w przeglądarce i sprawdź
+  zwrócony JSON; w `401–407` sprawdzaj bezpośrednio wyrenderowany HTML.
 
 ## Reguła egzaminacyjna
 

@@ -1,7 +1,7 @@
 # Ćwiczenie 405 — PHP `SELECT`, `LIKE` i filtry
 
 To rozszerzenie odczytu bazy: formularz `GET` zmienia prepared `SELECT`, a PHP
-od razu generuje tabelę HTML. JSON zostawiamy na końcową lekcję 408.
+od razu generuje tabelę HTML. JSON zostawiamy na końcową ścieżkę API `408–412`.
 
 ## Czego się nauczysz
 
