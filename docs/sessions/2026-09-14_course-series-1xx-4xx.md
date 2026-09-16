@@ -111,7 +111,7 @@ flowchart LR
   HUD/gra, Bootstrap oraz statyczne strony 408/409 z nową nawigacją API.
 - Git delivery — PASS: `git push origin features/v2`, a następnie
   `git ls-remote --heads origin features/v2` zwrócił
-  `e195398347b42d013db5830774c3732b5eed8483`.
+  `56d3c1fe78b91219484aa557612445eb393d1a65`.
 - `git diff --check` — brak błędów treści; Git zgłosił tylko ostrzeżenia LF/CRLF i brak dostępu do globalnego ignore.
 
 ## Caveats and inconclusive checks
@@ -120,9 +120,9 @@ flowchart LR
 - `php -l` i żądania PHP są BLOCKED: brak `php.exe`, Apache i MySQL w środowisku wykonawczym.
 - Sprawdzenie Chrome było lokalne; nie jest dowodem wdrożenia, hostingu ani produkcji.
 - Wcześniejsza dostawa jest zapisana w commitach `a1f7d5e` i `b0eb6d8`.
-  Rewizję numeracji PHP zapisano w `68cab8e`, a porządkowanie końców plików
-  w `e195398`; oba commity są na `features/v2`, a zdalny ref został sprawdzony
-  bezpośrednio.
+  Rewizję numeracji PHP zapisano w `68cab8e`, porządkowanie końców plików
+  w `e195398`, a aktualizację handoffu w `56d3c1f`; wszystkie są na
+  `features/v2`, a zdalny ref został sprawdzony bezpośrednio.
 
 ## Remaining boundary and production closure
 
