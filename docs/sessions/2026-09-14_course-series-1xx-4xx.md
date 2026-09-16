@@ -17,7 +17,8 @@ na osadzane renderowanie `401–407` i późniejszy dodatek API `408–412`.
   więc działanie zachowano bez mieszania dwóch sposobów renderowania.
 - Seria `1xx` jest czystym HTML bez CSS i JavaScriptu.
 - Bootstrap jest ładowany wyłącznie z `assets/bootstrap/bootstrap.min.css`.
-- PHP wymaga lokalnego XAMPP/MySQL; nie wykonywano wdrożenia ani zmian w zewnętrznych systemach.
+- PHP można uruchomić przez XAMPP/MySQL albo przez jednorazowy Docker Compose z Apache,
+  `mysqli` i MariaDB; nie wykonywano wdrożenia ani zmian w zewnętrznych systemach.
 - Duże archiwa egzaminacyjne pozostają poza śledzeniem zgodnie z `.gitignore`.
 - W odczytanych bazach AKS, Projects i Linear nie znaleziono jednoznacznego
   rekordu `web-grounding`; zgodnie z regułą nie tworzono ani nie aktualizowano
@@ -34,6 +35,7 @@ na osadzane renderowanie `401–407` i późniejszy dodatek API `408–412`.
 | AC-05 | Bootstrap działa lokalnie bez CDN. | PASS | Browser evaluate potwierdził stylesheet `/assets/bootstrap/bootstrap.min.css`; strona 207 wyrenderowała formularz i karty. |
 | AC-06 | Dokumentacja, plan INF.03/INF.04, generator 9xx i testy są spięte z nowymi ścieżkami. | PASS | `README.md`, `STUDENT_SETUP.md`, `docs/plan-nauki-inf03-inf04.md`, README lekcji oraz zaktualizowane testy. |
 | AC-07 | Składnia JavaScriptu i białe znaki przechodzą kontrolę. | PASS | `node --check` dla 18 plików; `git diff --check` bez błędów treści. |
+| AC-08 | PHP osadzane i API działają z seedowaną bazą w izolowanym kontenerze. | PASS | `tests/php-container/test_lessons.py` — 13 PASS w przebiegu `--build` i 13 PASS w przebiegu `--no-build`; oba serwisy `healthy`. |
 
 ## Starting evidence
 
@@ -51,6 +53,11 @@ istniejących lekcji API do nowych, kanonicznych folderów `408–412`; z folder
 osadzanych usunięto tylko powielone pliki API. Następnie uruchomiono
 walidator kontraktu, kontrolę składni Node i lokalny serwer HTTP; interakcje
 sprawdzono w Chrome przez drzewo dostępności, DOM oraz screenshot HUD.
+Po dodaniu kontraktu kontenerowego zbudowano obraz PHP z `mysqli`, uruchomiono
+MariaDB z `database/web_grounding.sql` i przejechano bez-dependency runnerem
+Python pełny przepływ formularzy oraz API. Sprawdzono również `--no-build`,
+zdrowie usług, etykiety Compose, montowania `ro`, logi bez sekretów i cleanup
+wyłącznie nazwanego projektu testowego.
 
 ## Root causes and decisions
 
@@ -62,8 +69,9 @@ sprawdzono w Chrome przez drzewo dostępności, DOM oraz screenshot HUD.
 - Obserwowany problem nawigacji: kopiowane lekcje wskazywały stare numery. Decyzja:
   kanoniczne linki prowadzą przez HTML → CSS → JS → Canvas oraz PHP osadzane
   `401–407` → API/JSON `408–412`; stare ścieżki zachowano jako aliasy.
-- Ograniczenie środowiska: brak PHP i Playwright. Decyzja: nie instalować zależności
-  ani nie udawać dynamicznego dowodu; pozostawić jasną granicę XAMPP/Playwright.
+- Ograniczenie środowiska: brak hostowego PHP i Playwright. Decyzja: nie instalować
+  PHP na hoście; dodać reprodukowalny test Docker + Python, zachowując jasną
+  granicę między lokalnym dowodem kontenerowym a XAMPP/produkcją.
 
 ## Implementation sequence
 
@@ -74,6 +82,9 @@ sprawdzono w Chrome przez drzewo dostępności, DOM oraz screenshot HUD.
    prepared statements i iteracją rekordów; API/JSON przeniesiono do osobnej
    końcówki `408–412`.
 5. Zaktualizowano README, instrukcję ucznia, plan nauki, generator 9xx oraz testy autora.
+6. Dodano `tests/php-container`: Dockerfile PHP + `mysqli`, Compose z MariaDB,
+   runner HTTP w Pythonie i wrapper PowerShell; połączenia PHP przyjmują zmienne
+   `DB_*` z fallbackiem zgodnym z XAMPP.
 
 ## Flow diagram
 
@@ -90,6 +101,8 @@ flowchart LR
     H --> P[401–407 PHP osadzane: składnia, SELECT i CRUD]
     P --> R[HTML z pętli while/foreach]
     R --> Q[408–412 API/JSON: fetch i CRUD]
+    Q --> D[Docker Compose: Apache PHP + MariaDB]
+    D --> T[Python HTTP runner: 13 scenariuszy PASS]
 ```
 
 ## Files and boundaries changed
@@ -98,6 +111,8 @@ flowchart LR
   oraz `408–412`.
 - `README.md`, `STUDENT_SETUP.md`, `docs/css-lekcji.md` i `docs/plan-nauki-inf03-inf04.md`.
 - `tests/validate-course.mjs` i `tests/frontend-browser.cjs`.
+- `tests/php-container/Dockerfile`, `compose.yml`, `test_lessons.py`,
+  `run-tests.ps1` i README oraz wpis cache w `.gitignore`.
 - Zachowane katalogi zgodności, `docs/inf03`, `docs/inf04`, lekkie paczki oraz lokalny Bootstrap.
 
 ## Verification evidence
@@ -109,15 +124,27 @@ flowchart LR
 - `node --check` — PASS: 56 plików JavaScript, w tym test autora.
 - Chrome/local HTTP — PASS: sandbox Flexbox, porównanie 204, theme, timer, Canvas,
   HUD/gra, Bootstrap oraz statyczne strony 408/409 z nową nawigacją API.
+- Docker/Compose — PASS (`container-proven`):
+  `docker compose -p web-grounding-php-test -f tests/php-container/compose.yml up -d --build`
+  zbudował obraz `php:8.3-apache` + `mysqli`; `python tests/php-container/test_lessons.py`
+  zwrócił 13 PASS, a `docker compose ps` pokazał `db healthy` i `php healthy`.
+  Po świeżym wolumenie ten sam runner zwrócił 13 PASS po
+  `up -d --no-build`. Wrapper `run-tests.ps1 -NoBuild` również zwrócił 13 PASS
+  i usunął wyłącznie nazwany projekt; końcowe `compose ps`, `docker volume ls`
+  i `docker network ls` nie zwróciły pozostałości.
+- Kontrakt montowań — PASS: `docker inspect` potwierdził etykiety projektu/usługi,
+  SQL jako `ro` oraz całe repozytorium jako `ro` w serwisie PHP; logi nie zawierały
+  sekretów (jedynie nieblokujące ostrzeżenia środowiska Docker/MariaDB).
 - Git delivery — PASS: `git push origin features/v2`, a następnie
   `git ls-remote --heads origin features/v2` zwrócił
-  `56d3c1fe78b91219484aa557612445eb393d1a65`.
+  `e36d4027ea4676758fb0cc21b4b10080530534db` przed bieżącą rewizją.
 - `git diff --check` — brak błędów treści; Git zgłosił tylko ostrzeżenia LF/CRLF i brak dostępu do globalnego ignore.
 
 ## Caveats and inconclusive checks
 
 - `node tests/frontend-browser.cjs` jest BLOCKED: moduł `playwright` nie jest zainstalowany (`MODULE_NOT_FOUND`).
-- `php -l` i żądania PHP są BLOCKED: brak `php.exe`, Apache i MySQL w środowisku wykonawczym.
+- Hostowe `php -l` nadal jest BLOCKED: brak `php.exe`, Apache i MySQL poza Dockerem;
+  składnia i żądania kanonicznych lekcji są jednak zweryfikowane w kontenerze PHP 8.3.
 - Sprawdzenie Chrome było lokalne; nie jest dowodem wdrożenia, hostingu ani produkcji.
 - Wcześniejsza dostawa jest zapisana w commitach `a1f7d5e` i `b0eb6d8`.
   Rewizję numeracji PHP zapisano w `68cab8e`, porządkowanie końców plików
@@ -126,12 +153,12 @@ flowchart LR
 
 ## Remaining boundary and production closure
 
-Przed uznaniem serii PHP za uruchomioną w środowisku ucznia trzeba w XAMPP
-zaimportować `database/web_grounding.sql`, wykonać `php -l` dla `401–412` i
-przejść scenariusze sukcesu, pustego wyniku, błędnych danych oraz nieistniejącego
-ID. W `401–407` trzeba sprawdzić wyrenderowany HTML, a w `408–412` odpowiedzi
-JSON i kody HTTP. Opcjonalnie należy doinstalować zależności autora i uruchomić
-`node tests/frontend-browser.cjs`. Brak działań produkcyjnych pozostaje zamierzony.
-Synchronizacja do Linear/Notion pozostaje `sync-pending`, ponieważ nie ma
-zweryfikowanego mapowania repozytorium na projekt. Sam kod i dokumentacja są
-zatwierdzone i wypchnięte na `origin/features/v2`.
+Przed uznaniem serii PHP za uruchomioną w środowisku ucznia trzeba jeszcze w XAMPP
+zaimportować `database/web_grounding.sql` i sprawdzić lokalne ustawienia użytkownika
+MySQL; kontener nie jest dowodem konfiguracji XAMPP ani wdrożenia. Opcjonalnie
+należy doinstalować zależności autora i uruchomić `node tests/frontend-browser.cjs`.
+Brak działań produkcyjnych pozostaje zamierzony. Synchronizacja do Linear/Notion
+pozostaje `sync-pending`, ponieważ nie ma zweryfikowanego mapowania repozytorium
+na projekt.
+Sam kod, dokumentacja i kontrakt testowy są zatwierdzane osobno; po bieżącym
+commicie zdalny ref zostanie ponownie sprawdzony bezpośrednio.

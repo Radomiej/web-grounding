@@ -108,6 +108,13 @@ Schemat znajduje się w [database/web_grounding.sql](database/web_grounding.sql)
 przeglądarka → PHP → MySQL/MariaDB → PHP → HTML albo JSON
 ```
 
+Do sprawdzenia PHP bez instalowania PHP na komputerze służy jednorazowy test
+kontenerowy [tests/php-container](tests/php-container/README.md). Docker buduje
+Apache z `mysqli`, uruchamia MariaDB z tym samym seedem SQL, a bez-dependency
+runner Pythona przechodzi formularze `401–407` i API `408–412`. Domyślne wartości
+`DB_USER`, `DB_PASSWORD` i `DB_NAME` zachowują zgodność z XAMPP; Compose zmienia
+tylko `DB_HOST` na nazwę serwisu `db`.
+
 ## Zadania i dokumentacja
 
 Każdy README opisuje dokładnie elementy HTML, właściwości i wartości CSS,
@@ -148,7 +155,10 @@ node --check 312-javascript-timer/app.js
 node --check 313-canvas-podstawy/app.js
 node --check 314-canvas-hud-gra/app.js
 node tests/frontend-browser.cjs
+pwsh -File .\tests\php-container\run-tests.ps1
 ```
 
-`node` i Playwright są potrzebne tylko autorowi testów. Uczeń potrzebuje
-przeglądarki, a dla serii 4xx lokalnego XAMPP.
+`node`, Playwright i Docker są potrzebne tylko autorowi testów. Uczeń potrzebuje
+przeglądarki, a dla serii 4xx może wybrać lokalny XAMPP albo izolowany test
+kontenerowy. Test Compose usuwa po zakończeniu wyłącznie swój jednorazowy
+wolumen.

@@ -26,3 +26,24 @@ Test sam uruchamia serwer na wolnym porcie 127.0.0.1 i zamyka serwer oraz przegl
 Zakres: Chromium 390×844 i 1440×900, DPR 2, lokalny HTTP i file://, axe WCAG A/AA, osie Flexbox, 0–20 dzieci, presety i geometria eksportu, formularze, galerie, storage uszkodzony/niedostępny, projekt 20, Canvas i HUD, klawiatura i dotyk. Błędy runtime przechwytujemy ze wszystkich stron. Brak obrazu/Canvas jest celowo symulowany.
 
 Kod testów używa bardziej zaawansowanego JavaScriptu niż lekcje i nie jest obowiązkowym materiałem ucznia. PHP/XAMPP, Firefox i Safari nie są objęte tą suite.
+
+## PHP w jednorazowym kontenerze
+
+Do pełnego sprawdzenia lekcji `401–412` użyj Docker Desktop i Pythona:
+
+```powershell
+pwsh -File .\tests\php-container\run-tests.ps1
+```
+
+Skrypt buduje obraz `php:8.3-apache` z `mysqli`, uruchamia `mariadb:11.4`,
+importuje `database/web_grounding.sql` i testuje osadzane formularze oraz API
+JSON przez standardową bibliotekę Pythona. Po teście usuwa tylko projekt
+`web-grounding-php-test` i jego nazwany wolumen. Po pierwszym uruchomieniu
+ścieżkę `--no-build` można sprawdzić poleceniem:
+
+```powershell
+pwsh -File .\tests\php-container\run-tests.ps1 -NoBuild
+```
+
+To jest dowód `container-proven` dla lokalnego, jednorazowego środowiska; nie
+zastępuje weryfikacji XAMPP ucznia ani testów docelowej infrastruktury.

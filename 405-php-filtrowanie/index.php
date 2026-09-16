@@ -4,7 +4,11 @@ $query = trim((string) ($_GET['q'] ?? ''));
 $available = $_GET['available'] ?? '';
 $offers = [];
 $message = null;
-$connection = mysqli_connect('localhost', 'root', '', 'web_grounding');
+$dbHost = getenv('DB_HOST') ?: 'localhost';
+$dbUser = getenv('DB_USER') ?: 'root';
+$dbPassword = getenv('DB_PASSWORD') ?: '';
+$dbName = getenv('DB_NAME') ?: 'web_grounding';
+$connection = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
 if ($connection === false) {
     $message = 'Brak połączenia z bazą. Uruchom MySQL.';
 } else {

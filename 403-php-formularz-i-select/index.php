@@ -11,7 +11,11 @@ if ($submitted) {
     if (!in_array($selectedCountry, $allowedCountries, true)) {
         $error = 'Wybierz kraj dostępny na liście.';
     } else {
-        $connection = mysqli_connect('localhost', 'root', '', 'web_grounding');
+        $dbHost = getenv('DB_HOST') ?: 'localhost';
+        $dbUser = getenv('DB_USER') ?: 'root';
+        $dbPassword = getenv('DB_PASSWORD') ?: '';
+        $dbName = getenv('DB_NAME') ?: 'web_grounding';
+        $connection = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
 
         if ($connection === false) {
             $error = 'Nie udało się połączyć z bazą danych.';
@@ -99,4 +103,3 @@ if ($submitted) {
     </main>
 </body>
 </html>
-

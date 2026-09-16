@@ -4,6 +4,11 @@ Lekcje `101–314` są statyczne i nie wymagają PHP ani bazy. Możesz otworzyć
 `index.html` bezpośrednio w przeglądarce. XAMPP jest potrzebny dopiero do
 lekcji PHP osadzanego `401–407` oraz końcowego dodatku API `408–412`.
 
+Jeśli chcesz tylko sprawdzić gotowe przykłady bez instalowania PHP, autor kursu
+może uruchomić [test kontenerowy](tests/php-container/README.md). Docker wykonuje
+PHP i MariaDB, a Python wysyła żądania testowe; nie jest to środowisko do pracy
+na produkcyjnej bazie.
+
 ## 1. Najprostszy start bez PHP
 
 Otwórz `101-html-podstawy/index.html`, a następnie wybierz kolejność opisaną w

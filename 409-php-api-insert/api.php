@@ -16,7 +16,11 @@ if ($method !== 'GET' && $method !== 'POST') {
     respondJson(['error' => 'Dozwolone metody to GET i POST.'], 405);
 }
 
-$connection = mysqli_connect('localhost', 'root', '', 'web_grounding');
+$dbHost = getenv('DB_HOST') ?: 'localhost';
+$dbUser = getenv('DB_USER') ?: 'root';
+$dbPassword = getenv('DB_PASSWORD') ?: '';
+$dbName = getenv('DB_NAME') ?: 'web_grounding';
+$connection = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
 
 if ($connection === false) {
     respondJson(['error' => 'Nie udało się połączyć z bazą danych.'], 500);

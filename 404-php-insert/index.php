@@ -1,7 +1,11 @@
 <?php
 mysqli_report(MYSQLI_REPORT_OFF);
 $message = null;
-$connection = mysqli_connect('localhost', 'root', '', 'web_grounding');
+$dbHost = getenv('DB_HOST') ?: 'localhost';
+$dbUser = getenv('DB_USER') ?: 'root';
+$dbPassword = getenv('DB_PASSWORD') ?: '';
+$dbName = getenv('DB_NAME') ?: 'web_grounding';
+$connection = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
 if ($connection === false) {
     $message = 'Brak połączenia z bazą. Uruchom MySQL.';
 } else {

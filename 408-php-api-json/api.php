@@ -2,7 +2,11 @@
 header('Content-Type: application/json; charset=utf-8');
 mysqli_report(MYSQLI_REPORT_OFF);
 
-$connection = mysqli_connect('localhost', 'root', '', 'web_grounding');
+$dbHost = getenv('DB_HOST') ?: 'localhost';
+$dbUser = getenv('DB_USER') ?: 'root';
+$dbPassword = getenv('DB_PASSWORD') ?: '';
+$dbName = getenv('DB_NAME') ?: 'web_grounding';
+$connection = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
 
 if ($connection === false) {
     http_response_code(500);

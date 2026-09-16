@@ -50,7 +50,7 @@ Brak zewnętrznych bibliotek. Używane jest rozszerzenie `mysqli` dostarczane z 
 | Zapis | Znaczenie |
 | --- | --- |
 | `mysqli_report(MYSQLI_REPORT_OFF)` | Wyłącza automatyczne wyjątki, aby przykład jawnie obsługiwał błędy. |
-| `mysqli_connect('localhost', 'root', '', 'web_grounding')` | Łączy z lokalną bazą przy użyciu parametrów typowych dla szkolnego XAMPP. |
+| `$dbHost = getenv('DB_HOST') ?: 'localhost'` (oraz `DB_USER`, `DB_PASSWORD`, `DB_NAME`) | Pozwala zachować domyślne XAMPP, a w Compose wskazać serwis MariaDB `db`; `mysqli_connect(...)` używa tych wartości. |
 | `$offers = []`, `$error = null` | Przygotowują pustą tablicę i brak błędu. |
 | `=== false`, `!== null`, `=== []` | Wykonują ścisłe porównania wartości i typu. |
 | `mysqli_set_charset(..., 'utf8mb4')` | Ustawia kodowanie połączenia obsługujące pełny Unicode. |
@@ -68,6 +68,13 @@ Brak zewnętrznych bibliotek. Używane jest rozszerzenie `mysqli` dostarczane z 
 | `htmlspecialchars(...)` | Koduje dane przed wstawieniem do HTML. |
 
 Ten wariant jest bezpieczny egzaminacyjnie, gdy arkusz wymaga, aby skrypt PHP wyświetlał rekordy.
+
+### XAMPP i test kontenerowy
+
+W XAMPP zmienne środowiskowe nie są potrzebne — fallbacki wskazują `localhost`,
+`root`, puste hasło i `web_grounding`. Test z
+[tests/php-container](../tests/php-container/README.md) ustawia `DB_HOST=db` oraz
+hasło testowe, ponieważ Apache i MariaDB działają w osobnych usługach.
 
 ## Zadanie do wykonania
 

@@ -1,0 +1,35 @@
+services:
+  db:
+    image: mariadb:11.4
+    environment:
+      MARIADB_ROOT_PASSWORD: web_grounding_test_root
+      MARIADB_DATABASE: web_grounding
+    volumes:
+      - web_grounding_php_test_db:/var/lib/mysql
+      - ../../database/web_grounding.sql:/docker-entrypoint-initdb.d/001-web_grounding.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 -uroot -p$${MARIADB_ROOT_PASSWORD} --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 10s
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: web_grounding_test_root
+      DB_NAME: web_grounding
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ../../:/var/www/html:ro
+    ports:
+      - "${PHP_TEST_PORT:-8787}:80"
+
+volumes:
+  web_grounding_php_test_db:

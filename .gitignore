@@ -2,6 +2,7 @@
 .DS_Store
 Thumbs.db
 .test-results/
+tests/php-container/__pycache__/
 
 # Duże archiwa egzaminacyjne (>5 MiB) zostają lokalnie, ale nie trafiają do Git.
 # Lżejsze pliki .zip/.7z pozostają możliwe do śledzenia. Przy nowych pobraniach

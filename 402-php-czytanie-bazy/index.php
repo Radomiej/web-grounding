@@ -1,7 +1,12 @@
 <?php
 mysqli_report(MYSQLI_REPORT_OFF);
 
-$connection = mysqli_connect('localhost', 'root', '', 'web_grounding');
+// XAMPP używa domyślnie localhost, a testowy Compose przekazuje DB_HOST=db.
+$dbHost = getenv('DB_HOST') ?: 'localhost';
+$dbUser = getenv('DB_USER') ?: 'root';
+$dbPassword = getenv('DB_PASSWORD') ?: '';
+$dbName = getenv('DB_NAME') ?: 'web_grounding';
+$connection = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
 $offers = [];
 $error = null;
 
@@ -69,4 +74,3 @@ if ($connection === false) {
     </main>
 </body>
 </html>
-
