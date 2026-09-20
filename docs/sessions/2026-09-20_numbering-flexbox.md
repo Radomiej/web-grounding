@@ -81,8 +81,8 @@ flowchart TD
 
 ## Pozostała granica i zamknięcie
 
-`be14a4716f821b7c911783c65eceef51c1ab026c` jest lokalnym commitem; push na
-remote nie był częścią tej sesji. [P2] Do pełnego zamknięcia wizualnego warto
-uruchomić istniejący test Playwright na `390×844` i `1440×900`, gdy zależności
-autora będą dostępne. Nie jest to dowód produkcyjny — kurs jest statycznym
-repozytorium lokalnym.
+Commity `be14a4716f821b7c911783c65eceef51c1ab026c` i
+`33c7fa2` zostały wypchnięte na `origin/features/v2` (remote kończy się na
+`33c7fa2`). [P2] Do pełnego zamknięcia wizualnego warto uruchomić istniejący
+test Playwright na `390×844` i `1440×900`, gdy zależności autora będą dostępne.
+Nie jest to dowód produkcyjny — kurs jest statycznym repozytorium lokalnym.
