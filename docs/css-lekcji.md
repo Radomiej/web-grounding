@@ -1,6 +1,6 @@
 # CSS lekcji — słownik wartości
 
-Arkusze są kopiami lokalnymi, aby każdą lekcję można było edytować osobno. To słownik wspólnych deklaracji z lekcji 07 i 10–22. Dodatkowe reguły są opisane w README danej lekcji.
+Arkusze są kopiami lokalnymi, aby każdą lekcję można było edytować osobno. To słownik wspólnych deklaracji z lekcji `201–207` i `301–314`. Dodatkowe reguły są opisane w README danej lekcji.
 
 | Deklaracja / selektor                         | Znaczenie                                                                                                        |
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |

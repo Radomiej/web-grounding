@@ -4,7 +4,7 @@ Etap 6/12. Jedna pętla pozwala przetworzyć dowolną liczbę ocen, także pust�
 
 ## Wymagania wstępne
 
-Ukończ [Walidacja formularza](../305-javascript-walidacja/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
+Ukończ [Walidacja formularza](../306-javascript-walidacja/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
 
 ## Czego się nauczysz
 

@@ -4,7 +4,7 @@ Etap 5/12. Przeglądarka sprawdza format, a skrypt dodatkowe zasady. Błąd musi
 
 ## Wymagania wstępne
 
-Ukończ [Warunki i kontrolki](../304-javascript-warunki/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
+Ukończ [Warunki i kontrolki](../305-javascript-warunki/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
 
 ## Czego się nauczysz
 

@@ -27,21 +27,23 @@ HTML → CSS raw → Flexbox/Grid → komponenty → Bootstrap lokalnie
 | `105-html-formularze` | pola, etykiety, `fieldset`, `legend`, walidacja natywna |
 | `106-html-media-i-dostepnosc` | obrazy, podpisy, linki i `details/summary` |
 
-`102-html-formularz` pozostaje starą ścieżką zgodności.
+Numer `102` ma jedną kanoniczną nazwę: `102-html-tekst-i-listy`. Stare foldery
+poniżej `100` zostały usunięte, żeby uczeń nie musiał wybierać między dwiema
+wersjami tej samej lekcji.
 
 ### Seria 2xx — CSS, Flexbox, Grid i komponenty
 
 | Folder | Temat |
 | --- | --- |
 | `201-css-podstawy` | kolory, typografia, jednostki, margin, padding, border, rounded |
-| `202-css-flexbox-sandbox` | main/cross axis, wrap, justify, align, gap, grow i eksport CSS |
-| `203-css-flexbox-wlasny-layout` | nawigacja, sidebar, karty, zagnieżdżanie |
+| `202-css-flexbox-sandbox` | proste wzory pure CSS, main/cross axis, wrap, justify, align, gap, grow i eksport CSS |
+| `203-css-flexbox-wlasny-layout` | proporcja 5:7, grow, wrap, nawigacja, sidebar, karty i zagnieżdżanie |
 | `204-css-flexbox-wiecej-mozliwosci` | basis, grow, shrink, align-self, order |
 | `205-css-grid` | kolumny, wiersze, `minmax`, `fr`, `grid-column` |
 | `206-css-komponenty` | navbar, card, alert, formularz i footer w raw CSS |
 | `207-css-bootstrap-lokalnie` | lokalny Bootstrap bez CDN |
 
-`205-css-bootstrap-lokalnie` pozostaje starą ścieżką zgodności.
+Numer `205` oznacza wyłącznie Grid; Bootstrap ma osobny numer `207`.
 
 ### Seria 3xx — JavaScript z progresją
 
@@ -62,9 +64,8 @@ HTML → CSS raw → Flexbox/Grid → komponenty → Bootstrap lokalnie
 | `313-canvas-podstawy` | rysowanie 2D, obrazy i skalowanie DPR |
 | `314-canvas-hud-gra` | `position:absolute`, HUD, animacja i gra |
 
-Dawne foldery o numerach `303–312` (np. `303-javascript-kalkulator` i
-`311-canvas-podstawy`) pozostają ścieżkami zgodności; nowa progresja używa
-`303-javascript-klasy-i-theme` oraz kolejnych nazw opisanych w tabeli.
+Każdy numer ma dokładnie jeden folder. Progresja JavaScript używa nazw z tabeli;
+nie utrzymujemy równoległych aliasów o tych samych numerach.
 
 ### Seria 4xx — PHP/MySQL
 
@@ -95,11 +96,8 @@ do osobnej końcówki API, w której PHP zwraca JSON dla JavaScriptu.
 | `411-php-api-update` | API `PUT`, JSON wejściowy i `UPDATE` |
 | `412-php-api-delete` | API `DELETE` i odpowiedź JSON |
 
-`408-php-json-dodatek` oraz stare foldery `402-php-lista-z-bazy`,
-`404-php-json-do-javascriptu`, `405-php-api-dodawanie`,
-`406-php-api-filtrowanie`, `407-php-api-edycja` i `408-php-api-usuwanie`
-pozostają ścieżkami zgodności. Nowa numeracja API to `408–412`, aby nie mieszać
-jej z podstawowym PHP osadzanym `401–407`.
+Numer `408` ma jedną lekcję startową API, a kolejne operacje są w `409–412`.
+Usunięto stare aliasy, dzięki czemu w całym kursie nie ma kolizji numerów.
 Schemat znajduje się w [database/web_grounding.sql](database/web_grounding.sql).
 
 Ścieżka PHP działa lokalnie przez XAMPP:
@@ -133,6 +131,10 @@ Materiały egzaminacyjne i lista zagadnień:
 
 Duże archiwa pozostają lokalne zgodnie z [.gitignore](.gitignore); do repozytorium
 trafiają tylko lekkie paczki.
+
+Techniczne kopie dawnych, zduplikowanych folderów są poza mapą kursu w
+`archive/legacy-lessons/`. Nie linkuj do nich w nowych zadaniach; służą tylko do
+porównania wcześniejszych wersji.
 
 ## Lokalny Bootstrap
 

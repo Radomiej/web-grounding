@@ -92,8 +92,9 @@ które wymagają tabeli, listy albo formularza po stronie serwera.
 - [http://localhost/web-grounding/411-php-api-update/](http://localhost/web-grounding/411-php-api-update/)
 - [http://localhost/web-grounding/412-php-api-delete/](http://localhost/web-grounding/412-php-api-delete/)
 
-`408-php-json-dodatek` pozostaje starą ścieżką zgodności. Nowe foldery `408–412`
-mają spójną numerację i pokazują osobno komunikację PHP ↔ JavaScript.
+Numer `408` ma jedną lekcję startową API, a `409–412` pokazują kolejne operacje
+PHP ↔ JavaScript. Stare aliasy i foldery poniżej `100` zostały usunięte, więc
+każdy numer w mapie prowadzi do dokładnie jednej lekcji.
 
 ## 6. Co uczeń powinien umieć wskazać
 
@@ -128,7 +129,7 @@ Najpierw realizuj dosłownie wymaganie arkusza. Jeśli skrypt PHP ma „wyświet
 
 ## Nowa progresja JavaScript
 
-Po 301 i 302 przejdź kolejno przez 303–312 według [mapy kursu](README.md). Bootstrap 205 pozostaje dodatkiem. Otwieraj index.html wybranej lekcji; nie potrzebujesz npm ani XAMPP.
+Po 301 i 302 przejdź kolejno przez 303–312 według [mapy kursu](README.md). Bootstrap 207 pozostaje dodatkiem. Otwieraj index.html wybranej lekcji; nie potrzebujesz npm ani XAMPP.
 
 W 202 generator pozwala pobrać layout.html. Gdy kopiowanie jest zablokowane, zaznaczony kod skopiuj Ctrl+C. W 309 zapis localStorage przy file:// zależy od przeglądarki; lekcja obsługuje brak dostępu. Aby mieć stabilne pochodzenie zapisu, możesz użyć lokalnego serwera, np. Live Server w edytorze albo Apache XAMPP.
 

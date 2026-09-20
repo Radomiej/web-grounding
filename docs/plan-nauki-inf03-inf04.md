@@ -14,7 +14,7 @@ publicznych indeksów; tam, gdzie źródło nie podaje tytułu, nie zgaduję tre
 | --- | --- | --- |
 | HTML | `lang`, `title`, landmarki, nagłówki, akapity, `div`, listy, tabele, linki, obrazy, `alt`, formularze i poprawne etykiety | `101–106` |
 | CSS | selektory, kolory, typografia, box model, margin/padding/border/radius, pseudo-klasy, responsywność i media queries | `201`, `205–207` |
-| Flexbox | main/cross axis, `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, `align-content`, `gap`, `flex-basis`, `flex-grow`, `flex-shrink`, `align-self`, `order`; rozróżnienie rodzica i dziecka | `202–204` |
+| Flexbox | main/cross axis, `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, `align-content`, `gap`, proporcje 5:7, `flex-basis`, `flex-grow`, `flex-shrink`, `align-self`, `order`; rozróżnienie rodzica i dziecka | `202–204` |
 | JavaScript | zmienne, DOM, edycja tekstu, klasy/theme, warunki, pętle, tablice, formularze, walidacja, dynamiczny DOM, `localStorage`, timer i JSON | `301–312` |
 | Grafika w przeglądarce | `canvas`, układ współrzędnych, prostokąty/tekst/obrazy, DPR, pętla animacji i HUD absolutny | `313-canvas-podstawy`, `314-canvas-hud-gra` |
 | PHP/MySQL (jeżeli wymaga arkusz) | zmienne, `mysqli`, `SELECT`, `POST`, generowanie HTML, iteracja rekordów, `INSERT`, `LIKE`, `UPDATE`, `DELETE` i prepared statements | `401–407` |

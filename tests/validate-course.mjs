@@ -1,4 +1,4 @@
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const root = new URL('../', import.meta.url).pathname.replace(/^\/(.:)/, '$1');
@@ -54,41 +54,23 @@ const phpApiLessons = [
     '412-php-api-delete',
 ];
 const phpLessons = [...phpEmbeddedLessons, ...phpApiLessons];
-const phpCompatibilityLessons = [
-    '404-php-json-do-javascriptu',
-    '405-php-api-dodawanie',
-    '406-php-api-filtrowanie',
-    '407-php-api-edycja',
-    '408-php-api-usuwanie',
-    '408-php-json-dodatek',
-];
-const legacyLessons = [
-    '01-html-podstawy',
-    '02-html-formularz',
-    '03-php-podstawy',
-    '04-php-lista-z-bazy',
-    '05-php-formularz-i-select',
-    '06-php-json-do-javascriptu',
-    '06a-php-api-dodawanie',
-    '07-flexbox-sandbox',
-    '08-flexbox-wlasny-layout',
-    '09-flexbox-wiecej-mozliwosci',
-    '10-javascript-podstawy',
-    '11-javascript-dom-i-formularz',
-    '12-bootstrap-lokalnie',
-    '13-javascript-kalkulator',
-    '14-javascript-warunki',
-    '15-javascript-walidacja',
-    '16-javascript-petle-tablice',
-    '17-javascript-galeria',
-    '18-javascript-lista',
-    '19-javascript-zapis',
-    '20-javascript-projekt-inf03',
-    '21-canvas-podstawy',
-    '22-canvas-hud',
-    '901-generator-zadan',
-    '902-przygotowanie-zadania',
-];
+const supportLessons = ['901-generator-zadan', '902-przygotowanie-zadania'];
+const courseLessons = [...htmlLessons, ...cssLessons, ...jsLessons, ...phpLessons, ...supportLessons];
+
+const numberedFolders = readdirSync(root, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /^\d+/.test(entry.name))
+    .map((entry) => entry.name);
+const foldersByNumber = new Map();
+for (const folder of numberedFolders) {
+    const number = Number.parseInt(folder.match(/^\d+/)[0], 10);
+    const folders = foldersByNumber.get(number) ?? [];
+    folders.push(folder);
+    foldersByNumber.set(number, folders);
+    if (number < 100) failures.push(`Folder poniżej 100: ${folder}`);
+}
+for (const [number, folders] of foldersByNumber) {
+    if (folders.length > 1) failures.push(`Kolizja numeru ${number}: ${folders.join(', ')}`);
+}
 
 function path(relative) { return join(root, relative); }
 function read(relative) {
@@ -138,7 +120,7 @@ for (const lesson of phpApiLessons) {
     for (const file of ['index.html', 'app.js', 'api.php']) requireFile(`${lesson}/${file}`);
     if (lesson !== '408-php-api-json') requireFile(`${lesson}/style.css`);
 }
-for (const lesson of [...legacyLessons, ...phpCompatibilityLessons]) requireFile(`${lesson}/README.md`);
+for (const lesson of supportLessons) requireFile(`${lesson}/README.md`);
 for (const file of ['901-generator-zadan/index.html', '901-generator-zadan/style.css', '901-generator-zadan/app.js', '902-przygotowanie-zadania/index.html', '902-przygotowanie-zadania/style.css', '902-przygotowanie-zadania/app.js']) requireFile(file);
 
 for (const page of [
@@ -161,7 +143,7 @@ for (const page of htmlLessons.map((lesson) => `${lesson}/index.html`)) {
     }
 }
 
-for (const lesson of [...htmlLessons, ...cssLessons, ...jsLessons, ...phpLessons, '901-generator-zadan', '902-przygotowanie-zadania']) {
+for (const lesson of courseLessons) {
     const content = read(`${lesson}/README.md`);
     for (const heading of ['## Czego się nauczysz', '## HTML', '## CSS', '## JavaScript', '## Biblioteki']) {
         if (!content.includes(heading)) failures.push(`${lesson}/README.md: brak sekcji ${heading}`);
@@ -254,5 +236,5 @@ if (failures.length > 0) {
     console.error(failures.map((failure) => `FAIL: ${failure}`).join('\n'));
     process.exitCode = 1;
 } else {
-    console.log(`PASS: kontrakt kursu (${htmlLessons.length + cssLessons.length + jsLessons.length + phpLessons.length} canonical lessons + aliases)`);
+    console.log(`PASS: kontrakt kursu (${htmlLessons.length + cssLessons.length + jsLessons.length + phpLessons.length} canonical lessons + ${supportLessons.length} support lessons; unique numeric prefixes)`);
 }

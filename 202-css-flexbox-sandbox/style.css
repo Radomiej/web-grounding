@@ -118,6 +118,83 @@ pre {
 code {
     overflow-wrap: anywhere;
 }
+.recipe-guide {
+    border: 2px solid #125d88;
+    background: #f9fcff;
+}
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 1rem;
+}
+.recipe-card {
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid #a7b7c4;
+    border-radius: 0.4rem;
+    background: #fff;
+}
+.recipe-card h3 {
+    margin-top: 0;
+}
+.recipe-demo {
+    display: flex;
+    gap: 0.5rem;
+    min-height: 5rem;
+    margin-block: 1rem;
+    padding: 0.5rem;
+    border: 2px dashed #963900;
+    background: #fff8ed;
+}
+.recipe-demo > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 3rem;
+    padding: 0.5rem;
+    border: 1px solid #125d88;
+    background: #dcedf7;
+    text-align: center;
+}
+.axis-demo {
+    justify-content: space-between;
+    align-items: center;
+}
+.split-demo > span:first-child {
+    flex: 5 1 0;
+}
+.split-demo > span:last-child {
+    flex: 7 1 0;
+}
+.grow-demo > span {
+    flex: 1 1 0;
+}
+.grow-demo > .grow-double {
+    flex-grow: 2;
+}
+.wrap-demo {
+    flex-wrap: wrap;
+}
+.wrap-demo > span {
+    flex: 1 1 8rem;
+}
+.column-demo {
+    flex-direction: column;
+    min-height: 12rem;
+}
+.column-demo > .column-main {
+    flex: 1;
+}
+.recipe-card pre {
+    margin-inline: -0.25rem;
+    font-size: 0.85rem;
+}
+.recipe-steps {
+    display: grid;
+    gap: 0.35rem;
+    padding-left: 1.25rem;
+}
 img,
 canvas {
     display: block;

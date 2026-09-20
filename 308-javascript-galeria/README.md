@@ -4,7 +4,7 @@ Etap 7/12. Indeks wybiera obraz, a klasy CSS zmieniają wygląd bez mieszania pr
 
 ## Wymagania wstępne
 
-Ukończ [Pętle i tablice](../306-javascript-petle-tablice/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
+Ukończ [Pętle i tablice](../307-javascript-petle-tablice/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
 
 ## Czego się nauczysz
 

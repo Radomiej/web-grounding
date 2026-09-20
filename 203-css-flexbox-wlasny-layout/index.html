@@ -24,6 +24,58 @@
                 id="aktualnosci"
                 aria-labelledby="articles-title"
             >
+                <section class="starter-recipes" aria-labelledby="recipes-title">
+                    <h2 id="recipes-title">Trzy przepisy, które możesz przepisać</h2>
+                    <p>
+                        Każdy przykład ma jednego rodzica i bezpośrednie dzieci.
+                        Najpierw wpisz regułę rodzica, potem reguły dzieci.
+                    </p>
+                    <div class="recipe-row">
+                        <article class="recipe-box">
+                            <h3>5:7 — panel i treść</h3>
+                            <div class="ratio-demo" aria-label="Podział pięć do siedmiu">
+                                <span>5</span><span>7</span>
+                            </div>
+                            <pre><code>.layout { display: flex; gap: 1rem; }
+.panel { flex: 5 1 0; }
+.content { flex: 7 1 0; }</code></pre>
+                            <p>
+                                <code>5 + 7 = 12</code>. Po odjęciu odstępu
+                                treść otrzymuje 7/12 wolnej szerokości, a panel
+                                5/12. To proporcja, nie stałe piksele.
+                            </p>
+                        </article>
+                        <article class="recipe-box">
+                            <h3>Grow — dopełnij wolne miejsce</h3>
+                            <div class="grow-demo" aria-label="Karty z różnym grow">
+                                <span>1</span><span class="grow-more">2</span><span>1</span>
+                            </div>
+                            <pre><code>.cards { display: flex; gap: 1rem; }
+.card { flex: 1 1 0; }
+.card--wide { flex-grow: 2; }</code></pre>
+                            <p>
+                                Dwójka dostaje dwa udziały nadwyżki. Najpierw
+                                sprawdź, ile zostaje po bazach i <code>gap</code>.
+                            </p>
+                        </article>
+                        <article class="recipe-box">
+                            <h3>Wrap — karty bez breakpointu</h3>
+                            <div class="wrap-demo" aria-label="Karty przechodzące do kolejnego wiersza">
+                                <span>A</span><span>B</span><span>C</span>
+                            </div>
+                            <pre><code>.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.card { flex: 1 1 14rem; }</code></pre>
+                            <p>
+                                Gdy rodzic jest węższy niż suma baz, całe dziecko
+                                przechodzi do następnej linii.
+                            </p>
+                        </article>
+                    </div>
+                </section>
                 <h1 id="articles-title">Prosty układ strony</h1>
                 <p>
                     Najpierw przeanalizuj gotowy wynik, a później odtwórz go

@@ -4,7 +4,7 @@ Etap 9/12. JSON zapisuje obiekt jako tekst. Odczyt może się nie udać, więc s
 
 ## Wymagania wstępne
 
-Ukończ [Obiekty i dynamiczna lista](../308-javascript-lista/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
+Ukończ [Obiekty i dynamiczna lista](../309-javascript-lista/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
 
 ## Czego się nauczysz
 

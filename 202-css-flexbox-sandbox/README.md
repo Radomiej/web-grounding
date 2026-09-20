@@ -2,7 +2,7 @@
 
 ## Czego się nauczysz
 
-Rozpoznawać osie, odróżniać rodzica od dzieci, rozumieć zawijanie i brak wolnej przestrzeni, generować własny HTML/CSS.
+Rozpoznawać osie, odróżniać rodzica od dzieci, rozumieć zawijanie i brak wolnej przestrzeni, generować własny HTML/CSS. Zanim zmienisz kontrolki generatora, przećwicz pięć krótkich wzorów z sekcji „Najpierw 5 prostych wzorów” — wszystkie są wykonane wyłącznie w CSS.
 
 ## Wymagania wstępne
 
@@ -20,6 +20,18 @@ HTML (101–102). Otwórz index.html. Sandbox jest narzędziem do nauki CSS; zna
 | column-reverse | ↑         | →                               |
 
 Model dotyczy poziomego pisma LTR. wrap-reverse odwraca początek i koniec osi poprzecznej; nie odwraca DOM. Strzałki nad podglądem zawsze wskazują kierunek od start do end.
+
+## Pięć wzorów do przepisania przed sandboxem
+
+W pliku `index.html` są małe, nieruchome przykłady. Nie korzystają z JavaScriptu; pokazują tylko reguły, które uczeń ma sam przepisać.
+
+1. **Rodzic i osie** — `display: flex`, `flex-direction: row`, `justify-content` na main axis i `align-items` na osi poprzecznej.
+2. **Podział 5:7** — `flex: 5 1 0` i `flex: 7 1 0`. Suma udziałów to 12, więc po odjęciu `gap` pierwszy panel dostaje około 5/12, a drugi 7/12 szerokości.
+3. **Grow** — trzy dzieci mają bazę `0`; jedno z `flex-grow: 2` dostaje dwa udziały dodatniej wolnej przestrzeni. `grow` nie ustala stałych procentów.
+4. **Wrap** — `flex-wrap: wrap` oraz `flex: 1 1 12rem` pozwalają kartom przejść do następnego wiersza, gdy zabraknie miejsca.
+5. **Strona w kolumnie** — przy `flex-direction: column` `main { flex: 1 }` wypełnia wolną wysokość między nagłówkiem a stopką.
+
+Najbezpieczniejsza kolejność pracy to: rodzic → kierunek osi → `gap` → wyrównanie → reguły dzieci → `wrap`. Po każdej zmianie zmniejsz okno i nazwij na głos main axis oraz cross axis.
 
 ## CSS
 
@@ -44,6 +56,19 @@ Model dotyczy poziomego pisma LTR. wrap-reverse odwraca początek i koniec osi p
 | min-width/min-height: 0                                          | Pozwala dzieciom zmniejszyć się poniżej domyślnego ograniczenia treścią.                                                                           |
 | overflow-wrap: anywhere                                          | Pozwala złamać długi tekst; przy zbyt małym rozmiarze nadal może zabraknąć miejsca.                                                                |
 | overflow: auto                                                   | Przewijanie tylko podglądu/eksportu przy zbyt dużym układzie.                                                                                      |
+
+### Wartości z prostych wzorów
+
+| Zapis | Co uczeń ma zobaczyć |
+| --- | --- |
+| `flex: 5 1 0` | Skrót `flex-grow: 5`, `flex-shrink: 1`, `flex-basis: 0`; dziecko dostaje pięć udziałów wolnej przestrzeni. |
+| `flex: 7 1 0` | Siedem udziałów obok pięciu; po odjęciu `gap` daje proporcję 5:7, a nie 5%:7%. |
+| `flex: 1 1 0` | Równe udziały, od których można zacząć ćwiczenie `grow`. |
+| `flex-grow: 2` | Podwaja udział w dodatniej wolnej przestrzeni względem dziecka z `grow: 1`; nie zmienia DOM. |
+| `flex-basis: 12rem` | Rozmiar startowy dziecka na main axis; przy `wrap` pomaga określić moment przejścia do nowej linii. |
+| `flex-wrap: wrap` | Pozwala utworzyć kilka linii; bez niego dzieci próbują pozostać w jednej linii. |
+| `min-height: 18rem` | Rezerwuje minimalną wysokość pionowego przykładu, żeby `main { flex: 1 }` miał wolną przestrzeń do wypełnienia. |
+| `grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr))` | Układa karty instrukcji w kolumnach, które dopasowują się do szerokości; to Grid narzędzia, nie eksportowany Flexbox. |
 
 Pełne pozostałe właściwości: [wspólny słownik CSS](../docs/css-lekcji.md). .workbench używa flex-wrap i flex: 1 1 22rem, więc panele ustawień zawijają się. .axes używa flex i gap; niebieski #125d88 wskazuje oś główną, brązowy #963900 poprzeczną. textarea ma width:100% i font-family:ui-monospace,monospace dla kodu. Podgląd ma padding:16px i border:2px, więc przy border-box zawartość jest o 36px mniejsza w każdej osi.
 

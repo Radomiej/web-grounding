@@ -89,6 +89,88 @@ footer {
     background: #ffffff;
 }
 
+.starter-recipes {
+    margin-block: 0 1rem;
+    padding: 1rem;
+    border: 2px solid #125d88;
+    border-radius: 0.5rem;
+    background: #f9fcff;
+}
+
+.starter-recipes h2,
+.recipe-box h3 {
+    margin-top: 0;
+}
+
+.recipe-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.recipe-box {
+    flex: 1 1 14rem;
+    min-width: 0;
+    padding: 0.75rem;
+    border: 1px solid #9ca3af;
+    border-radius: 0.4rem;
+    background: #ffffff;
+}
+
+.ratio-demo,
+.grow-demo,
+.wrap-demo {
+    display: flex;
+    gap: 0.5rem;
+    min-height: 3.5rem;
+    margin-block: 0.75rem;
+}
+
+.ratio-demo span,
+.grow-demo span,
+.wrap-demo span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    padding: 0.5rem;
+    border: 1px solid #1d4ed8;
+    background: #dbeafe;
+    font-weight: 700;
+}
+
+.ratio-demo span:first-child {
+    flex: 5 1 0;
+}
+
+.ratio-demo span:last-child {
+    flex: 7 1 0;
+}
+
+.grow-demo span {
+    flex: 1 1 0;
+}
+
+.grow-demo .grow-more {
+    flex-grow: 2;
+}
+
+.wrap-demo {
+    flex-wrap: wrap;
+}
+
+.wrap-demo span {
+    flex: 1 1 5rem;
+}
+
+.recipe-box pre {
+    overflow: auto;
+    margin: 0;
+    padding: 0.75rem;
+    background: #eef2ff;
+    font-size: 0.85rem;
+}
+
 footer {
     text-align: center;
 }

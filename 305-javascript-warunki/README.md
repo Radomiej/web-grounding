@@ -4,7 +4,7 @@ Etap 4/12. Wybór użytkownika zmienia cenę. Naucz się odróżniać value od c
 
 ## Wymagania wstępne
 
-Ukończ [Kalkulator kosztu](../303-javascript-kalkulator/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
+Ukończ [Kalkulator kosztu](../304-javascript-kalkulator/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
 
 ## Czego się nauczysz
 

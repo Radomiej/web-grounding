@@ -4,7 +4,7 @@ Etap 8/12. Obiekt opisuje jedno zadanie. Tablica jest źródłem danych, a rende
 
 ## Wymagania wstępne
 
-Ukończ [Wygląd i galeria](../307-javascript-galeria/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
+Ukończ [Wygląd i galeria](../308-javascript-galeria/README.md). Otwórz index.html; nie potrzebujesz XAMPP. Kod zmieniaj w app.js, zapisuj i odświeżaj stronę.
 
 ## Czego się nauczysz
 

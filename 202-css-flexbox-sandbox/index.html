@@ -25,6 +25,107 @@
             </nav>
         </header>
         <main>
+            <section class="recipe-guide" aria-labelledby="recipe-title">
+                <h2 id="recipe-title">Najpierw 5 prostych wzorów — czysty CSS</h2>
+                <p>
+                    Zanim użyjesz generatora, przepisz te małe przykłady do
+                    pustego pliku HTML. W każdym wzorze <strong>rodzic</strong>
+                    dostaje <code>display: flex</code>, a reguły <code>flex</code>
+                    dotyczą jego bezpośrednich <strong>dzieci</strong>.
+                </p>
+                <div class="recipe-grid">
+                    <article class="recipe-card">
+                        <h3>1. Oś główna i oś poprzeczna</h3>
+                        <div class="recipe-demo axis-demo" aria-label="Trzy elementy w wierszu">
+                            <span>A</span><span>B</span><span>C</span>
+                        </div>
+                        <pre><code>.parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}</code></pre>
+                        <p>
+                            Przy <code>row</code> main axis biegnie w prawo.
+                            <code>justify-content</code> działa na tej osi,
+                            a <code>align-items</code> na osi poprzecznej.
+                        </p>
+                    </article>
+                    <article class="recipe-card">
+                        <h3>2. Proporcja 5:7</h3>
+                        <div class="recipe-demo split-demo" aria-label="Podział pięć do siedmiu">
+                            <span>5 części</span><span>7 części</span>
+                        </div>
+                        <pre><code>.layout {
+  display: flex;
+  gap: 1rem;
+}
+.sidebar { flex: 5 1 0; }
+.content { flex: 7 1 0; }</code></pre>
+                        <p>
+                            To nie jest 5% i 7%. Po odjęciu <code>gap</code>
+                            wolna szerokość dzieli się na 12 części: 5 dla
+                            panelu i 7 dla treści (około 42% / 58%).
+                        </p>
+                    </article>
+                    <article class="recipe-card">
+                        <h3>3. <code>flex-grow</code> — wolne miejsce</h3>
+                        <div class="recipe-demo grow-demo" aria-label="Dzieci o różnych wartościach grow">
+                            <span>grow 1</span><span class="grow-double">grow 2</span><span>grow 1</span>
+                        </div>
+                        <pre><code>.parent { display: flex; gap: 1rem; }
+.card { flex: 1 1 0; }
+.card--wide { flex-grow: 2; }</code></pre>
+                        <p>
+                            <code>grow</code> dzieli dodatnią wolną przestrzeń.
+                            Wartość 2 dostaje dwa udziały, ale nie oznacza
+                            zawsze dwa razy większego pudełka.
+                        </p>
+                    </article>
+                    <article class="recipe-card">
+                        <h3>4. <code>wrap</code> — nowe wiersze</h3>
+                        <div class="recipe-demo wrap-demo" aria-label="Karty zawijane do kolejnego wiersza">
+                            <span>karta 1</span><span>karta 2</span><span>karta 3</span>
+                        </div>
+                        <pre><code>.parent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.card { flex: 1 1 12rem; }</code></pre>
+                        <p>
+                            <code>flex-basis</code> mówi, od jakiej szerokości
+                            zacząć. Gdy brakuje miejsca, <code>wrap</code>
+                            przenosi całe dzieci do kolejnej linii.
+                        </p>
+                    </article>
+                    <article class="recipe-card">
+                        <h3>5. Strona: header, main, footer</h3>
+                        <div class="recipe-demo column-demo" aria-label="Pionowy układ strony">
+                            <span>header</span><span class="column-main">main: flex 1</span><span>footer</span>
+                        </div>
+                        <pre><code>.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 18rem;
+}
+main { flex: 1; }</code></pre>
+                        <p>
+                            Przy <code>column</code> main axis biegnie w dół.
+                            <code>main { flex: 1 }</code> zabiera wolne miejsce,
+                            więc stopka zostaje na dole.
+                        </p>
+                    </article>
+                </div>
+                <ol class="recipe-steps">
+                    <li>Najpierw wskaż rodzica i jego bezpośrednie dzieci.</li>
+                    <li>Dodaj <code>display: flex</code> oraz wybierz <code>row</code> albo <code>column</code>.</li>
+                    <li>Na rodzicu ustaw <code>gap</code>, <code>justify-content</code> i <code>align-items</code>.</li>
+                    <li>Na dziecku ustaw <code>flex</code>, <code>flex-grow</code> albo <code>flex-basis</code>.</li>
+                    <li>Dopiero potem włącz <code>wrap</code> i sprawdź wąski ekran.</li>
+                </ol>
+            </section>
             <section>
                 <h2>1. Wybierz punkt startowy</h2>
                 <label>

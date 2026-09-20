@@ -6,7 +6,8 @@ Otwórz `index.html`, obejrzyj stronę na szerokim i wąskim ekranie, a następn
 
 - Łączyć kilka małych kontenerów Flexbox w jeden układ strony.
 - Zawijać nawigację, kolumny i karty przez `flex-wrap: wrap`.
-- Dzielić wolne miejsce przez skrót `flex`.
+- Dzielić wolne miejsce przez skrót `flex`, w tym proporcją 5:7.
+- Rozumieć, jak `flex-grow` dzieli nadwyżkę i dlaczego `gap` jest własnością rodzica.
 - Budować responsywny układ bez ustalania osobnego breakpointu dla każdej szerokości.
 
 ## HTML
@@ -39,6 +40,9 @@ Otwórz `index.html`, obejrzyj stronę na szerokim i wąskim ekranie, a następn
 | `flex: 2 1 30rem`                               | Artykuły rosną dwa razy szybciej, mogą się kurczyć i zaczynają od `30rem`. |
 | `flex: 1 1 15rem`                               | Panel boczny rośnie, kurczy się i zaczyna od `15rem`.                      |
 | `flex: 1 1 14rem`                               | Każda karta może rosnąć i zawija się, gdy nie mieści się przy `14rem`.     |
+| `flex: 5 1 0` i `flex: 7 1 0`                  | Dzielą wolne miejsce w proporcji 5:7. `0` jako basis pozwala liczyć udziały po odjęciu `gap`. |
+| `flex-grow: 2`                                  | Daje dziecku dwa udziały nadwyżki względem elementu z `grow: 1`; nie ustala dwóch stałych szerokości. |
+| `flex-basis: 14rem`                             | Ustala szerokość startową karty; po jej przekroczeniu `wrap` może utworzyć nową linię. |
 | `max-width: 72rem` i `margin: 0 auto`           | Ograniczają szerokość oraz centrują stronę.                                |
 | `box-sizing: border-box`                        | Wlicza padding i obramowanie do szerokości elementu.                       |
 | `padding` i `margin-block`                      | Ustawiają odstępy wewnętrzne oraz pionowy margines.                        |
@@ -67,6 +71,8 @@ Brak bibliotek. Wszystkie elementy korzystają z natywnego HTML i CSS.
 4. Ułóż dwie karty i sprawdź, kiedy przechodzą do osobnych wierszy.
 5. Dodaj trzecią kartę bez zmieniania HTML pozostałych kart.
 6. Dodaj stopkę z dwiema grupami linków i sprawdź widok przy 390 px.
+7. Przepisz do osobnego pliku proporcję `5:7` z sekcji „Trzy przepisy” i zmień ją na `7:5`.
+8. Ustaw `flex-grow: 2` tylko na jednej karcie, a potem dodaj `flex-basis: 14rem` i włącz `wrap`.
 
 ## Wymagania wstępne i progresja
 
